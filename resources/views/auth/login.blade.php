@@ -14,7 +14,7 @@
             @endif
             <form action="{{ route('login.post') }}" method="POST">
                 @csrf
-                <div class="LogoI"><img src="{{ asset('Imagenes/Logo.jpg') }}" alt="Logo"></div>
+                <div class="LogoI"><img src="{{ asset('Imagenes/Icono-icesi.jpg') }}" alt="Logo"></div>
                 <label for="Cedula"></label>
                 <input type="text" name="Cedula" class="control" placeholder="Cédula" required>
                 <br>

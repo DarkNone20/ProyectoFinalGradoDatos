@@ -4,6 +4,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UuariosController;
+use App\Http\Controllers\GruposController;
+use App\Http\Controllers\EquiposController;
+use App\Http\Controllers\PrestamoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +24,17 @@ use App\Http\Controllers\UuariosController;
 Route::get('/home', [HomeController::class, 'index']);
 //Usuarios
 Route::get('/usuarios', [UuariosController::class, 'index']);
+//Grupos
+Route::get('/grupos', [GruposController::class, 'index']);
+//Equipos
+Route::get('/equipos', [EquiposController::class, 'index']);
+//Prestamos
+Route::get('/prestamos', [PrestamoController::class, 'index']);
+
+
+
+
+
 
 // Ruta principal (página de inicio)
 Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');

@@ -20,22 +20,18 @@
 
     <nav>
         <ul>
-
-            <li class="logo"><img src="../../Imagenes/Logo4.png"></li>
+ 
+            <li class="logo"><img  src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo" ></li>
             <div class="Menu">
-                <li><a href="index.php"><i class="fa fa-home"></i>&nbsp;<img src="../../Imagenes/Inicio.png"> Home</a>
-                </li>
-                <li><a href="../Usuarios/crear_usuarios.php"><i class="fa fa-users"></i>&nbsp;<img src="{{ asset('Imagenes/user.png') }}" alt="user"> Usuarios</a></li>
-                <li><a href="../Prestamos/prestamos.php"><i class="fa fa-phone"></i>&nbsp; <img
-                            src="../../Imagenes/lista.png"> Grupos</a></li>
-                <li><a href="../Insumos/insumos-Index.php"><i class="fa fa-phone"></i>&nbsp;<img
-                            src="../../Imagenes/inventario.png"> Equipos</a></li>
-                <li><a href="../Incidentes/incidentes.php"><i class="fa fa-users"></i>&nbsp;<img
-                            src="../../Imagenes/consecutivo.png"> Prestamos</a></li>
+                <li><a href="{{ asset('home') }}"><i class="fa fa-home"></i>&nbsp;<img src="{{ asset('Imagenes/inicio.png') }}" alt="inicio"> Home</a></li>
+                <li><a href="{{ asset('usuarios') }}"><i class="fa fa-users"></i>&nbsp;<img src="{{ asset('Imagenes/user.png') }}" alt="user"> Usuarios</a></li>
+                <li><a href="{{ asset('grupos') }}"><i class="fa fa-phone"></i>&nbsp; <img src="{{ asset('Imagenes/lista.png') }}" alt="grupos"> Grupos</a></li>
+                <li><a href="{{ asset('equipos') }}"><i class="fa fa-phone"></i>&nbsp;<img src="{{ asset('Imagenes/inventario.png') }}" alt="equipos"> Equipos</a></li>
+                <li><a href="{{ asset('prestamos') }}"><i class="fa fa-users"></i>&nbsp;<img src="{{ asset('Imagenes/consecutivo.png') }}" alt="prestamos"> Prestamos</a></li>
             </div>
 
             <div class="Prueba">
-                <li><a href="?logout=1"><i class="fa fa-phone"></i>&nbsp; <img src="../../Imagenes/logout.png">
+                <li><a href="{{ asset('/') }}"><i class="fa fa-phone"></i>&nbsp; <img src="{{ asset('Imagenes/logout.png') }}" alt="login">
                         Logout</a></li>
             </div>
 
@@ -56,7 +52,7 @@
                     <img src="../../Imagenes/dos3.png">
                 </div>
                 <div class="Usuario">
-                    <p>Jhon Jairo Castillo Valencia</p>
+                    <p>JJCASTILLO</p>
                 </div>
 
                 <br>
@@ -70,7 +66,7 @@
                         <img src="../../Imagenes/Usuarios.png">
                     </div>
                     <div class="Clase1-Right">
-                        <a href="../Usuarios/crear_usuarios.php">
+                        <a href="{{ asset('usuarios') }}">
                             <h1>Usuarios</h1>
                         </a>
                     </div>
@@ -81,7 +77,7 @@
                         <img src="../../Imagenes/Intercambio.png">
                     </div>
                     <div class="Clase2-Right">
-                        <a href="../Prestamos/prestamos.php">
+                        <a href="{{ asset('grupos') }}">
                             <h1>Grupos</h1>
                         </a>
                     </div>
@@ -92,7 +88,7 @@
                         <img src="../../Imagenes/List.png">
                     </div>
                     <div class="Clase3-Right">
-                        <a href="../Insumos/insumos-Index.php">
+                        <a href="{{ asset('equipos') }}">
                             <h1>Equipos</h1>
                         </a>
                     </div>
@@ -103,7 +99,7 @@
                         <img src="../../Imagenes/Historial.png">
                     </div>
                     <div class="Clase4-Right">
-                        <a href="../Incidentes/incidentes.php">
+                        <a href="{{ asset('prestamos') }}">
                             <h1>Prestamos</h1>
                         </a>
                     </div>
@@ -113,22 +109,22 @@
 
             <div class="Principal">
                 <div class="Principal-Left">
-                    <h2>Grafico de Insumos</h2>
-                    <canvas id="graficaTortaInsumos"></canvas>
+                    <h2>Grafico de Prestamos</h2>
+                    <canvas id="graficaTortaPrestamos"></canvas>
                   
                 </div>
 
                 <div class="Principal-Right">
 
                     <div class="Principal-Arriba">
-                        <h2>Grafico de Prestamos</h2>
-                        <canvas id="graficaBarrasPrestamos"></canvas>
+                        <h2>Grafico de Grupos</h2>
+                        <canvas id="graficaBarrasGrupos"></canvas>
                         
                     </div>
 
                     <div class="Principal-Abajo">
-                        <h2>Grafico de Incidentes</h2>
-                        <canvas id="graficaBarrasIncidentes"></canvas>
+                        <h2>Grafico de Equipos</h2>
+                        <canvas id="graficaBarrasEquipos"></canvas>
                         
                     </div>
 

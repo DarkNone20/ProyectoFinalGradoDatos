@@ -85,8 +85,16 @@ body {
   background: white;
 }
 
-.logo {
-  padding: 20px;
+.logo{
+  padding:20px ;
+  margin-bottom: 90px;
+}
+.logo img{
+ 
+  height: 100px;
+  width: 240px;
+  margin-left: -30px;
+ 
 }
 
 nav ul {

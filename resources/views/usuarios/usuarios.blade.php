@@ -10,25 +10,25 @@
     <link rel="shortcut icon"
         href="https://static.vecteezy.com/system/resources/thumbnails/000/595/791/small/20012019-26.jpg">
         <link rel="stylesheet" href="{{ asset('assets/style-usuarios.css') }}">
-    <title>Reporte de Insumos</title>
+    <title>Usuarioss</title>
 
 </head>
 
 <body>
     <nav>
         <ul>
-            <li class="logo"><img src="../../Imagenes/Logo4.png"></li>
+           <li class="logo"><img  src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo" ></li>
             <div class="Menu">
-                <li><a href="../Indice/index.php"><i class="fa fa-home"></i>&nbsp;<img src="../../Imagenes/Inicio.png">
+                <li><a href="{{ asset('home') }}"><i class="fa fa-home"></i>&nbsp;<img simg src="{{ asset('Imagenes/inicio.png') }}" alt="inicio">
                         Home</a></li>
-                <li><a href="../Usuarios/crear_usuarios.php"><i class="fa fa-users"></i>&nbsp;<img
-                            src="../../Imagenes/User.png"> Usuarios</a></li>
-                <li><a href="../Prestamos/prestamos.php"><i class="fa fa-phone"></i>&nbsp; <img
-                            src="../../Imagenes/lista.png"> Prestamos</a></li>
-                <li><a href="insumos-Index.php"><i class="fa fa-phone"></i>&nbsp;<img
-                            src="../../Imagenes/inventario.png"> Insumos</a></li>
-                <li><a href="../Incidentes/incidentes.php"><i class="fa fa-users"></i>&nbsp;<img
-                            src="../../Imagenes/consecutivo.png"> Incidentes</a></li>
+                <li><a href="{{ asset('usuarios') }}"><i class="fa fa-users"></i>&nbsp;<img
+                    src="{{ asset('Imagenes/user.png') }}" alt="user"> Usuarios</a></li>
+                <li><a href="{{ asset('grupos') }}"><i class="fa fa-phone"></i>&nbsp; <img
+                           src="{{ asset('Imagenes/lista.png') }}" alt="grupos"> Grupos</a></li>
+                <li><a href="{{ asset('equipos') }}"><i class="fa fa-phone"></i>&nbsp;<img
+                    src="{{ asset('Imagenes/inventario.png') }}" alt="equipos"> Equipos</a></li>
+                <li><a href="{{ asset('prestamos') }}"><i class="fa fa-users"></i>&nbsp;<img
+                    src="{{ asset('Imagenes/consecutivo.png') }}" alt="prestamos"> Prestamos</a></li>
             </div>
             <div class="Prueba">
                 <li><a href="?logout=1"><i class="fa fa-phone"></i>&nbsp; <img src="../../Imagenes/logout.png">
@@ -41,13 +41,13 @@
         <div class="section">
             <div class="Encabezado">
                 <div class="Titulo">
-                    <h1>Sistema de Insumos</h1>
+                    <h1>Administrador de Usuarios</h1>
                 </div>
                 <div class="userLogo">
                     <img src="../../Imagenes/dos3.png">
                 </div>
                 <div class="Usuario">
-                    <p>Jhon Jairo Castillo Valencia </p>
+                    <p>JJCASTILLO </p>
                 </div>
                 <br>
             </div>

@@ -10,7 +10,7 @@
     <link rel="shortcut icon"
         href="https://static.vecteezy.com/system/resources/thumbnails/000/595/791/small/20012019-26.jpg">
         <link rel="stylesheet" href="{{ asset('assets/style-usuarios.css') }}">
-    <title>Grupos</title>
+    <title>Prestamos</title>
 
 </head>
 
@@ -41,7 +41,7 @@
         <div class="section">
             <div class="Encabezado">
                 <div class="Titulo">
-                    <h1>Administrador de Grupos</h1>
+                    <h1>Administrador de Prestamos</h1>
                 </div>
                 <div class="userLogo">
                     <img src="../../Imagenes/dos3.png">
