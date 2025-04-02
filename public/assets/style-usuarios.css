@@ -219,6 +219,68 @@ section {
  margin-top: 45%;
 }
 
+.Contenido {
+
+  display: grid;
+  grid-template-columns: 30% 70% ;
+  align-items: center;
+  height: 84vh;
+  color :rgb(14, 13, 13);
+}
+
+.Contenido-Uno {
+  background-color: #3e6dd1;
+  margin: 5%;
+  height: 80vh;
+  border-radius: 5%;
+  margin-top: 200px;
+}
+
+.Contenido-Dos {
+  background-color: #ffffff;
+  margin: 5%;
+  height: 80vh;
+  margin-top: 200px;
+}
+.Contenedor {
+  background-color: hsla(226, 82%, 30%, 0.953);
+  color: rgb(15, 14, 14);
+  height: 74vh;
+  width: 90%;
+  margin: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Contenedor input {
+  width: 80%;
+  height: 32px; 
+  margin-left: 8%;
+  border-radius: 8px;
+  border-color: #0d1186;
+  padding: 6px; 
+  font-size: 16px;
+}
+
+.Contenedor label {
+  width: 90%;
+  padding: 4%;
+  text-align: center;
+  font-size: 18px;
+  color: white;
+}
+
+.Contenedor button {
+  margin-left: 80px;
+  margin-top: 8%;
+  padding: 4%;
+  width: 50%;
+  background-color: #0574f3;
+  border-color: #3a0168;
+  border-radius: 25px;
+  color: white;
+}
 
 
 @media (min-width: 1800px) {
