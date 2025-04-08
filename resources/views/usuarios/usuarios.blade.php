@@ -80,8 +80,17 @@
         </div>
         <div class="Contenido ">
 
+
+
             <div class="Contenido-Uno ">
+                <table></table>
+            </div>
+
+            <div class="Contenido-Dos ">
+
+                <h2>Usuarios</h2>
                 <div class="Contenedor">
+
                     <form action="agregar-Usuarios.php" method="post">
 
                         <label for="Cedula">Cedula:</label>
@@ -104,16 +113,15 @@
                     </form>
                 </div>
             </div>
-
-            <div class="Contenido-Dos ">
-              <table></table>
-            </div>
         </div>
 
 
 
     </div>
     </div>
+
+    <footer></footer>
+
 </body>
 
 </html>
