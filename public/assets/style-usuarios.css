@@ -252,7 +252,9 @@ section {
 
 
 .Contenido-Uno {
-  background-color: #e4e3e3;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-rows: 1fr 5fr;
   margin: 5%;
   height: 90vh;
   margin-top: 200px;
@@ -306,6 +308,31 @@ section {
   font-weight: bold;
   color: rgb(34, 8, 150);
 }
+.Botones-Contenido{
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: #e2dcdc;
+  align-items: center;
+  height: 10vh;
+  border-radius: 25px;
+ 
+
+  
+}
+
+.Tabla-Contenido{
+  background-color: #19a4c7;
+  border-radius: 15px;
+}
+
+.Boton-Uno img  {
+  width: 40px;
+  height: 40px;
+
+ 
+ 
+}
+
 
 
 .Contenedor button {

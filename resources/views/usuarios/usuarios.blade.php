@@ -83,8 +83,21 @@
 
 
             <div class="Contenido-Uno ">
-                <table></table>
+
+                <div Class="Botones-Contenido">
+
+                    <div class="Boton-Uno"> <button type="button-Uno"><img src="{{ asset('Imagenes/agregar.png') }}" alt="agregar">Agregar Usuarios</button></div>
+                    <div class="Boton-Dos"> <button type="button-Dos">Exportar</button></div>
+
+                </div>
+
+                <div class="Tabla-Contenido">
+                         
+                </div>
+
+
             </div>
+
 
             <div class="Contenido-Dos ">
 
@@ -113,11 +126,11 @@
                     </form>
                 </div>
             </div>
+
+
+
+
         </div>
-
-
-
-    </div>
     </div>
 
     <footer></footer>
