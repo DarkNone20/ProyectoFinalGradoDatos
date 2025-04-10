@@ -164,7 +164,7 @@ section {
   grid: 40% 60%;
   margin: 5%;
   height: 80%;
-  border-radius: 4%;
+  border-radius: 25px;
   width: 90%;
   margin: 5%;
 
@@ -187,7 +187,7 @@ section {
   grid: 40% 60%;
   margin: 5%;
   height: 80%;
-  border-radius: 4%;
+  border-radius: 25px ;
   width: 90%;
 }
 
@@ -206,7 +206,7 @@ section {
   display: inline-block;
   position: left;
   background-color: #25c3df;
-  border-radius: 4%;
+  border-radius: 25px;
   width: 100%;
   text-align: center;
 
@@ -216,7 +216,7 @@ section {
   display: inline-block;
   position: left;
   background-color: #25df4d;
-  border-radius: 4%;
+  border-radius: 25px;
   width: 100%;
   text-align: center;
 
@@ -227,7 +227,7 @@ section {
 .Uno-right {
   display: inline-block;
   position: Right;
-  border-radius: 4%;
+  border-radius: 25px;
   text-align: center;
   width: 100%;
 
@@ -315,7 +315,8 @@ section {
   align-items: center;
   height: 10vh;
   border-radius: 25px;
- 
+  
+  
 
   
 }
@@ -324,19 +325,23 @@ section {
   background-color: #19a4c7;
   border-radius: 15px;
 }
+button{
 
-.Boton-Uno img  {
+  border-color: transparent;
+  background-color: #e2dcdc;
+  margin-left: 20px;
+  
+}
+.Boton-Uno img ,.Boton-Dos img {
+  
   width: 40px;
   height: 40px;
-
- 
  
 }
 
 
-
 .Contenedor button {
-  margin-left: 80px;
+  margin-left: 20%;
   margin-top: 8%;
   padding: 4%;
   width: 50%;

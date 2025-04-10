@@ -57,7 +57,7 @@
         <div class="Principal">
             <div class="Principal-Uno">
                 <div class="Uno-lef">
-                    <img src="../../Imagenes/List.png">
+                    <img src="../../Imagenes/Usuarios 2.png">
                 </div>
                 <div class="Uno-right">
                     <a href="Insumos/insumos.php">
@@ -68,7 +68,7 @@
 
             <div class="Principal-Dos">
                 <div class="Uno-lef">
-                    <img src="../../Imagenes/cajas.png">
+                    <img src="../../Imagenes/Usuarios 4.png">
                 </div>
                 <div class="Uno-right">
                     <a href="Articulos/articulos.php">
@@ -86,8 +86,8 @@
 
                 <div Class="Botones-Contenido">
 
-                    <div class="Boton-Uno"> <button type="button-Uno"><img src="{{ asset('Imagenes/agregar.png') }}" alt="agregar">Agregar Usuarios</button></div>
-                    <div class="Boton-Dos"> <button type="button-Dos">Exportar</button></div>
+                    <div class="Boton-Uno"> <button type="button-Uno"><img src="{{ asset('Imagenes/agregar.png') }}" alt="agregar"> Agregar Usuarios</button></div>
+                    <div class="Boton-Dos"> <button type="button-Dos"><img src="{{ asset('Imagenes/Exportar.png') }}" alt="exportar"> Exportar</button></div>
 
                 </div>
 
