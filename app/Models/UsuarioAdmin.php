@@ -9,10 +9,13 @@ class UsuarioAdmin extends Authenticatable
 {
     use HasFactory;
 
-    protected $table = 'UsuariosAdmin'; // Nombre de la tabla
-    protected $primaryKey = 'Cedula';  // Clave primaria
-    public $incrementing = false;      // La clave primaria no es autoincremental
-    protected $keyType = 'string';     // Tipo de la clave primaria
+    protected $table = 'UsuariosAdmin';
+    protected $primaryKey = 'Cedula';
+    public $incrementing = false;
+    protected $keyType = 'string';
+
+    // Añade esta línea para desactivar timestamps
+    public $timestamps = false;
 
     protected $fillable = [
         'Cedula',

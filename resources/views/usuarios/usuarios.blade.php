@@ -11,7 +11,6 @@
         href="https://static.vecteezy.com/system/resources/thumbnails/000/595/791/small/20012019-26.jpg">
     <link rel="stylesheet" href="{{ asset('assets/style-usuarios.css') }}">
     <title>Usuarioss</title>
-
 </head>
 
 <body>
@@ -32,9 +31,10 @@
                             src="{{ asset('Imagenes/consecutivo.png') }}" alt="prestamos"> Prestamos</a></li>
             </div>
             <div class="Prueba">
-                <li><a href="?logout=1"><i class="fa fa-phone"></i>&nbsp; <img src="../../Imagenes/logout.png">
+                <li><a href="{{ asset('/') }}"><i class="fa fa-phone"></i>&nbsp; <img src="{{ asset('Imagenes/logout.png') }}" alt="login">
                         Logout</a></li>
             </div>
+
         </ul>
     </nav>
 
@@ -45,7 +45,7 @@
                     <h1>Administrador de Usuarios</h1>
                 </div>
                 <div class="userLogo">
-                    <img src="../../Imagenes/dos3.png">
+                    <img src="{{ asset('Imagenes/dos3.png') }}">
                 </div>
                 <div class="Usuario">
                     <p>JJCASTILLO </p>
@@ -57,10 +57,10 @@
         <div class="Principal">
             <div class="Principal-Uno">
                 <div class="Uno-lef">
-                    <img src="../../Imagenes/Usuarios 2.png">
+                    <img src="{{ asset('Imagenes/Usuarios 2.png') }}">
                 </div>
                 <div class="Uno-right">
-                    <a href="Insumos/insumos.php">
+                    <a href="#">
                         <h2>Administradores</h2>
                     </a>
                 </div>
@@ -68,73 +68,95 @@
 
             <div class="Principal-Dos">
                 <div class="Uno-lef">
-                    <img src="../../Imagenes/Usuarios 4.png">
+                    <img src="{{ asset('Imagenes/Usuarios 4.png') }}">
                 </div>
                 <div class="Uno-right">
-                    <a href="Articulos/articulos.php">
+                    <a href="#">
                         <h2>Usuarios</h2>
                     </a>
                 </div>
             </div>
-
         </div>
-        <div class="Contenido ">
 
-
-
-            <div class="Contenido-Uno ">
-
+        <div class="Contenido">
+            <div class="Contenido-Uno">
                 <div Class="Botones-Contenido">
-
-                    <div class="Boton-Uno"> <button type="button-Uno"><img src="{{ asset('Imagenes/agregar.png') }}" alt="agregar"> Agregar Usuarios</button></div>
-                    <div class="Boton-Dos"> <button type="button-Dos"><img src="{{ asset('Imagenes/Exportar.png') }}" alt="exportar"> Exportar</button></div>
-
+                    <div class="Boton-Uno"> 
+                        <button type="button-Uno"><img src="{{ asset('Imagenes/agregar.png') }}" alt="agregar"> Agregar Usuarios</button>
+                    </div>
+                    <div class="Boton-Dos"> 
+                        <button type="button-Dos"><img src="{{ asset('Imagenes/Exportar.png') }}" alt="exportar"> Exportar</button>
+                    </div>
                 </div>
 
                 <div class="Tabla-Contenido">
-                         
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Cédula</th>
+                                <th>Alias</th>
+                                <th>Nombre</th>
+                                <th>Cargo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($usuarios as $usuario)
+                            <tr>
+                                <td>{{ $usuario->Cedula }}</td>
+                                <td>{{ $usuario->Alias }}</td>
+                                <td>{{ $usuario->Nombre }}</td>
+                                <td>{{ $usuario->Cargo }}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
-
-
             </div>
 
-
-            <div class="Contenido-Dos ">
-
+            <div class="Contenido-Dos">
                 <h2>Usuarios</h2>
                 <div class="Contenedor">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
 
-                    <form action="agregar-Usuarios.php" method="post">
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
 
-                        <label for="Cedula">Cedula:</label>
-                        <input type="text" name="Cedula" required>
+                    <form action="{{ route('usuarios.store') }}" method="POST">
+                        @csrf
+
+                        <label for="Cedula">Cédula:</label>
+                        <input type="text" id="Cedula" name="Cedula" value="{{ old('Cedula') }}" required>
 
                         <label for="Alias">Alias:</label>
-                        <input type="text" name="Alias" required>
+                        <input type="text" id="Alias" name="Alias" value="{{ old('Alias') }}">
 
-                        <label for="Nombre">Nombre:</label>
-                        <input type="text" name="Nombre" required>
+                        <label for="Nombre">Nombre completo:</label>
+                        <input type="text" id="Nombre" name="Nombre" value="{{ old('Nombre') }}" required>
 
-                        <label for="Password">Password:</label>
-                        <input type="text" name="Password" required>
+                        <label for="Password">Contraseña:</label>
+                        <input type="password" id="Password" name="Password" required>
 
                         <label for="Cargo">Cargo:</label>
-                        <input type="text" name="Cargo" required>
+                        <input type="text" id="Cargo" name="Cargo" value="{{ old('Cargo') }}">
 
-
-                        <button type="submit" name="agregarUsuario">Cargar Usuario</button>
+                        <button type="submit" name="agregarUsuario">Registrar Usuario</button>
                     </form>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 
     <footer></footer>
-
 </body>
-
 </html>
