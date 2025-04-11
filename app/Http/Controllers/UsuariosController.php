@@ -35,4 +35,18 @@ class UsuariosController extends Controller
         return redirect()->route('usuarios.index')
                          ->with('success', 'Usuario creado exitosamente');
     }
+
+
+    public function destroy($cedula)
+    {
+        $usuario = UsuarioAdmin::findOrFail($cedula);
+        $usuario->delete();
+        return back()->with('success', 'Usuario eliminado correctamente');
+    }
+
+
+
+
+
+
 }

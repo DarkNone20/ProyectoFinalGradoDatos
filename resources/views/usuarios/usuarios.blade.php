@@ -11,6 +11,17 @@
         href="https://static.vecteezy.com/system/resources/thumbnails/000/595/791/small/20012019-26.jpg">
     <link rel="stylesheet" href="{{ asset('assets/style-usuarios.css') }}">
     <title>Usuarioss</title>
+    <style>
+        /* Estilo solo para el botón eliminar */
+        .btn-eliminar {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
@@ -90,13 +101,14 @@
                 </div>
 
                 <div class="Tabla-Contenido">
-                    <table class="table">
-                        <thead>
+                    <table class="table table-striped">
+                        <thead class="table-dark">
                             <tr>
                                 <th>Cédula</th>
                                 <th>Alias</th>
                                 <th>Nombre</th>
                                 <th>Cargo</th>
+                                <th>Acción</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -106,6 +118,15 @@
                                 <td>{{ $usuario->Alias }}</td>
                                 <td>{{ $usuario->Nombre }}</td>
                                 <td>{{ $usuario->Cargo }}</td>
+                                <td>
+                                    <form action="{{ route('usuarios.destroy', $usuario->Cedula) }}" method="POST" style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
+                                            Eliminar
+                                        </button>
+                                    </form>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

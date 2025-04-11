@@ -18,6 +18,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // Usuarios
 Route::resource('usuarios', UsuariosController::class)->except(['show']);
+Route::delete('usuarios/{usuario}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
 
 // Otras rutas
 Route::get('/grupos', [GruposController::class, 'index'])->name('grupos.index');

@@ -222,8 +222,6 @@ section {
 
 }
 
-
-
 .Uno-right {
   display: inline-block;
   position: Right;
@@ -249,7 +247,6 @@ section {
   color: rgb(14, 13, 13);
 
 }
-
 
 .Contenido-Uno {
   background-color: #ffffff;
@@ -316,15 +313,9 @@ section {
   height: 10vh;
   border-radius: 25px;
   
-  
-
-  
 }
 
-.Tabla-Contenido{
-  background-color: #19a4c7;
-  border-radius: 15px;
-}
+
 button{
 
   border-color: transparent;
