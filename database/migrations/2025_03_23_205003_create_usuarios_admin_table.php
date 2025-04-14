@@ -10,10 +10,10 @@ class CreateUsuariosAdminTable extends Migration
     {
         Schema::create('UsuariosAdmin', function (Blueprint $table) {
             $table->string('Cedula', 20)->primary(); // Clave primaria
-            $table->string('Alias', 20)->nullable();
-            $table->string('Nombre', 45);
-            $table->string('Password', 45);
-            $table->string('Cargo', 20);
+            $table->string('Alias', 50)->nullable();
+            $table->string('Nombre', 100);
+            $table->string('Password', 255);
+            $table->string('Cargo', 50);
             $table->timestamps(); // Opcional: añade created_at y updated_at
         });
     }

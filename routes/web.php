@@ -22,5 +22,13 @@ Route::delete('usuarios/{usuario}', [UsuariosController::class, 'destroy'])->nam
 
 // Otras rutas
 Route::get('/grupos', [GruposController::class, 'index'])->name('grupos.index');
-Route::get('/equipos', [EquiposController::class, 'index'])->name('equipos.index');
+
 Route::get('/prestamos', [PrestamoController::class, 'index'])->name('prestamos.index');
+
+
+//Equipos
+Route::prefix('equipos')->group(function () {
+    Route::get('/', [EquiposController::class, 'index'])->name('equipos.index');
+    Route::post('/', [EquiposController::class, 'store'])->name('equipos.store');
+    Route::delete('/{ActivoFijo}/{Serial}', [EquiposController::class, 'destroy'])->name('equipos.destroy');
+});

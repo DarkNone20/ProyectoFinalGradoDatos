@@ -165,7 +165,7 @@ section {
   margin: 5%;
   height: 80%;
   border-radius: 25px;
-  width: 90%;
+  width: 93%;
   margin: 5%;
 
 
@@ -188,7 +188,7 @@ section {
   margin: 5%;
   height: 80%;
   border-radius: 25px ;
-  width: 90%;
+  width: 93%;
 }
 
 .Principal-Dos img {
@@ -199,7 +199,15 @@ section {
 
 
 }
+.btn-eliminar {
+  align-items: center;
+  background-color: transparent;
+}
 
+.btn-eliminar img{
+width: 20px;
+height: 20px;
+}
 
 
 .Principal-Uno .Uno-lef {
@@ -330,7 +338,6 @@ button{
  
 }
 
-
 .Contenedor button {
   margin-left: 20%;
   margin-top: 8%;
@@ -341,6 +348,9 @@ button{
   border-color: #1b4cb8;
   border-radius: 25px;
   color: white;
+}
+.table{
+ margin-top: 10px;
 }
 
 footer {
