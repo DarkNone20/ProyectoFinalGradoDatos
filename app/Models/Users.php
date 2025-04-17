@@ -5,27 +5,28 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class UsuarioAdmin extends Authenticatable
+class Users extends Authenticatable
 {
     use HasFactory;
 
-    protected $table = 'UsuariosAdmin';
-    protected $primaryKey = 'Cedula';
+    protected $table = 'Usuarios';
+    protected $primaryKey = 'DocumentoId';
     public $incrementing = false;
     protected $keyType = 'string';
-
     
     public $timestamps = false;
 
     protected $fillable = [
-        'Cedula',
-        'Alias',
+        'DocumentoId',
         'Nombre',
-        'Password',
-        'Cargo',
+        'Apellido',
+        'Direccion',
+        'Telefono',
+        'Email',
+        'password'
     ];
 
     protected $hidden = [
-        'Password',
+        'password',
     ];
 }

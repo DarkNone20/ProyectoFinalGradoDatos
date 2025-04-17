@@ -9,29 +9,28 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="shortcut icon"
         href="https://static.vecteezy.com/system/resources/thumbnails/000/595/791/small/20012019-26.jpg">
-        <link rel="stylesheet" href="{{ asset('assets/style-usuarios.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/style-grupos.css') }}">
     <title>Grupos</title>
-
 </head>
 
 <body>
     <nav>
         <ul>
-           <li class="logo"><img  src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo" ></li>
+            <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
             <div class="Menu">
-                <li><a href="{{ asset('home') }}"><i class="fa fa-home"></i>&nbsp;<img simg src="{{ asset('Imagenes/inicio.png') }}" alt="inicio">
-                        Home</a></li>
-                <li><a href="{{ asset('usuarios') }}"><i class="fa fa-users"></i>&nbsp;<img
-                    src="{{ asset('Imagenes/user.png') }}" alt="user"> Usuarios</a></li>
-                <li><a href="{{ asset('grupos') }}"><i class="fa fa-phone"></i>&nbsp; <img
-                           src="{{ asset('Imagenes/lista.png') }}" alt="grupos"> Grupos</a></li>
-                <li><a href="{{ asset('equipos') }}"><i class="fa fa-phone"></i>&nbsp;<img
-                    src="{{ asset('Imagenes/inventario.png') }}" alt="equipos"> Equipos</a></li>
-                <li><a href="{{ asset('prestamos') }}"><i class="fa fa-users"></i>&nbsp;<img
-                    src="{{ asset('Imagenes/consecutivo.png') }}" alt="prestamos"> Prestamos</a></li>
+                <li><a href="{{ asset('home') }}"><img src="{{ asset('Imagenes/inicio.png') }}" alt="inicio"> Home</a>
+                </li>
+                <li><a href="{{ asset('usuarios') }}"><img src="{{ asset('Imagenes/user.png') }}" alt="user">
+                        Usuarios</a></li>
+                <li><a href="{{ asset('grupos') }}"><img src="{{ asset('Imagenes/lista.png') }}" alt="grupos">
+                        Grupos</a></li>
+                <li><a href="{{ asset('equipos') }}"><img src="{{ asset('Imagenes/inventario.png') }}" alt="equipos">
+                        Equipos</a></li>
+                <li><a href="{{ asset('prestamos') }}"><img src="{{ asset('Imagenes/consecutivo.png') }}"
+                            alt="prestamos"> Prestamos</a></li>
             </div>
             <div class="Prueba">
-                <li><a href="?logout=1"><i class="fa fa-phone"></i>&nbsp; <img src="../../Imagenes/logout.png">
+                <li><a href="{{ asset('/') }}"><img src="{{ asset('Imagenes/logout.png') }}" alt="login">
                         Logout</a></li>
             </div>
         </ul>
@@ -44,24 +43,176 @@
                     <h1>Administrador de Grupos</h1>
                 </div>
                 <div class="userLogo">
-                    <img src="../../Imagenes/dos3.png">
+                    <img src="{{ asset('Imagenes/dos3.png') }}">
                 </div>
                 <div class="Usuario">
-                    <p>JJCASTILLO </p>
+                    <p>{{ $usuarioAutenticado->Alias ?? 'Invitado' }}</p>
                 </div>
                 <br>
             </div>
         </div>
 
         <div class="Principal">
-            
-           
+            <div class="Principal-Uno">
+                <div class="Uno-lef">
+                    <img src="{{ asset('Imagenes/Usuarios 2.png') }}">
+                </div>
+                <div class="Uno-right">
+                    <a href="#">
+                        <h2>Creacion</h2>
+                    </a>
+                </div>
+            </div>
+
+            <div class="Principal-Dos">
+                <div class="Uno-lef">
+                    <img src="{{ asset('Imagenes/Usuarios 4.png') }}">
+                </div>
+                <div class="Uno-right">
+                    <a href="#">
+                        <h2>Grupos</h2>
+                    </a>
+                </div>
+            </div>
         </div>
 
 
 
+
+        <div class="Contenido">
+
+            <div class="Contenido-Uno">
+                <h2> Grupos</h2>
+                <div class="Contenedor">
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('grupos.store') }}" method="POST">
+                        @csrf
+
+                        <label for="IdGrupo">ID Grupo:</label>
+                        <input type="text" id="IdGrupo" name="IdGrupo" value="{{ old('IdGrupo') }}" required>
+
+                        <label for="NombreProfesor">Nombre Profesor:</label>
+                        <input type="text" id="NombreProfesor" name="NombreProfesor"
+                            value="{{ old('NombreProfesor') }}" required>
+
+                        <label for="NombreCurso">Nombre del Curso:</label>
+                        <input type="text" id="NombreCurso" name="NombreCurso" value="{{ old('NombreCurso') }}">
+
+                        <label for="FechaInicial">Fecha Inicial:</label>
+                        <input type="date" id="FechaInicial" name="FechaInicial" value="{{ old('FechaInicial') }}">
+
+                        <label for="FechaFinal">Fecha Final:</label>
+                        <input type="date" id="FechaFinal" name="FechaFinal" value="{{ old('FechaFinal') }}">
+
+                        <label for="HoraInicial">Hora Inicial:</label>
+                        <input type="time" id="HoraInicial" name="HoraInicial" value="{{ old('HoraInicial') }}">
+
+                        <label for="HoraFinal">Hora Final:</label>
+                        <input type="time" id="HoraFinal" name="HoraFinal" value="{{ old('HoraFinal') }}">
+
+                        <button type="submit" name="agregarGrupo">Registrar Grupo</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="Contenido-Dos">
+                <div class="Botones-Contenido">
+                    <div class="Boton-Uno">
+                        <button type="button-Uno"><img src="{{ asset('Imagenes/agregar.png') }}" alt="agregar">
+                            Agregar Grupo</button>
+                    </div>
+                    <div class="Boton-Dos">
+                        <button type="button-Dos"><img src="{{ asset('Imagenes/Exportar.png') }}" alt="exportar">
+                            Exportar</button>
+                    </div>
+                </div>
+
+                <div class="pagination d-flex justify-content-start mt-3">
+                    @if ($paginaActual > 1)
+                        <a class="btn btn-sm btn-outline-primary mx-1"
+                            href="?pagina={{ $paginaActual - 1 }}&per_page={{ $elementosPorPagina }}">&laquo;
+                            Anterior</a>
+                    @endif
+
+                    @for ($i = max(1, $paginaActual - 2); $i <= min($totalPaginas, $paginaActual + 2); $i++)
+                        @if ($i == $paginaActual)
+                            <a class="btn btn-sm btn-primary mx-1"
+                                href="?pagina={{ $i }}&per_page={{ $elementosPorPagina }}">{{ $i }}</a>
+                        @else
+                            <a class="btn btn-sm btn-outline-primary mx-1"
+                                href="?pagina={{ $i }}&per_page={{ $elementosPorPagina }}">{{ $i }}</a>
+                        @endif
+                    @endfor
+
+                    @if ($paginaActual < $totalPaginas)
+                        <a class="btn btn-sm btn-outline-primary mx-1"
+                            href="?pagina={{ $paginaActual + 1 }}&per_page={{ $elementosPorPagina }}">Siguiente
+                            &raquo;</a>
+                    @endif
+                </div>
+
+
+                <div class="Tabla-Contenido mt-4">
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID Grupo</th>
+                                <th>Nombre Profesor</th>
+                                <th>Nombre Curso</th>
+                                <th>Fecha Inicial</th>
+                                <th>Fecha Final</th>
+                                <th>Hora Inicial</th>
+                                <th>Hora Final</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($grupos as $grupo)
+                                <tr>
+                                    <td>{{ $grupo->IdGrupo }}</td>
+                                    <td>{{ $grupo->NombreProfesor }}</td>
+                                    <td>{{ $grupo->NombreCurso }}</td>
+                                    <td>{{ $grupo->FechaInicial }}</td>
+                                    <td>{{ $grupo->FechaFinal }}</td>
+                                    <td>{{ $grupo->HoraInicial }}</td>
+                                    <td>{{ $grupo->HoraFinal }}</td>
+                                    <td>
+                                        <form action="{{ route('grupos.destroy', $grupo->IdGrupo) }}" method="POST"
+                                            style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn-eliminar"
+                                                onclick="return confirm('¿Estás seguro de eliminar este grupo?')">
+                                                <img src="{{ asset('Imagenes/Drop.png') }}" alt="borrar">
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
     </div>
-    </div>
+
+    <footer></footer>
 </body>
 
 </html>

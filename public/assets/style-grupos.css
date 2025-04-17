@@ -154,20 +154,6 @@ nav ul li a:hover:before{
 .wrapper {
   margin-left: 260px;
 }
-
-section {
-  background-color: white;
-}
-
-.box-area h2 {
-  text-transform: uppercase;
-  font-size: 30px;
-}
-
-.wrapper a {
-  text-decoration: none;
-}
-
 .Principal {
 
   display: grid;
@@ -186,7 +172,7 @@ section {
   height: 80%;
   border-radius: 25px;
   width: 93%;
-  margin: 5%;
+  margin: 2%;
 
 
 }
@@ -219,17 +205,6 @@ section {
 
 
 }
-.btn-eliminar {
-  align-items: center;
-  background-color: transparent;
-}
-
-.btn-eliminar img{
-width: 20px;
-height: 20px;
-}
-
-
 .Principal-Uno .Uno-lef {
   display: inline-block;
   position: left;
@@ -266,70 +241,127 @@ height: 20px;
   margin-top: 45%;
 }
 
+section {
+  background-color: white;
+}
+
+.box-area h2 {
+  text-transform: uppercase;
+  font-size: 30px;
+}
+
+.wrapper a {
+  text-decoration: none;
+}
+
+
 .Contenido {
 
   display: grid;
-  grid-template-columns: 70% 30%;
+  grid-template-columns: 30% 70%;
   align-items: left;
-  height: 104vh;
+  height: 114vh;
   color: rgb(14, 13, 13);
 
 }
 
-.Contenido-Uno {
+.Contenido-Dos {
   background-color: #ffffff;
   display: grid;
-  grid-template-rows: 1fr 5fr;
+  grid-template-rows: auto auto  1fr;
   margin: 5%;
-  height: 100vh;
-  margin-top: 200px;
+  height: 110vh;
+  margin-top: 140px;
   border-radius: 25px;
 }
 
-.Contenido-Dos {
+.Contenido-Uno {
   background-color: hsla(187, 85%, 79%, 0.953);
-  height: 100vh;
+  height: 110vh;
   border-radius: 25px;
   margin: 10px;
-  margin-top: 200px;
+  margin-top: 140px;
 
 }
 
-.Contenido-Dos h2 {
-  margin: 4%;
+.Contenido-Uno h2 {
+  margin: 8px;
   text-align: center;
   font-size: 36px;
   font-weight: bold;
   color: rgb(34, 8, 150);
 }
+
+
 .Contenedor {
-  background-color: hsla(187, 85%, 79%, 0.953);
-  color: rgb(15, 14, 14);
-  width: 90%;
-  margin: 2%;
-  padding: 20px; 
-  border-radius: 15px; 
-  height: 84vh;
-  
+background-color: hsla(187, 85%, 79%, 0.953);
+color: rgb(15, 14, 14);
+height: 74vh;
+width: 90%;
+margin: 5%;
+display: flex;
+justify-content: flex-start; 
+align-items: flex-start; 
+
 }
-.Contenedor input {
-  width: 80%;
-  height: 32px;
-  margin-left: 8%;
-  border-radius: 8px;
-  border-color: transparent;
-  padding: 6px;
-  font-size: 16px;
+
+.Contenedor form {
+width: 100%;
+padding: 0 5%; 
 }
 
 .Contenedor label {
-  width: 90%;
-  padding: 4%;
-  text-align: left;
-  margin-left: 14px;
-  font-size: 24px;
-  font-weight: bold;
-  color: rgb(34, 8, 150);
+display: block;
+width: 100%;
+padding: 0;
+text-align: left;
+margin-left: 8%; 
+font-size: 24px;
+font-weight: bold;
+color: rgb(34, 8, 150);
+margin-bottom: 5px; /
+}
+
+.Contenedor input {
+width: 80%;
+height: 40px; 
+margin-left: 8%;
+margin-bottom: 15px; 
+border-radius: 8px;
+border: 1px solid rgba(0,0,0,0.1); 
+padding: 6px 12px;
+font-size: 16px;
+background-color: white;
+}
+
+.Contenedor select {
+width: 80%;
+height: 40px; 
+margin-left: 8%;
+margin-bottom: 15px;
+padding: 8px 12px;
+font-size: 20px; 
+font-weight: bold;
+color: rgb(34, 8, 150);
+border-radius: 8px;
+border: 1px solid rgba(0,0,0,0.1);
+background-color: white;
+}
+
+.Contenedor button {
+margin-left: 20%;
+margin-top: 8%;
+padding: 4%;
+width: 50%;
+font-size: 22px;
+background-color: #359df1;
+border-color: #1b4cb8;
+border-radius: 25px;
+color: white;
+}
+
+.Contenedor button:hover {
+background-color: #2a8bd6;
 }
 .Botones-Contenido{
   display: grid;
@@ -355,26 +387,23 @@ button{
   height: 40px;
  
 }
+.btn-eliminar {
+  align-items: center;
+  background-color: transparent;
+}
 
-.Contenedor button {
-  margin-left: 20%;
-  margin-top: 8%;
-  padding: 4%;
-  width: 50%;
-  font-size: 22px;
-  background-color: #359df1;
-  border-color: #1b4cb8;
-  border-radius: 25px;
-  color: white;
+.btn-eliminar img{
+width: 20px;
+height: 20px;
 }
 .table{
- margin-top: 10px;
-}
-
+  margin-top: 10px;
+ }
+ 
 footer {
   margin-top: 200px;
   height: 4vh;
-  background-color: #ffffff;
+  background-color: #1e53c4;
 
 
 }

@@ -14,7 +14,7 @@ class CreateUsuariosAdminTable extends Migration
             $table->string('Nombre', 100);
             $table->string('Password', 255);
             $table->string('Cargo', 50);
-            $table->timestamps(); // Opcional: añade created_at y updated_at
+            $table->timestamps(); 
         });
     }
 

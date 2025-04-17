@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('Estado', 20);
             $table->timestamps();
             
-            // Definir la clave primaria compuesta
+            //  clave primaria compuesta
             $table->primary(['ActivoFijo', 'Serial']);
         });
     }

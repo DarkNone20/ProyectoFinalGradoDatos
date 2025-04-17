@@ -62,7 +62,7 @@
                     <img src="{{ asset('Imagenes/Usuarios 2.png') }}">
                 </div>
                 <div class="Uno-right">
-                    <a href="#">
+                    <a href="{{ asset('usuarios') }}">
                         <h2>Administradores</h2>
                     </a>
                 </div>
@@ -73,7 +73,7 @@
                     <img src="{{ asset('Imagenes/Usuarios 4.png') }}">
                 </div>
                 <div class="Uno-right">
-                    <a href="#">
+                    <a href="{{ asset('users') }}">
                         <h2>Usuarios</h2>
                     </a>
                 </div>
