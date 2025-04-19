@@ -13,7 +13,7 @@ class Users extends Authenticatable
     protected $primaryKey = 'DocumentoId';
     public $incrementing = false;
     protected $keyType = 'string';
-    
+
     public $timestamps = false;
 
     protected $fillable = [
@@ -29,4 +29,11 @@ class Users extends Authenticatable
     protected $hidden = [
         'password',
     ];
+    // En el modelo Users (app/Models/Users.php)
+    public function grupos()
+    {
+        return $this->belongsToMany(Grupos::class, 'Usuario_Grupo', 'DocumentoId', 'IdGrupo')
+            ->using(UsuarioGrupo::class)
+            ->withPivot(['Rol', 'FechaAsignacion']);
+    }
 }

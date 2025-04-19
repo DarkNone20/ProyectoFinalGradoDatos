@@ -9,7 +9,7 @@ class Grupos extends Model
 {
     use HasFactory;
 
-    protected $table = 'grupos';
+    protected $table = 'Grupos'; // Nota: en MySQL el nombre es case-sensitive
     protected $primaryKey = 'IdGrupo';
     public $incrementing = false;
     protected $keyType = 'integer';
@@ -23,9 +23,14 @@ class Grupos extends Model
         'HoraInicial',
         'HoraFinal'
     ];
-    
-    protected function setKeysForSaveQuery($query)
+
+    // Relación con usuarios a través de la tabla pivote
+
+    // En el modelo Grupos (app/Models/Grupos.php)
+    public function usuarios()
     {
-        return $query->where('IdGrupo', $this->getAttribute('IdGrupo'));
+        return $this->belongsToMany(Users::class, 'Usuario_Grupo', 'IdGrupo', 'DocumentoId')
+            ->using(UsuarioGrupo::class)
+            ->withPivot(['Rol', 'FechaAsignacion']);
     }
 }

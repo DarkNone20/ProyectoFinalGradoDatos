@@ -69,18 +69,14 @@
                     <img src="{{ asset('Imagenes/Usuarios 4.png') }}">
                 </div>
                 <div class="Uno-right">
-                    <a href="#">
+                    <a href="{{ asset('mienbros') }}">
                         <h2>Grupos</h2>
                     </a>
                 </div>
             </div>
         </div>
 
-
-
-
         <div class="Contenido">
-
             <div class="Contenido-Uno">
                 <h2> Grupos</h2>
                 <div class="Contenedor">
@@ -166,7 +162,6 @@
                     @endif
                 </div>
 
-
                 <div class="Tabla-Contenido mt-4">
                     <table class="table table-striped">
                         <thead class="table-dark">
@@ -178,7 +173,8 @@
                                 <th>Fecha Final</th>
                                 <th>Hora Inicial</th>
                                 <th>Hora Final</th>
-                                <th>Acción</th>
+                                <th>Miembros</th>
+                                <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -191,7 +187,11 @@
                                     <td>{{ $grupo->FechaFinal }}</td>
                                     <td>{{ $grupo->HoraInicial }}</td>
                                     <td>{{ $grupo->HoraFinal }}</td>
+                                    <td>{{ $grupo->usuarios_count }}</td>
                                     <td>
+                                        <a href="{{ route('grupos.miembros', $grupo->IdGrupo) }}" class="btn btn-sm btn-info" title="Ver miembros">
+                                            <img src="{{ asset('Imagenes/users.png') }}" alt="miembros">
+                                        </a>
                                         <form action="{{ route('grupos.destroy', $grupo->IdGrupo) }}" method="POST"
                                             style="display: inline;">
                                             @csrf
@@ -208,11 +208,9 @@
                     </table>
                 </div>
             </div>
-
         </div>
     </div>
 
     <footer></footer>
 </body>
-
 </html>

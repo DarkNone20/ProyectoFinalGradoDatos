@@ -14,7 +14,7 @@ Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-//  rutas protegidas
+// Rutas protegidas
 Route::middleware('auth')->group(function () {
     // Home
     Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -46,8 +46,17 @@ Route::middleware('auth')->group(function () {
 
     // Grupos 
     Route::prefix('grupos')->group(function () {
+        // Rutas básicas de grupos
         Route::get('/', [GruposController::class, 'index'])->name('grupos.index');
         Route::post('/', [GruposController::class, 'store'])->name('grupos.store');
         Route::delete('/{IdGrupo}', [GruposController::class, 'destroy'])->name('grupos.destroy');
+        
+        // Rutas para gestión de miembros del grupo
+        Route::get('/{IdGrupo}/miembros', [GruposController::class, 'showMiembros'])->name('grupos.miembros');
+        Route::post('/{IdGrupo}/asignar', [GruposController::class, 'asignarUsuario'])->name('grupos.asignarUsuario');
+        Route::delete('/{IdGrupo}/remover/{DocumentoId}', [GruposController::class, 'removerUsuario'])->name('grupos.removerUsuario');
+        
+        // Ruta para obtener usuarios disponibles para asignar a un grupo (AJAX)
+        Route::get('/{IdGrupo}/usuarios-disponibles', [GruposController::class, 'getUsuariosDisponibles'])->name('grupos.usuariosDisponibles');
     });
 });
