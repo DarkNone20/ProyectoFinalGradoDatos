@@ -52,29 +52,6 @@
             </div>
         </div>
 
-        <div class="Principal">
-            <div class="Principal-Uno">
-                <div class="Uno-lef">
-                    <img src="{{ asset('Imagenes/Usuarios 2.png') }}">
-                </div>
-                <div class="Uno-right">
-                    <a href="#">
-                        <h2>Creacion</h2>
-                    </a>
-                </div>
-            </div>
-
-            <div class="Principal-Dos">
-                <div class="Uno-lef">
-                    <img src="{{ asset('Imagenes/Usuarios 4.png') }}">
-                </div>
-                <div class="Uno-right">
-                    <a href="{{ asset('mienbros') }}">
-                        <h2>Grupos</h2>
-                    </a>
-                </div>
-            </div>
-        </div>
 
         <div class="Contenido">
             <div class="Contenido-Uno">

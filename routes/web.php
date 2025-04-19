@@ -14,14 +14,16 @@ Route::get('/', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Usuarios 
+Route::resource('usuarios', UsuariosController::class)->except(['show']);
+Route::delete('usuarios/{usuario}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
+
 // Rutas protegidas
 Route::middleware('auth')->group(function () {
     // Home
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    // Usuarios 
-    Route::resource('usuarios', UsuariosController::class)->except(['show']);
-    Route::delete('usuarios/{usuario}', [UsuariosController::class, 'destroy'])->name('usuarios.destroy');
+    
     
     // Users 
     Route::prefix('users')->group(function () {

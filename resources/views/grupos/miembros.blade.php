@@ -53,18 +53,7 @@
             </div>
         </div>
 
-        <div class="Principal">
-            <div class="Principal-Uno">
-                <div class="Uno-lef">
-                    <img src="{{ asset('Imagenes/Usuarios 2.png') }}">
-                </div>
-                <div class="Uno-right">
-                    <a href="{{ route('grupos.index') }}">
-                        <h2>Volver a Grupos</h2>
-                    </a>
-                </div>
-            </div>
-        </div>
+       
 
         <div class="Contenido">
             <div class="Contenido-Uno">
@@ -92,7 +81,7 @@
                             <div class="col-md-6">
                                 <label for="DocumentoId">Usuario:</label>
                                 <select id="DocumentoId" name="DocumentoId" class="form-select" required>
-                                    <option value="">Seleccione un usuario</option>
+                                    <option value="">Usuario</option>
                                     @foreach($usuariosDisponibles as $usuario)
                                         <option value="{{ $usuario->DocumentoId }}">
                                             {{ $usuario->Nombre }} {{ $usuario->Apellido }} ({{ $usuario->DocumentoId }})

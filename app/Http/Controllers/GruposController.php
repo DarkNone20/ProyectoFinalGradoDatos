@@ -75,21 +75,23 @@ class GruposController extends Controller
      * Mostrar miembros de un grupo
      */
     public function showMiembros($IdGrupo)
-    {
-        $grupo = Grupos::with(['usuarios' => function ($query) {
-            $query->withPivot('Rol', 'FechaAsignacion');
-        }])->findOrFail($IdGrupo);
+{
+    $grupo = Grupos::with(['usuarios' => function ($query) {
+        $query->withPivot('Rol', 'FechaAsignacion');
+    }])->findOrFail($IdGrupo);
 
-        $usuariosDisponibles = Users::whereDoesntHave('grupos', function ($query) use ($IdGrupo) {
-            $query->where('IdGrupo', $IdGrupo);
-        })->get();
+    // Corregir la siguiente línea para especificar la tabla Grupos
+    $usuariosDisponibles = Users::whereDoesntHave('grupos', function ($query) use ($IdGrupo) {
+        $query->where('Grupos.IdGrupo', $IdGrupo); // Especificar la tabla Grupos
+    })->get();
 
-        return view('grupos.miembros', [
-            'grupo' => $grupo,
-            'miembros' => $grupo->usuarios,
-            'usuariosDisponibles' => $usuariosDisponibles
-        ]);
-    }
+    return view('grupos.miembros', [
+        'grupo' => $grupo,
+        'miembros' => $grupo->usuarios,
+        'usuariosDisponibles' => $usuariosDisponibles
+    ]);
+}
+
 
     /**
      * Asignar usuario a grupo
