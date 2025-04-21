@@ -185,55 +185,52 @@
     text-decoration: none;
   }
   
-  
   .Contenido {
-  
+
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 70% 30%;
     align-items: left;
-    height: 114vh;
+    height: 94vh;
     color: rgb(14, 13, 13);
   
   }
   
-  .Contenido-Dos {
+  .Contenido-Uno {
     background-color: #ffffff;
     display: grid;
-    grid-template-rows: auto auto  1fr;
+    grid-template-rows: 1fr 5fr;
     margin: 5%;
-    height: 110vh;
-    margin-top: 140px;
+    height: 90vh;
+    margin-top: 200px;
     border-radius: 25px;
   }
   
-  .Contenido-Uno {
+  .Contenido-Dos {
     background-color: hsla(187, 85%, 79%, 0.953);
-    height: 110vh;
+    height: 90vh;
     border-radius: 25px;
     margin: 10px;
-    margin-top: 140px;
+    margin-top: 200px;
   
   }
   
-  .Contenido-Uno h2 {
-    margin: 8px;
+  .Contenido-Dos h2 {
+    margin: 4%;
     text-align: center;
     font-size: 36px;
     font-weight: bold;
     color: rgb(34, 8, 150);
   }
   
-  
   .Contenedor {
-  background-color: hsla(187, 85%, 79%, 0.953);
-  color: rgb(15, 14, 14);
-  height: 74vh;
-  width: 90%;
-  margin: 5%;
-  display: flex;
-  justify-content: flex-start; 
-  align-items: flex-start; 
-  
+    background-color: hsla(187, 85%, 79%, 0.953);
+    color: rgb(15, 14, 14);
+    width: 90%;
+    margin: 2%;
+    padding: 20px; 
+    border-radius: 15px; 
+    height: 66vh;
+    
   }
   
   .Contenedor form {
@@ -331,6 +328,7 @@
     margin-top: 10px;
    }
    
+
   footer {
     margin-top: 200px;
     height: 4vh;
@@ -338,8 +336,7 @@
   
   
   }
-  
-  
+ 
   @media (min-width: 1800px) {
     .Menu {
       height: 65%;

@@ -167,7 +167,7 @@
                                     <td>{{ $grupo->usuarios_count }}</td>
                                     <td>
                                         <a href="{{ route('grupos.miembros', $grupo->IdGrupo) }}" class="btn btn-sm btn-info" title="Ver miembros">
-                                            <img src="{{ asset('Imagenes/users.png') }}" alt="miembros">
+                                           <div class="Group"> <img src="{{ asset('Imagenes/Group.png') }}" alt="miembros"></div>
                                         </a>
                                         <form action="{{ route('grupos.destroy', $grupo->IdGrupo) }}" method="POST"
                                             style="display: inline;">

@@ -400,6 +400,12 @@ height: 20px;
   margin-top: 10px;
  }
  
+ .Group img{
+  width: 26px;
+  height: 20px;
+}
+
+
 footer {
   margin-top: 200px;
   height: 4vh;

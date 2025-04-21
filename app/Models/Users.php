@@ -29,11 +29,17 @@ class Users extends Authenticatable
     protected $hidden = [
         'password',
     ];
-    // En el modelo Users (app/Models/Users.php)
+
+
+    // app/Models/Usuario.php
+
     public function grupos()
     {
-        return $this->belongsToMany(Grupos::class, 'Usuario_Grupo', 'DocumentoId', 'IdGrupo')
-            ->using(UsuarioGrupo::class)
-            ->withPivot(['Rol', 'FechaAsignacion']);
+        return $this->belongsToMany(
+            Grupos::class,
+            'usuario_grupo',
+            'DocumentoId',
+            'IdGrupo'
+        )->using(UsuarioGrupo::class);
     }
 }

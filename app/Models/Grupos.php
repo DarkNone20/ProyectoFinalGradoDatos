@@ -24,13 +24,17 @@ class Grupos extends Model
         'HoraFinal'
     ];
 
-    // Relación con usuarios a través de la tabla pivote
 
-    // En el modelo Grupos (app/Models/Grupos.php)
-    public function usuarios()
-    {
-        return $this->belongsToMany(Users::class, 'Usuario_Grupo', 'IdGrupo', 'DocumentoId')
-            ->using(UsuarioGrupo::class)
-            ->withPivot(['Rol', 'FechaAsignacion']);
-    }
+
+// app/Models/Grupo.php
+
+public function usuarios()
+{
+    return $this->belongsToMany(
+        Users::class,
+        'usuario_grupo',
+        'IdGrupo',
+        'DocumentoId'
+    )->using(UsuarioGrupo::class);
+}
 }
