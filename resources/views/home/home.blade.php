@@ -52,7 +52,7 @@
                     <img src="../../Imagenes/dos3.png">
                 </div>
                 <div class="Usuario">
-                    <p>JJCASTILLO</p>
+                    <p>{{ $usuarioAutenticado->Alias ?? 'Invitado' }}</p>
                 </div>
                 <br>
             </div>
@@ -60,7 +60,7 @@
             <div class="Group">
                 <div class="Clase1">
                     <div class="Clase1-left">
-                        <img src="../../Imagenes/Usuarios.png">
+                        <img src="{{ asset('Imagenes/Usuarios 2.png') }}" alt="user">
                     </div>
                     <div class="Clase1-Right">
                         <a href="{{ asset('usuarios') }}">
@@ -70,7 +70,7 @@
                 </div>
                 <div class="Clase2">
                     <div class="Clase2-left">
-                        <img src="../../Imagenes/Intercambio.png">
+                        <img src="{{ asset('Imagenes/team.png') }}" alt="team">
                     </div>
                     <div class="Clase2-Right">
                         <a href="{{ asset('grupos') }}">
@@ -80,7 +80,7 @@
                 </div>
                 <div class="Clase3">
                     <div class="Clase3-left">
-                        <img src="../../Imagenes/List.png">
+                        <img src="{{ asset('Imagenes/pc.png') }}" alt="equipos">
                     </div>
                     <div class="Clase3-Right">
                         <a href="{{ asset('equipos') }}">
@@ -90,7 +90,7 @@
                 </div>
                 <div class="Clase4">
                     <div class="Clase4-left">
-                        <img src="../../Imagenes/Historial.png">
+                        <img src="{{ asset('Imagenes/prest.png') }}" alt="prestamos">
                     </div>
                     <div class="Clase4-Right">
                         <a href="{{ asset('prestamos') }}">
@@ -103,7 +103,7 @@
             <div class="Principal">
                 
                 <div class="Principal-Left">
-                    <h2>Préstamos de Portátiles por Mes - {{ date('Y') }}</h2>
+                    <h2>Préstamos de Portátiles Año - {{ date('Y') }}</h2>
                     <div class="chart-container" style="position: relative; height:400px; width:100%">
                         <canvas id="graficaPrestamosMensuales"></canvas>
                     </div>
@@ -112,16 +112,16 @@
                         document.addEventListener('DOMContentLoaded', function() {
                             const ctx = document.getElementById('graficaPrestamosMensuales').getContext('2d');
                             
-                            // Función para generar colores armoniosos
+                            
                             function generarColoresVariables(cantidad) {
                                 const colores = [];
                                 const hueStep = 360 / cantidad;
                                 
                                 for (let i = 0; i < cantidad; i++) {
                                     const hue = Math.round((i * hueStep) % 360);
-                                    // Colores base con variación controlada
-                                    const baseColor = `hsla(${hue}, 75%, 65%, 0.8)`;
-                                    const borderColor = `hsla(${hue}, 85%, 50%, 1)`;
+                                    //variación  de colores
+                                    const baseColor = `hsla(${hue}, 60%, 65%, 0.8)`;
+                                    const borderColor = `hsla(${hue}, 55%, 50%, 1)`;
                                     const hoverColor = `hsla(${hue}, 85%, 70%, 1)`;
                                     
                                     colores.push({
@@ -157,7 +157,7 @@
                                     maintainAspectRatio: false,
                                     plugins: {
                                         legend: {
-                                            display: false // Ocultamos la leyenda
+                                            display: false // oculta la leyenda
                                         },
                                         tooltip: {
                                             enabled: true,
@@ -171,7 +171,9 @@
                                             bodyFont: {
                                                 size: 13
                                             },
-                                            displayColors: false, // No mostrar mini cuadro de color
+                                            displayColors: true, //  cuadro de color tru o false
+                                            
+                                            
                                             callbacks: {
                                                 title: function(tooltipItems) {
                                                     return tooltipItems[0].label;

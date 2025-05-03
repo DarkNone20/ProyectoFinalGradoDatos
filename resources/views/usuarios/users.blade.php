@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <link rel="shortcut icon"
-        href="https://static.vecteezy.com/system/resources/thumbnails/000/595/791/small/20012019-26.jpg">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="https://static.vecteezy.com/system/resources/thumbnails/000/595/791/small/20012019-26.jpg">
     <link rel="stylesheet" href="{{ asset('assets/style-users.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/users-import.css') }}">
     <title>Usuarios</title>
 </head>
-
 <body>
     <nav>
         <ul>
@@ -79,7 +76,6 @@
         </div>
 
         <div class="Contenido">
-
             <div class="Contenido-Uno">
                 <h2>Usuarios</h2>
                 <div class="Contenedor">
@@ -101,7 +97,6 @@
 
                     <form action="{{ route('users.store') }}" method="POST">
                         @csrf
-
                         <label for="DocumentoId">Documento:</label>
                         <input type="text" id="DocumentoId" name="DocumentoId" value="{{ old('DocumentoId') }}" required>
 
@@ -130,78 +125,88 @@
 
             <div class="Contenido-Dos">
                 <div Class="Botones-Contenido">
+                    <!-- Botón para importar usuarios -->
                     <div class="Boton-Uno">
-                        <button type="button-Uno"><img src="{{ asset('Imagenes/agregar.png') }}" alt="agregar">
-                            Agregar Usuarios</button>
+                        <form id="importForm" action="{{ route('users.import') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="file" name="file" id="fileInput" class="d-none" accept=".xlsx,.xls,.csv" required>
+                            <button type="button" id="importButton" class="btn-import">
+                                <img src="{{ asset('Imagenes/agregar.png') }}" alt="agregar">
+                                <span id="importText">Importar Usuarios</span>
+                                <div id="importSpinner" class="import-spinner d-none"></div>
+                            </button>
+                        </form>
                     </div>
-                    <div class="Boton-Dos" action="#" method="GET">
-                        <button type="button-Dos"><img src="{{ asset('Imagenes/Exportar.png') }}" alt="exportar">
-                            Exportar</button>
+                    
+                    <!-- Botón para exportar usuarios -->
+                    <div class="Boton-Dos">
+                        <a href="{{ route('users.export') }}" class="btn-export">
+                            <img src="{{ asset('Imagenes/Exportar.png') }}" alt="exportar">
+                            Exportar Usuarios
+                        </a>
                     </div>
                 </div>
-
 
                 <div class="Tabla-Contenido">
-                <div class="pagination d-flex justify-content-start mt-3">
-                    @if ($paginaActual > 1)
-                        <a class="btn btn-sm btn-outline-primary mx-1" href="?pagina={{ $paginaActual - 1 }}&per_page={{ $elementosPorPagina }}">&laquo; Anterior</a>
-                    @endif
-                
-                    @for ($i = max(1, $paginaActual - 2); $i <= min($totalPaginas, $paginaActual + 2); $i++)
-                        @if ($i == $paginaActual)
-                            <a class="btn btn-sm btn-primary mx-1" href="?pagina={{ $i }}&per_page={{ $elementosPorPagina }}">{{ $i }}</a>
-                        @else
-                            <a class="btn btn-sm btn-outline-primary mx-1" href="?pagina={{ $i }}&per_page={{ $elementosPorPagina }}">{{ $i }}</a>
+                    <div class="pagination d-flex justify-content-start mt-3">
+                        @if ($paginaActual > 1)
+                            <a class="btn btn-sm btn-outline-primary mx-1" href="?pagina={{ $paginaActual - 1 }}&per_page={{ $elementosPorPagina }}">&laquo; Anterior</a>
                         @endif
-                    @endfor
-                
-                    @if ($paginaActual < $totalPaginas)
-                        <a class="btn btn-sm btn-outline-primary mx-1" href="?pagina={{ $paginaActual + 1 }}&per_page={{ $elementosPorPagina }}">Siguiente &raquo;</a>
-                    @endif
-                </div>
+                    
+                        @for ($i = max(1, $paginaActual - 2); $i <= min($totalPaginas, $paginaActual + 2); $i++)
+                            @if ($i == $paginaActual)
+                                <a class="btn btn-sm btn-primary mx-1" href="?pagina={{ $i }}&per_page={{ $elementosPorPagina }}">{{ $i }}</a>
+                            @else
+                                <a class="btn btn-sm btn-outline-primary mx-1" href="?pagina={{ $i }}&per_page={{ $elementosPorPagina }}">{{ $i }}</a>
+                            @endif
+                        @endfor
+                    
+                        @if ($paginaActual < $totalPaginas)
+                            <a class="btn btn-sm btn-outline-primary mx-1" href="?pagina={{ $paginaActual + 1 }}&per_page={{ $elementosPorPagina }}">Siguiente &raquo;</a>
+                        @endif
+                    </div>
 
-                <table class="table table-striped">
-                    <thead class="table-dark">
-                        <tr>
-                            <th>Documento</th>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Teléfono</th>
-                            <th>Acción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($usuarios as $usuario)
+                    <table class="table table-striped">
+                        <thead class="table-dark">
                             <tr>
-                                <td>{{ $usuario->DocumentoId }}</td>
-                                <td>{{ $usuario->Nombre }}</td>
-                                <td>{{ $usuario->Apellido }}</td>
-                                <td>{{ $usuario->Email }}</td>
-                                <td>{{ $usuario->Telefono }}</td>
-                                <td>
-                                    <form action="{{ route('users.destroy', $usuario->DocumentoId) }}" method="POST"
-                                        style="display: inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn-eliminar"
-                                            onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
-                                            <img src="{{ asset('Imagenes/Drop.png') }}" alt="borrar">
-                                        </button>
-                                    </form>
-                                </td>
+                                <th>Documento</th>
+                                <th>Nombre</th>
+                                <th>Apellido</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Acción</th>
                             </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                 </div>
-
+                        </thead>
+                        <tbody>
+                            @foreach ($usuarios as $usuario)
+                                <tr>
+                                    <td>{{ $usuario->DocumentoId }}</td>
+                                    <td>{{ $usuario->Nombre }}</td>
+                                    <td>{{ $usuario->Apellido }}</td>
+                                    <td>{{ $usuario->Email }}</td>
+                                    <td>{{ $usuario->Telefono }}</td>
+                                    <td>
+                                        <form action="{{ route('users.destroy', $usuario->DocumentoId) }}" method="POST"
+                                            style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn-eliminar"
+                                                onclick="return confirm('¿Estás seguro de eliminar este usuario?')">
+                                                <img src="{{ asset('Imagenes/Drop.png') }}" alt="borrar">
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
-
-           
         </div>
     </div>
 
     <footer></footer>
+    
+    <script src="{{ asset('js/importUsers.js') }}"></script>
 </body>
 </html>

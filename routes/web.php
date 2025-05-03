@@ -26,11 +26,14 @@ Route::middleware('auth')->group(function () {
     
     
     // Users 
-    Route::prefix('users')->group(function () {
-        Route::get('/', [UsersController::class, 'index'])->name('users.index');
-        Route::post('/', [UsersController::class, 'store'])->name('users.store');
-        Route::delete('/{documentoId}', [UsersController::class, 'destroy'])->name('users.destroy');
-    });
+  // Dentro del grupo de rutas protegidas (auth)
+Route::prefix('users')->group(function () {
+    Route::get('/', [UsersController::class, 'index'])->name('users.index');
+    Route::post('/', [UsersController::class, 'store'])->name('users.store');
+    Route::post('/import', [UsersController::class, 'import'])->name('users.import'); // Esta es la ruta que falta
+    Route::get('/export', [UsersController::class, 'export'])->name('users.export');
+    Route::delete('/{documentoId}', [UsersController::class, 'destroy'])->name('users.destroy');
+});
     
     // Prestamos 
     Route::prefix('prestamos')->group(function () {

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Users;
 use Illuminate\Support\Facades\Hash;
+use App\Exports\UsersExport;
+use App\Imports\UsersImport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UsersController extends Controller
 {
@@ -59,5 +62,34 @@ class UsersController extends Controller
         $usuario = Users::findOrFail($documentoId);
         $usuario->delete();
         return back()->with('success', 'Usuario eliminado correctamente');
+    }
+
+    public function import(Request $request) 
+    {
+        $request->validate([
+            'file' => 'required|mimes:xlsx,xls,csv|max:5120'
+        ]);
+    
+        try {
+            Excel::import(new UsersImport, $request->file('file'));
+            
+            return response()->json([
+                'success' => true,
+                'message' => 'Usuarios importados correctamente'
+            ]);
+            
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al importar usuarios: '.$e->getMessage()
+            ], 500);
+        }
+    }
+    /**
+     * Exportar usuarios a Excel
+     */
+    public function export() 
+    {
+        return Excel::download(new UsersExport, 'usuarios.xlsx');
     }
 }
