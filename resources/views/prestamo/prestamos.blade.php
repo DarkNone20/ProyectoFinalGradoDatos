@@ -18,18 +18,18 @@
         <ul>
             <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
             <div class="Menu">
-                <li><a href="{{ asset('home') }}"><i class="fa fa-home"></i>&nbsp;<img simg
-                            src="{{ asset('Imagenes/inicio.png') }}" alt="inicio">
-                        Home</a></li>
+                <li><a href="{{ asset('home') }}"><i class="fa fa-home"></i>&nbsp;<img
+                            src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio"> Home</a></li>
                 <li><a href="{{ asset('usuarios') }}"><i class="fa fa-users"></i>&nbsp;<img
-                            src="{{ asset('Imagenes/user.png') }}" alt="user"> Usuarios</a></li>
+                            src="{{ asset('Imagenes/Usuarios 2.0.png') }}" alt="user"> Usuarios</a></li>
                 <li><a href="{{ asset('grupos') }}"><i class="fa fa-phone"></i>&nbsp; <img
-                            src="{{ asset('Imagenes/lista.png') }}" alt="grupos"> Grupos</a></li>
+                            src="{{ asset('Imagenes/Grupos 2.0.png') }}" alt="grupos"> Grupos</a></li>
                 <li><a href="{{ asset('equipos') }}"><i class="fa fa-phone"></i>&nbsp;<img
-                            src="{{ asset('Imagenes/inventario.png') }}" alt="equipos"> Equipos</a></li>
+                            src="{{ asset('Imagenes/Equipos 2.0.png') }}" alt="equipos"> Equipos</a></li>
                 <li><a href="{{ asset('prestamos') }}"><i class="fa fa-users"></i>&nbsp;<img
-                            src="{{ asset('Imagenes/consecutivo.png') }}" alt="prestamos"> Prestamos</a></li>
+                            src="{{ asset('Imagenes/Prestamos 2.0.png') }}" alt="prestamos"> Prestamos</a></li>
             </div>
+
             <div class="Prueba">
                 <li><a href="{{ asset('/') }}"><i class="fa fa-phone"></i>&nbsp; <img
                             src="{{ asset('Imagenes/logout.png') }}" alt="login">
@@ -37,6 +37,7 @@
             </div>
         </ul>
     </nav>
+
 
     <div class="wrapper">
         <div class="section">

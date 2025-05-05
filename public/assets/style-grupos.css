@@ -258,7 +258,7 @@ section {
 .Contenido {
 
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 25% 75%;
   align-items: left;
   height: 114vh;
   color: rgb(14, 13, 13);
@@ -316,7 +316,7 @@ width: 100%;
 padding: 0;
 text-align: left;
 margin-left: 8%; 
-font-size: 24px;
+font-size: 20px;
 font-weight: bold;
 color: rgb(34, 8, 150);
 margin-bottom: 5px; /
@@ -324,7 +324,7 @@ margin-bottom: 5px; /
 
 .Contenedor input {
 width: 80%;
-height: 40px; 
+height: 26px; 
 margin-left: 8%;
 margin-bottom: 15px; 
 border-radius: 8px;

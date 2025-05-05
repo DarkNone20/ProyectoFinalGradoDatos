@@ -47,6 +47,7 @@ Route::prefix('users')->group(function () {
         Route::get('/', [EquiposController::class, 'index'])->name('equipos.index');
         Route::post('/', [EquiposController::class, 'store'])->name('equipos.store');
         Route::delete('/{ActivoFijo}/{Serial}', [EquiposController::class, 'destroy'])->name('equipos.destroy');
+        Route::get('/export', [EquiposController::class, 'export'])->name('equipos.export');
     });
 
     // Grupos 

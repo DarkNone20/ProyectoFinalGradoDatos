@@ -21,7 +21,8 @@ class Grupos extends Model
         'FechaInicial',
         'FechaFinal',
         'HoraInicial',
-        'HoraFinal'
+        'HoraFinal',
+        'Duracion'
     ];
 
 

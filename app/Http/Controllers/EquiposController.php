@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Equipo;
+use App\Exports\EquiposExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EquiposController extends Controller
 {
@@ -61,4 +63,9 @@ class EquiposController extends Controller
         
         return back()->with('success', 'Equipo eliminado correctamente');
     }
+
+    public function export() 
+{
+    return Excel::download(new EquiposExport(), 'equipos.xlsx');
+}
 }

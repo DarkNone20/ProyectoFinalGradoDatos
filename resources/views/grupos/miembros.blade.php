@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,17 +18,26 @@
         <ul>
             <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
             <div class="Menu">
-                <li><a href="{{ asset('home') }}"><img src="{{ asset('Imagenes/inicio.png') }}" alt="inicio"> Home</a></li>
-                <li><a href="{{ asset('usuarios') }}"><img src="{{ asset('Imagenes/user.png') }}" alt="user"> Usuarios</a></li>
-                <li><a href="{{ asset('grupos') }}"><img src="{{ asset('Imagenes/lista.png') }}" alt="grupos"> Grupos</a></li>
-                <li><a href="{{ asset('equipos') }}"><img src="{{ asset('Imagenes/inventario.png') }}" alt="equipos"> Equipos</a></li>
-                <li><a href="{{ asset('prestamos') }}"><img src="{{ asset('Imagenes/consecutivo.png') }}" alt="prestamos"> Prestamos</a></li>
+                <li><a href="{{ asset('home') }}"><i class="fa fa-home"></i>&nbsp;<img
+                            src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio"> Home</a></li>
+                <li><a href="{{ asset('usuarios') }}"><i class="fa fa-users"></i>&nbsp;<img
+                            src="{{ asset('Imagenes/Usuarios 2.0.png') }}" alt="user"> Usuarios</a></li>
+                <li><a href="{{ asset('grupos') }}"><i class="fa fa-phone"></i>&nbsp; <img
+                            src="{{ asset('Imagenes/Grupos 2.0.png') }}" alt="grupos"> Grupos</a></li>
+                <li><a href="{{ asset('equipos') }}"><i class="fa fa-phone"></i>&nbsp;<img
+                            src="{{ asset('Imagenes/Equipos 2.0.png') }}" alt="equipos"> Equipos</a></li>
+                <li><a href="{{ asset('prestamos') }}"><i class="fa fa-users"></i>&nbsp;<img
+                            src="{{ asset('Imagenes/Prestamos 2.0.png') }}" alt="prestamos"> Prestamos</a></li>
             </div>
+
             <div class="Prueba">
-                <li><a href="{{ asset('/') }}"><img src="{{ asset('Imagenes/logout.png') }}" alt="login"> Logout</a></li>
+                <li><a href="{{ asset('/') }}"><i class="fa fa-phone"></i>&nbsp; <img
+                            src="{{ asset('Imagenes/logout.png') }}" alt="login">
+                        Logout</a></li>
             </div>
         </ul>
     </nav>
+
 
     <div class="wrapper">
         <div class="section">
@@ -51,7 +61,7 @@
                 <div class="Botones-Contenido">
                     <div class="Boton-Uno">
                         <button type="button-Uno" onclick="window.location.href='{{ route('grupos.index') }}'">
-                            <img src="{{ asset('Imagenes/volver.png') }}" alt="volver"> Volver 
+                            <img src="{{ asset('Imagenes/volver.png') }}" alt="volver"> Volver
                         </button>
                     </div>
                     <div class="Boton-Dos">
@@ -73,31 +83,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($miembros as $miembro)
-                            <tr>
-                                <td>{{ $miembro->DocumentoId }}</td>
-                                <td>{{ $miembro->Nombre }} {{ $miembro->Apellido }}</td>
-                                <td>{{ $miembro->pivot->Rol }}</td>
-                                <td>{{ $miembro->pivot->FechaAsignacion }}</td>
-                                <td>
-                                    <form action="{{ route('grupos.removerUsuario', [$grupo->IdGrupo, $miembro->DocumentoId]) }}" method="POST" style="display: inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn-eliminar" onclick="return confirm('¿Estás seguro de remover este usuario del grupo?')">
-                                            <img src="{{ asset('Imagenes/Drop.png') }}" alt="borrar">
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                        
+                            @foreach ($miembros as $miembro)
+                                <tr>
+                                    <td>{{ $miembro->DocumentoId }}</td>
+                                    <td>{{ $miembro->Nombre }} {{ $miembro->Apellido }}</td>
+                                    <td>{{ $miembro->pivot->Rol }}</td>
+                                    <td>{{ $miembro->pivot->FechaAsignacion }}</td>
+                                    <td>
+                                        <form
+                                            action="{{ route('grupos.removerUsuario', [$grupo->IdGrupo, $miembro->DocumentoId]) }}"
+                                            method="POST" style="display: inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn-eliminar"
+                                                onclick="return confirm('¿Estás seguro de remover este usuario del grupo?')">
+                                                <img src="{{ asset('Imagenes/Drop.png') }}" alt="borrar">
+                                            </button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>
             </div>
 
             <div class="Contenido-Dos">
-                <h2>Agregar Miembro <p>{{ $grupo->NombreProfesor }} - {{ $grupo->NombreCurso }}</p></h2>
+                <h2>Agregar Miembro <p>{{ $grupo->NombreProfesor }} - {{ $grupo->NombreCurso }}</p>
+                </h2>
                 <div class="Contenedor">
                     @if (session('success'))
                         <div class="alert alert-success">
@@ -118,19 +132,20 @@
                     <form action="{{ route('grupos.asignarUsuario', $grupo->IdGrupo) }}" method="POST">
                         @csrf
                         <div class="row justify-content-center">
-                            <div >
+                            <div>
                                 <label for="DocumentoId">Usuario:</label>
                                 <select id="DocumentoId" name="DocumentoId" class="form-select" required>
                                     <option value="">Seleccione un usuario</option>
-                                    @foreach($usuariosDisponibles as $usuario)
+                                    @foreach ($usuariosDisponibles as $usuario)
                                         <option value="{{ $usuario->DocumentoId }}">
-                                            {{ $usuario->Nombre }} {{ $usuario->Apellido }} ({{ $usuario->DocumentoId }})
+                                            {{ $usuario->Nombre }} {{ $usuario->Apellido }}
+                                            ({{ $usuario->DocumentoId }})
                                         </option>
                                     @endforeach
                                 </select>
                             </div>
-                    
-                            <div >
+
+                            <div>
                                 <label for="Rol">Rol:</label>
                                 <select id="Rol" name="Rol" class="form-select" required>
                                     <option value="Estudiante">Estudiante</option>
@@ -139,26 +154,28 @@
                                     <option value="egresado">Egresado</option>
                                 </select>
                             </div>
-                    
-                            <div >
+
+                            <div>
                                 <label for="FechaAsignacion">Fecha de Asignación:</label>
-                                <input type="date" id="FechaAsignacion" name="FechaAsignacion" class="form-control" required>
+                                <input type="date" id="FechaAsignacion" name="FechaAsignacion" class="form-control"
+                                    required>
                             </div>
-                    
-                            <div >
+
+                            <div>
                                 <button type="submit" class="btn btn-primary">Agregar</button>
                             </div>
                         </div>
                     </form>
-                    
+
                 </div>
             </div>
 
-            
+
 
         </div>
     </div>
 
     <footer></footer>
 </body>
+
 </html>

@@ -50,7 +50,8 @@ class GruposController extends Controller
             'FechaInicial' => 'nullable|date',
             'FechaFinal' => 'nullable|date|after_or_equal:FechaInicial',
             'HoraInicial' => 'nullable|date_format:H:i',
-            'HoraFinal' => 'nullable|date_format:H:i|after:HoraInicial'
+            'HoraFinal' => 'nullable|date_format:H:i|after:HoraInicial',
+            'Duracion' => 'required|integer',
         ]);
 
         Grupos::create($validatedData);

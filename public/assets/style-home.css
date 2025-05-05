@@ -5,7 +5,7 @@
 }
 
 .Encabezado {
-    background-color:  #4215ac;
+    background-color:  #1538ac;
     display:grid;
     grid-template-columns:  80% 10% 10%;
     height: 50%;
@@ -102,7 +102,7 @@ nav ul{
   position:fixed;
   top:0;
   left:0;
-  background-color: #3c0bad;
+  background-color: #1538ac;
 }
 
 nav ul li{
@@ -329,16 +329,10 @@ background-color: white;
   background-color: #fdfdfd;
   border-radius: 2%;
 }
-.Principal-Left {
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  margin-bottom: 20px;
-}
+
 
 .Principal-Left h2 {
-  color: #2e64f8;
+  color: #0847f5;
   margin-bottom: 15px;
   text-align: center;
 }
