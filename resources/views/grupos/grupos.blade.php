@@ -11,6 +11,9 @@
         href="https://static.vecteezy.com/system/resources/thumbnails/000/595/791/small/20012019-26.jpg">
     <link rel="stylesheet" href="{{ asset('assets/style-grupos.css') }}">
     <title>Grupos</title>
+    <style>
+
+    </style>
 </head>
 
 <body>
@@ -61,50 +64,87 @@
                 <h2> Grupos</h2>
                 <div class="Contenedor">
                     @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                    @endif
+
+                    @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
                     @endif
 
                     @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
                     @endif
 
                     <form action="{{ route('grupos.store') }}" method="POST">
                         @csrf
 
-                        <label for="IdGrupo">ID Grupo:</label>
-                        <input type="text" id="IdGrupo" name="IdGrupo" value="{{ old('IdGrupo') }}" required>
+                        <div class="form-columns">
+                            <!-- Primera columna -->
+                            <div class="form-section">
+                                <h3>Información Básica</h3>
+                                <label for="IdGrupo">ID Grupo:</label>
+                                <input type="text" id="IdGrupo" name="IdGrupo" value="{{ old('IdGrupo') }}" required>
 
-                        <label for="NombreProfesor">Nombre Profesor:</label>
-                        <input type="text" id="NombreProfesor" name="NombreProfesor"
-                            value="{{ old('NombreProfesor') }}" required>
+                                <label for="NombreProfesor">Nombre Profesor:</label>
+                                <input type="text" id="NombreProfesor" name="NombreProfesor"
+                                    value="{{ old('NombreProfesor') }}" required>
 
-                        <label for="NombreCurso">Nombre del Curso:</label>
-                        <input type="text" id="NombreCurso" name="NombreCurso" value="{{ old('NombreCurso') }}">
+                                <label for="NombreCurso">Nombre del Curso:</label>
+                                <input type="text" id="NombreCurso" name="NombreCurso" value="{{ old('NombreCurso') }}">
+                            </div>
 
-                        <label for="FechaInicial">Fecha Inicial:</label>
-                        <input type="date" id="FechaInicial" name="FechaInicial" value="{{ old('FechaInicial') }}">
+                            <!-- Segunda columna -->
+                            <div class="form-section">
+                                <h3>Horario</h3>
+                                <label for="FechaInicial">Fecha Inicial:</label>
+                                <input type="date" id="FechaInicial" name="FechaInicial" value="{{ old('FechaInicial') }}">
 
-                        <label for="FechaFinal">Fecha Final:</label>
-                        <input type="date" id="FechaFinal" name="FechaFinal" value="{{ old('FechaFinal') }}">
+                                <label for="FechaFinal">Fecha Final:</label>
+                                <input type="date" id="FechaFinal" name="FechaFinal" value="{{ old('FechaFinal') }}">
 
-                        <label for="HoraInicial">Hora Inicial:</label>
-                        <input type="time" id="HoraInicial" name="HoraInicial" value="{{ old('HoraInicial') }}">
+                                <label for="HoraInicial">Hora Inicial:</label>
+                                <input type="time" id="HoraInicial" name="HoraInicial" value="{{ old('HoraInicial') }}">
 
-                        <label for="HoraFinal">Hora Final:</label>
-                        <input type="time" id="HoraFinal" name="HoraFinal" value="{{ old('HoraFinal') }}">
+                                <label for="HoraFinal">Hora Final:</label>
+                                <input type="time" id="HoraFinal" name="HoraFinal" value="{{ old('HoraFinal') }}">
+                            </div>
 
-                        <label for="Duracion">Duracion:</label>
-                        <input type="text" id="Duracion" name="Duracion" value="{{ old('Duracion') }}">
+                            <!-- Tercera columna -->
+                            <div class="form-section">
+                                <h3>Detalles Adicionales</h3>
+                                <label for="DiaSemana">Día de la semana:</label>
+                                <select id="DiaSemana" name="DiaSemana" required>
+                                    <option value="">Seleccione un día</option>
+                                    <option value="Lunes" {{ old('DiaSemana') == 'Lunes' ? 'selected' : '' }}>Lunes</option>
+                                    <option value="Martes" {{ old('DiaSemana') == 'Martes' ? 'selected' : '' }}>Martes</option>
+                                    <option value="Miércoles" {{ old('DiaSemana') == 'Miércoles' ? 'selected' : '' }}>Miércoles</option>
+                                    <option value="Jueves" {{ old('DiaSemana') == 'Jueves' ? 'selected' : '' }}>Jueves</option>
+                                    <option value="Viernes" {{ old('DiaSemana') == 'Viernes' ? 'selected' : '' }}>Viernes</option>
+                                    <option value="Sábado" {{ old('DiaSemana') == 'Sábado' ? 'selected' : '' }}>Sábado</option>
+                                    <option value="Domingo" {{ old('DiaSemana') == 'Domingo' ? 'selected' : '' }}>Domingo</option>
+                                </select>
 
-                        <button type="submit" name="agregarGrupo">Registrar Grupo</button>
+                                <label for="SalaMovil">Sala Móvil:</label>
+                                <input type="text" id="SalaMovil" name="SalaMovil" value="{{ old('SalaMovil') }}" required>
+
+                                <label for="Duracion">Duracion:</label>
+                                <input type="text" id="Duracion" name="Duracion" value="{{ old('Duracion') }}">
+                            </div>
+                        </div>
+
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button type="submit" name="agregarGrupo" style="width: auto; padding: 10px 30px;">Registrar Grupo</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -121,28 +161,26 @@
                     </div>
                 </div>
 
-                <div class="pagination d-flex justify-content-start mt-3">
+                <div class="pagination d-flex justify-content-center mt-3">
                     @if ($paginaActual > 1)
-                        <a class="btn btn-sm btn-outline-primary mx-1"
-                            href="?pagina={{ $paginaActual - 1 }}&per_page={{ $elementosPorPagina }}">&laquo;
-                            Anterior</a>
+                    <a class="btn btn-sm btn-outline-primary mx-1"
+                        href="?pagina={{ $paginaActual - 1 }}&per_page={{ $elementosPorPagina }}@if(request('search'))&search={{ request('search') }}@endif">&laquo; Anterior</a>
                     @endif
 
                     @for ($i = max(1, $paginaActual - 2); $i <= min($totalPaginas, $paginaActual + 2); $i++)
-                        @if ($i == $paginaActual)
-                            <a class="btn btn-sm btn-primary mx-1"
-                                href="?pagina={{ $i }}&per_page={{ $elementosPorPagina }}">{{ $i }}</a>
+                        @if ($i==$paginaActual)
+                        <a class="btn btn-sm btn-primary mx-1"
+                        href="?pagina={{ $i }}&per_page={{ $elementosPorPagina }}@if(request('search'))&search={{ request('search') }}@endif">{{ $i }}</a>
                         @else
-                            <a class="btn btn-sm btn-outline-primary mx-1"
-                                href="?pagina={{ $i }}&per_page={{ $elementosPorPagina }}">{{ $i }}</a>
-                        @endif
-                    @endfor
-
-                    @if ($paginaActual < $totalPaginas)
                         <a class="btn btn-sm btn-outline-primary mx-1"
-                            href="?pagina={{ $paginaActual + 1 }}&per_page={{ $elementosPorPagina }}">Siguiente
-                            &raquo;</a>
-                    @endif
+                            href="?pagina={{ $i }}&per_page={{ $elementosPorPagina }}@if(request('search'))&search={{ request('search') }}@endif">{{ $i }}</a>
+                        @endif
+                        @endfor
+
+                        @if ($paginaActual < $totalPaginas)
+                            <a class="btn btn-sm btn-outline-primary mx-1"
+                            href="?pagina={{ $paginaActual + 1 }}&per_page={{ $elementosPorPagina }}@if(request('search'))&search={{ request('search') }}@endif">Siguiente &raquo;</a>
+                            @endif
                 </div>
 
                 <div class="Tabla-Contenido mt-4">
@@ -156,6 +194,8 @@
                                 <th>Fecha Final</th>
                                 <th>Hora Inicial</th>
                                 <th>Hora Final</th>
+                                <th>Día</th>
+                                <th>Sala</th>
                                 <th>Duracion</th>
                                 <th>Miembros</th>
                                 <th>Acciones</th>
@@ -163,31 +203,33 @@
                         </thead>
                         <tbody>
                             @foreach ($grupos as $grupo)
-                                <tr>
-                                    <td>{{ $grupo->IdGrupo }}</td>
-                                    <td>{{ $grupo->NombreProfesor }}</td>
-                                    <td>{{ $grupo->NombreCurso }}</td>
-                                    <td>{{ $grupo->FechaInicial }}</td>
-                                    <td>{{ $grupo->FechaFinal }}</td>
-                                    <td>{{ $grupo->HoraInicial }}</td>
-                                    <td>{{ $grupo->HoraFinal }}</td>
-                                    <td>{{ $grupo->Duracion }}</td>
-                                    <td>{{ $grupo->usuarios_count }}</td>
-                                    <td>
-                                        <a href="{{ route('grupos.miembros', $grupo->IdGrupo) }}" class="btn btn-sm btn-info" title="Ver miembros">
-                                           <div class="Group"> <img src="{{ asset('Imagenes/Group.png') }}" alt="miembros"></div>
-                                        </a>
-                                        <form action="{{ route('grupos.destroy', $grupo->IdGrupo) }}" method="POST"
-                                            style="display: inline;">
-                                            @csrf
-                                            @method('DELETE')
-                                            <button type="submit" class="btn-eliminar"
-                                                onclick="return confirm('¿Estás seguro de eliminar este grupo?')">
-                                                <img src="{{ asset('Imagenes/Drop.png') }}" alt="borrar">
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
+                            <tr>
+                                <td>{{ $grupo->IdGrupo }}</td>
+                                <td>{{ $grupo->NombreProfesor }}</td>
+                                <td>{{ $grupo->NombreCurso }}</td>
+                                <td>{{ $grupo->FechaInicial }}</td>
+                                <td>{{ $grupo->FechaFinal }}</td>
+                                <td>{{ $grupo->HoraInicial }}</td>
+                                <td>{{ $grupo->HoraFinal }}</td>
+                                <td>{{ $grupo->DiaSemana }}</td>
+                                <td>{{ $grupo->SalaMovil }}</td>
+                                <td>{{ $grupo->Duracion }}</td>
+                                <td>{{ $grupo->usuarios_count }}</td>
+                                <td>
+                                    <a href="{{ route('grupos.miembros', $grupo->IdGrupo) }}" class="btn btn-sm btn-info" title="Ver miembros">
+                                        <div class="Group"> <img src="{{ asset('Imagenes/Group.png') }}" alt="miembros"></div>
+                                    </a>
+                                    <form action="{{ route('grupos.destroy', $grupo->IdGrupo) }}" method="POST"
+                                        style="display: inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn-eliminar"
+                                            onclick="return confirm('¿Estás seguro de eliminar este grupo?')">
+                                            <img src="{{ asset('Imagenes/Drop.png') }}" alt="borrar">
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
                             @endforeach
                         </tbody>
                     </table>
@@ -198,4 +240,5 @@
 
     <footer></footer>
 </body>
+
 </html>

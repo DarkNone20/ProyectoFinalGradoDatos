@@ -9,10 +9,11 @@ class Grupos extends Model
 {
     use HasFactory;
 
-    protected $table = 'Grupos'; // Nota: en MySQL el nombre es case-sensitive
+    protected $table = 'Grupos';
     protected $primaryKey = 'IdGrupo';
     public $incrementing = false;
     protected $keyType = 'integer';
+    public $timestamps = false;
 
     protected $fillable = [
         'IdGrupo',
@@ -22,20 +23,24 @@ class Grupos extends Model
         'FechaFinal',
         'HoraInicial',
         'HoraFinal',
+        'DiaSemana',
+        'SalaMovil',
         'Duracion'
     ];
 
+    public function usuarios()
+    {
+        return $this->belongsToMany(
+            Users::class,
+            'usuario_grupo',
+            'IdGrupo',
+            'DocumentoId'
+        )->withPivot('Rol', 'FechaAsignacion')
+         ->using(UsuarioGrupo::class);
+    }
 
-
-// app/Models/Grupo.php
-
-public function usuarios()
-{
-    return $this->belongsToMany(
-        Users::class,
-        'usuario_grupo',
-        'IdGrupo',
-        'DocumentoId'
-    )->using(UsuarioGrupo::class);
-}
+    public function usuarios_count()
+    {
+        return $this->usuarios()->count();
+    }
 }
