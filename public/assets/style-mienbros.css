@@ -5,7 +5,7 @@
   }
   
   .Encabezado {
-    background-color: #4215ac;
+    background-color: #1538ac;
     display: grid;
     grid-template-columns: 80% 10% 10%;
     height: 50%;
@@ -110,7 +110,7 @@
     position:fixed;
     top:0;
     left:0;
-    background-color: #3c0bad;
+    background-color: #1538ac;
   }
   
   nav ul li{

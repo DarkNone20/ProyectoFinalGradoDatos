@@ -122,17 +122,19 @@ nav ul li a{
   transition:all 0.5s;
 }
 
-nav ul li a:before{
-  content:'';
-  position:absolute;
-  top:0;
-  right:0;
-  height:100%;
-  background:white;
-  border-radius:40px 0 0 40px;
-  z-index:-1;
-  transition:all 1s;
+nav ul li a:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background: white;
+  border-radius: 40px 0 0 40px;
+  z-index: -1;
+  transition: all 1s;
+  width: 0;
 }
+
 
 nav ul li a:hover{
   color:#0d1186;
