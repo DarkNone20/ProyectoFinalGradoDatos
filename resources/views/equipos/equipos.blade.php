@@ -18,26 +18,17 @@
         <ul>
             <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
             <div class="Menu">
-                <li><a href="{{ asset('home') }}"><i class="fa fa-home"></i>&nbsp;<img
-                            src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio"> Home</a></li>
-                <li><a href="{{ asset('usuarios') }}"><i class="fa fa-users"></i>&nbsp;<img
-                            src="{{ asset('Imagenes/Usuarios 2.0.png') }}" alt="user"> Usuarios</a></li>
-                <li><a href="{{ asset('grupos') }}"><i class="fa fa-phone"></i>&nbsp; <img
-                            src="{{ asset('Imagenes/Grupos 2.0.png') }}" alt="grupos"> Grupos</a></li>
-                <li><a href="{{ asset('equipos') }}"><i class="fa fa-phone"></i>&nbsp;<img
-                            src="{{ asset('Imagenes/Equipos 2.0.png') }}" alt="equipos"> Equipos</a></li>
-                <li><a href="{{ asset('prestamos') }}"><i class="fa fa-users"></i>&nbsp;<img
-                            src="{{ asset('Imagenes/Prestamos 2.0.png') }}" alt="prestamos"> Prestamos</a></li>
+                <li><a href="{{ asset('home') }}"><img src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio"> Home</a></li>
+                <li><a href="{{ asset('usuarios') }}"><img src="{{ asset('Imagenes/Usuarios 2.0.png') }}" alt="user"> Usuarios</a></li>
+                <li><a href="{{ asset('grupos') }}"><img src="{{ asset('Imagenes/Grupos 2.0.png') }}" alt="grupos"> Grupos</a></li>
+                <li><a href="{{ asset('equipos') }}"><img src="{{ asset('Imagenes/Equipos 2.0.png') }}" alt="equipos"> Equipos</a></li>
+                <li><a href="{{ asset('prestamos') }}"><img src="{{ asset('Imagenes/Prestamos 2.0.png') }}" alt="prestamos"> Prestamos</a></li>
             </div>
-
             <div class="Prueba">
-                <li><a href="{{ asset('/') }}"><i class="fa fa-phone"></i>&nbsp; <img
-                            src="{{ asset('Imagenes/logout.png') }}" alt="login">
-                        Logout</a></li>
+                <li><a href="{{ asset('/') }}"><img src="{{ asset('Imagenes/logout.png') }}" alt="login"> Logout</a></li>
             </div>
         </ul>
     </nav>
-
 
     <div class="wrapper">
         <div class="section">
@@ -62,7 +53,6 @@
                         <button type="button-Uno"><img src="{{ asset('Imagenes/agregar.png') }}" alt="agregar">
                             Agregar Equipo</button>
                     </div>
-                    <!-- Botón exportar usuarios -->
                     <div class="Boton-Dos">
                         <a href="{{ route('equipos.export') }}" class="btn-export">
                             <img src="{{ asset('Imagenes/Exportar.png') }}" alt="exportar">
@@ -95,7 +85,6 @@
                     @endif
                 </div>
 
-               
                 <div class="Tabla-Contenido mt-3">
                     <table class="table table-striped">
                         <thead class="table-dark">
@@ -106,6 +95,7 @@
                                 <th>Modelo</th>
                                 <th>Sala/Móvil</th>
                                 <th>Estado</th>
+                                <th>Disponibilidad</th> <!-- NUEVA COLUMNA -->
                                 <th>Acción</th>
                             </tr>
                         </thead>
@@ -118,6 +108,7 @@
                                     <td>{{ $equipo->Modelo }}</td>
                                     <td>{{ $equipo->SalaMovil }}</td>
                                     <td>{{ $equipo->Estado }}</td>
+                                    <td>{{ $equipo->Disponibilidad }}</td> <!-- NUEVO -->
                                     <td>
                                         <form
                                             action="{{ route('equipos.destroy', ['ActivoFijo' => $equipo->ActivoFijo, 'Serial' => $equipo->Serial]) }}"
@@ -135,8 +126,6 @@
                         </tbody>
                     </table>
                 </div>
-               
-
             </div>
 
             <div class="Contenido-Dos">
@@ -184,6 +173,14 @@
                             <option value="Dado de baja">Dado de baja</option>
                         </select>
 
+                        <label for="Disponibilidad">Disponibilidad:</label>
+                        <select id="Disponibilidad" name="Disponibilidad" required>
+                            <option value="">Seleccione</option>
+                            <option value="Disponible" {{ old('Disponibilidad') == 'Disponible' ? 'selected' : '' }}>Disponible</option>
+                            <option value="No Disponible" {{ old('Disponibilidad') == 'No Disponible' ? 'selected' : '' }}>No Disponible</option>
+                            <option value="En Prestamo" {{ old('Disponibilidad') == 'En Prestamo' ? 'selected' : '' }}>En Préstamo</option>
+                        </select>
+
                         <button type="submit" name="agregarEquipo">Registrar Equipo</button>
                     </form>
                 </div>
@@ -191,8 +188,6 @@
         </div>
         <footer></footer>
     </div>
-
-    
 </body>
 
 </html>

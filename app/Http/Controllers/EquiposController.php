@@ -23,7 +23,6 @@ class EquiposController extends Controller
             ->take($elementosPorPagina)
             ->get();
     
-        // Obtener el usuario autenticado
         $usuarioAutenticado = auth()->user();
     
         return view('equipos.equipos', compact('equipos', 'paginaActual', 'totalPaginas', 'elementosPorPagina', 'usuarioAutenticado'));
@@ -38,15 +37,17 @@ class EquiposController extends Controller
             'Modelo' => 'nullable|string|max:45',
             'SalaMovil' => 'nullable|string|max:45',
             'Estado' => 'required|string|max:20',
+            'Disponibilidad' => 'required|in:Disponible,No Disponible,En Prestamo',
         ]);
 
         Equipo::create([
             'ActivoFijo' => $validatedData['ActivoFijo'],
             'Serial' => $validatedData['Serial'],
-            'Marca' => $validatedData['Marca'],
-            'Modelo' => $validatedData['Modelo'],
-            'SalaMovil' => $validatedData['SalaMovil'],
+            'Marca' => $validatedData['Marca'] ?? null,
+            'Modelo' => $validatedData['Modelo'] ?? null,
+            'SalaMovil' => $validatedData['SalaMovil'] ?? null,
             'Estado' => $validatedData['Estado'],
+            'Disponibilidad' => $validatedData['Disponibilidad'],
         ]);
 
         return redirect()->route('equipos.index')
@@ -56,8 +57,8 @@ class EquiposController extends Controller
     public function destroy($ActivoFijo, $Serial)
     {
         $equipo = Equipo::where('ActivoFijo', $ActivoFijo)
-                       ->where('Serial', $Serial)
-                       ->firstOrFail();
+                        ->where('Serial', $Serial)
+                        ->firstOrFail();
         
         $equipo->delete();
         
@@ -65,7 +66,7 @@ class EquiposController extends Controller
     }
 
     public function export() 
-{
-    return Excel::download(new EquiposExport(), 'equipos.xlsx');
-}
+    {
+        return Excel::download(new EquiposExport(), 'equipos.xlsx');
+    }
 }

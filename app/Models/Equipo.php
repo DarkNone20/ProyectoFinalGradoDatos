@@ -22,7 +22,8 @@ class Equipo extends Model
         'Marca',
         'Modelo',
         'SalaMovil',
-        'Estado'
+        'Estado',
+        'Disponibilidad'
     ];
     
     // Para que Laravel maneje correctamente las claves primarias compuestas

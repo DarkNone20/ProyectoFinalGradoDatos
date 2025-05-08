@@ -174,7 +174,7 @@
     display: grid;
     grid-template-columns: 70% 30%;
     align-items: left;
-    height: 104vh;
+    height: 114vh;
     color: rgb(14, 13, 13);
   
   }
@@ -184,14 +184,14 @@
     display: grid;
     grid-template-rows: auto auto  1fr;
     margin: 5%;
-    height: 100vh;
+    height: 110vh;
     margin-top: 100px;
     border-radius: 25px;
   }
   
   .Contenido-Dos {
     background-color: hsla(187, 85%, 79%, 0.953);
-    height: 100vh;
+    height: 110vh;
     border-radius: 25px;
     margin: 10px;
     margin-top: 100px;
