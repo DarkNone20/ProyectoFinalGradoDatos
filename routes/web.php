@@ -36,19 +36,29 @@ Route::prefix('users')->group(function () {
 });
     
     // Prestamos 
-    Route::prefix('prestamos')->group(function () {
-        Route::get('/', [PrestamoController::class, 'index'])->name('prestamos.index');
-        Route::post('/', [PrestamoController::class, 'store'])->name('prestamos.store');
-        Route::delete('/{IdPrestamo}', [PrestamoController::class, 'destroy'])->name('prestamos.destroy');
-    });
+Route::prefix('prestamos')->group(function () {
+    Route::get('/', [PrestamoController::class, 'index'])->name('prestamos.index');
+    Route::get('/create', [PrestamoController::class, 'create'])->name('prestamos.create'); // Ruta CREATE agregada
+    Route::post('/', [PrestamoController::class, 'store'])->name('prestamos.store');
+    Route::get('/{IdPrestamo}/edit', [PrestamoController::class, 'edit'])->name('prestamos.edit'); // Ruta EDIT agregada
+    Route::put('/{IdPrestamo}', [PrestamoController::class, 'update'])->name('prestamos.update'); // Ruta UPDATE agregada
+    Route::delete('/{IdPrestamo}', [PrestamoController::class, 'destroy'])->name('prestamos.destroy');
+    Route::get('/export', [PrestamoController::class, 'export'])->name('prestamos.export'); // Ruta para exportar
+    Route::post('/prestamos/{IdPrestamo}/devolver', [PrestamoController::class, 'devolver'])
+    ->name('prestamos.devolver');; // Ruta para devolver
+        
+ 
+});
 
     // Equipos 
-    Route::prefix('equipos')->group(function () {
-        Route::get('/', [EquiposController::class, 'index'])->name('equipos.index');
-        Route::post('/', [EquiposController::class, 'store'])->name('equipos.store');
-        Route::delete('/{ActivoFijo}/{Serial}', [EquiposController::class, 'destroy'])->name('equipos.destroy');
-        Route::get('/export', [EquiposController::class, 'export'])->name('equipos.export');
-    });
+  // Equipos
+Route::prefix('equipos')->group(function () {
+    Route::get('/', [EquiposController::class, 'index'])->name('equipos.index');
+    Route::get('/create', [EquiposController::class, 'create'])->name('equipos.create'); // Movida arriba y corregida
+    Route::post('/', [EquiposController::class, 'store'])->name('equipos.store');
+    Route::delete('/{ActivoFijo}/{Serial}', [EquiposController::class, 'destroy'])->name('equipos.destroy');
+    Route::get('/export', [EquiposController::class, 'export'])->name('equipos.export');
+});
 
     // Grupos 
     Route::prefix('grupos')->group(function () {
