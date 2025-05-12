@@ -2,182 +2,172 @@
     margin: 0%;
     padding: 0%;
     box-sizing: content-box;
-  }
-  
-  .Encabezado {
-    background-color: #4215ac;
+}
+
+.Encabezado {
+    background-color: #1538ac;
     display: grid;
     grid-template-columns: 80% 10% 10%;
     height: 50%;
     margin: 0 auto;
-  
-  }
-  
-  .Encabezado h1 {
+}
+
+.Encabezado h1 {
     color: white;
     font-size: 300%;
     padding-top: 5%;
-    font-family: 'Garamond';
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin: 0;
     align-items: center;
-  
-  
-  }
-  
-  .Titulo {
+}
+
+.Titulo {
     margin-left: 15%;
     display: inline-block;
     position: left;
     text-align: left;
-  }
-  
-  .userLogo {
+}
+
+.userLogo {
     display: inline-block;
     position: center;
-  
-  }
-  
-  .userLogo img {
+}
+
+.userLogo img {
     margin: 20%;
     width: 50%;
     height: 60%;
-  
-  }
-  
-  .userLogo img :hover {
+}
+
+.userLogo img :hover {
     transition: 0.3s;
-  
-  }
-  
-  .Usuario {
+}
+
+.Usuario {
     margin-top: 45%;
     margin-left: -15%;
     display: inline-block;
     position: right;
     color: White;
-  }
-  
-  .Usuario :hover {
+}
+
+.Usuario :hover {
     color: rgb(32, 223, 236);
-  }
-  
-  .Menu {
+}
+
+.Menu {
     height: 30%;
-  }
-  
-  .Menu li a img {
+}
+
+.Menu li a img {
     margin: 2%;
     height: 12%;
     width: 12%;
-  }
-  
-  .Prueba {
+}
+
+.Prueba {
     margin-top: 56%;
-  }
-  
-  .Prueba li a img {
+}
+
+.Prueba li a img {
     height: 12%;
     width: 12%;
     margin-right: 3%;
-  }
-  
-  body {
+}
+
+body {
     margin: 0;
     padding: 0;
     font-family: Arial;
     background: white;
-  }
-  
-  .logo{
-    padding:20px ;
+}
+
+.logo {
+    padding: 20px;
     margin-bottom: 90px;
-  }
-  .logo img{
-   
+}
+
+.logo img {
     height: 100px;
     width: 240px;
     margin-left: -30px;
-   
-  }
-  
-  
-  nav ul{
-    margin:0;
-    padding:0;
-    height:100%;
-    width:240px;
-    position:fixed;
-    top:0;
-    left:0;
-    background-color: #3c0bad;
-  }
-  
-  nav ul li{
-    list-style:none;
-  }
-  
-  
-  nav ul li a{
-    display:block;
-    font-family:'montserrat';
-    text-decoration:none;
-    text-transform:uppercase;
-    font-size:17px;
-    color:#fff;
-    position:relative;
-    padding:15px 0px 15px 25px;
-    transition:all 0.5s;
-  }
-  
-  nav ul li a:before{
-    content:'';
-    position:absolute;
-    top:0;
-    right:0;
-    height:100%;
-    background:white;
-    border-radius:40px 0 0 40px;
-    z-index:-1;
-    transition:all 1s;
-  }
-  
-  nav ul li a:hover{
-    color:#0d1186;
-  }
-  
-  nav ul li a:hover:before{
-    width:95%;
-  }
-  
-  
-  .wrapper {
+}
+
+nav ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1538ac;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    font-family: 'montserrat';
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: #fff;
+    position: relative;
+    padding: 15px 0px 15px 25px;
+    transition: all 0.5s;
+}
+
+nav ul li a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: white;
+    border-radius: 40px 0 0 40px;
+    z-index: -1;
+    transition: all 1s;
+}
+
+nav ul li a:hover {
+    color: #0d1186;
+}
+
+nav ul li a:hover:before {
+    width: 95%;
+}
+
+.wrapper {
     margin-left: 260px;
-  }
-  
-  section {
+}
+
+section {
     background-color: white;
-  }
-  
-  .box-area h2 {
+}
+
+.box-area h2 {
     text-transform: uppercase;
     font-size: 30px;
-  }
-  
-  .wrapper a {
+}
+
+.wrapper a {
     text-decoration: none;
-  }
-  
-  .Principal {
-  
+}
+
+.Principal {
     display: grid;
     grid-template-columns: 50% 50%;
     align-items: center;
     height: 20vh;
     color: white;
-  }
-  
-  .Principal-Uno , .Principal-Dos{
+}
+
+.Principal-Uno,
+.Principal-Dos {
     display: grid;
     grid-template-columns: 30% 70%;
     grid: 40% 60%;
@@ -185,131 +175,119 @@
     height: 80%;
     border-radius: 25px;
     width: 90%;
-   
-  
-  
-  }
-  .Principal-Uno {
+}
+
+.Principal-Uno {
     background-color: #25d4eb;
-  }
-  
-  .Principal-Dos {
-   
+}
+
+.Principal-Dos {
     background-color: #5be662;
-    
-  }
-  .Principal-Uno img {
+}
+
+.Principal-Uno img {
     width: 100%;
     height: 80%;
     margin-top: 14%;
-  
-  
+}
 
-  }
-  .Principal-Dos img {
+.Principal-Dos img {
     width: 90%;
     height: 80%;
     margin-top: 14%;
-  
-  
-  
-  }
-    
- 
-  .btn-eliminar {
+}
+
+.btn-eliminar {
     align-items: center;
     background-color: transparent;
-  }
-  
-  .btn-eliminar img{
-  width: 20px;
-  height: 20px;
-  }
-  
-  
-  .Principal-Uno .Uno-lef {
+}
+
+.btn-eliminar img {
+    width: 20px;
+    height: 20px;
+}
+
+.Principal-Uno .Uno-lef {
     display: inline-block;
     position: left;
     background-color: #25c3df;
     border-radius: 25px;
     width: 100%;
     text-align: center;
-  
-  }
-  
-  .Principal-Dos .Uno-lef {
+}
+
+.Principal-Dos .Uno-lef {
     display: inline-block;
     position: left;
     background-color: #25df4d;
     border-radius: 25px;
     width: 100%;
     text-align: center;
-  
-  }
-  
-  .Uno-right {
+}
+
+.Uno-right {
     display: inline-block;
     position: Right;
     border-radius: 25px;
     text-align: center;
     width: 100%;
-  
-  
-  }
-  
-  .Uno-right h2 {
+}
+
+.Uno-right h2 {
     color: rgb(255, 255, 255);
     font-size: 25px;
     margin-top: 45%;
-  }
-  
-  .Contenido {
-  
+}
+
+.Contenido {
     display: grid;
     grid-template-columns: 30% 70%;
     align-items: left;
     height: 134vh;
     color: rgb(14, 13, 13);
-  
-  }
-  
-  .Contenido-Uno {
+}
+
+.Contenido-Uno {
     background-color: hsla(130, 85%, 79%, 0.953);
     height: 130vh;
     border-radius: 25px;
     margin: 10px;
     margin-top: 160px;
-  
-  }
-  .Contenido-Uno h2 {
+}
+
+.Contenido-Uno h2 {
     margin: 4%;
     text-align: center;
     font-size: 36px;
     font-weight: bold;
     color: rgb(34, 8, 150);
-  }
-  .Contenido-Dos {
+}
+
+.Contenido-Dos {
     background-color: #ffffff;
     display: grid;
-    grid-template-rows: auto auto  3fr;
-    margin: 5%;
+    grid-template-rows: auto auto 3fr;
     height: 130vh;
     margin-top: 160px;
     border-radius: 25px;
-  }
-  
+    grid-template-rows: auto auto 1fr;
+    margin: 4%;
+    margin-top: 160px;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
 
-  .Contenedor {
+.Contenedor {
     background-color: hsla(130, 85%, 79%, 0.953);
     color: rgb(15, 14, 14);
     width: 90%;
     margin: 2%;
-    padding: 20px; 
-    border-radius: 15px; 
+    padding: 20px;
+    border-radius: 15px;
     height: 114vh;
-    
-  }
-  .Contenedor input {
+}
+
+.Contenedor input {
     width: 80%;
     height: 32px;
     margin-left: 8%;
@@ -317,9 +295,9 @@
     border-color: transparent;
     padding: 6px;
     font-size: 16px;
-  }
-  
-  .Contenedor label {
+}
+
+.Contenedor label {
     width: 90%;
     padding: 4%;
     text-align: left;
@@ -327,33 +305,80 @@
     font-size: 24px;
     font-weight: bold;
     color: rgb(34, 8, 150);
-  }
-  .Botones-Contenido{
+}
+
+.Botones-Contenido {
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr;
     background-color: #e2dcdc;
     align-items: center;
     height: 10vh;
     border-radius: 25px;
-    
-  }
-  
-  
-  button{
-  
-    border-color: transparent;
-    background-color: #e2dcdc;
-    margin-left: 20px;
-    
-  }
-  .Boton-Uno img ,.Boton-Dos img {
-    
-    width: 40px;
-    height: 40px;
-   
-  }
-  
-  .Contenedor button {
+    transition: all 0.3s ease;
+    padding: 0 20px;
+    border: none;
+    border-bottom: transparent;
+}
+
+.Botones-Contenido:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.Boton-Uno,
+.Boton-Dos {
+    display: flex;
+    justify-content: center;
+    color: #000000;
+}
+
+span {
+    color: #000000;
+}
+
+.Boton-Uno button,
+.Boton-Dos button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.Boton-Uno button:hover,
+.Boton-Dos button:hover {
+    background-color: #d0c8c8;
+    transform: translateY(-2px);
+}
+
+.Boton-Uno button:hover img {
+    animation: bounce 0.5s;
+}
+
+.Boton-Dos button:hover img {
+    animation: spin 0.5s;
+}
+
+.Boton-Uno img,
+.Boton-Dos img {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+}
+
+.btn-eliminar {
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
+
+.Contenedor button {
     margin-left: 20%;
     margin-top: 8%;
     padding: 4%;
@@ -363,203 +388,245 @@
     border-color: #1b4cb8;
     border-radius: 25px;
     color: white;
-  }
-  .table{
-   margin-top: 10px;
-  }
-  
-  footer {
+}
+
+
+/* Paginación */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.pagination a {
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pagination a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.table {
+    margin-top: 10px;
+    width: 98%;
+    margin: 0 auto;
+}
+
+table tr {
+    animation: fadeIn 0.5s ease-out;
+}
+
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #e9e9e9;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transform: scale(1.01);
+}
+
+footer {
     margin-top: 200px;
     height: 4vh;
     background-color: #ffffff;
-  
-  
-  }
-  
-  /* Estilos específicos para la funcionalidad de importación */
-
-/* Estilos para móviles */
-@media (max-width: 768px) {
-  .btn-import, .btn-export {
-      padding: 12px 20px;
-      font-size: 16px;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      width: 100%;
-      justify-content: center;
-      touch-action: manipulation;
-  }
-  
-  #fileInput {
-      font-size: 16px;
-  }
 }
 
+
+/* Estilos para móviles */
+
+@media (max-width: 768px) {
+    .btn-import,
+    .btn-export {
+        padding: 12px 20px;
+        font-size: 16px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        justify-content: center;
+        touch-action: manipulation;
+    }
+    #fileInput {
+        font-size: 16px;
+    }
+}
+
+
 /* Estilos para el botón de importar */
+
 .btn-import {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .btn-import:hover {
-  background-color: #45a049;
+    background-color: #45a049;
 }
 
+
 /* Estilos para el spinner */
+
 .import-spinner {
-  display: inline-block;
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid rgba(255,255,255,0.3);
-  border-radius: 50%;
-  border-top-color: #fff;
-  animation: spin 1s ease-in-out infinite;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
+
 
 /* Clase para elementos ocultos */
+
 .d-none {
-  display: none !important;
+    display: none !important;
 }
 
+
 /* Alertas flotantes */
+
 .import-alert {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1100;
-  max-width: 500px;
-  width: 90%;
-  animation: fadeIn 0.3s;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100;
+    max-width: 500px;
+    width: 90%;
+    animation: fadeIn 0.3s;
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; top: 10px; }
-  to { opacity: 1; top: 20px; }
+    from {
+        opacity: 0;
+        top: 10px;
+    }
+    to {
+        opacity: 1;
+        top: 20px;
+    }
 }
 
 .import-alert.success {
-  background-color: #d4edda;
-  color: #155724;
-  border-color: #c3e6cb;
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
 }
 
 .import-alert.error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border-color: #f5c6cb;
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
 }
-  @media (min-width: 1800px) {
+
+@media (min-width: 1800px) {
     .Menu {
-      height: 65%;
+        height: 65%;
     }
-  
     .Menu li a img {
-      margin: 3%;
-      height: 15%;
-      width: 15%;
+        margin: 3%;
+        height: 15%;
+        width: 15%;
     }
-  
     .Prueba {
-      margin-top: 5%;
+        margin-top: 5%;
     }
-  
     .Prueba li a img {
-  
-      height: 15%;
-      width: 15%;
-      margin-right: 3%;
+        height: 15%;
+        width: 15%;
+        margin-right: 3%;
     }
-  
-  }
-  
-  @media (min-width: 1800px) {
+}
+
+@media (min-width: 1800px) {
     .Uno-right h2 {
-      color: white;
-      font-size: 55px;
-      margin-top: 35%;
+        color: white;
+        font-size: 55px;
+        margin-top: 35%;
     }
-  }
-  
-  @media (min-width: 1200px) {
+}
+
+@media (min-width: 1200px) {
     .Uno-right h2 {
-      color: white;
-      font-size: 45px;
-      margin-top: 25%;
+        color: white;
+        font-size: 45px;
+        margin-top: 25%;
     }
-  }
-  
-  @media (min-width: 1000px) {
+}
+
+@media (min-width: 1000px) {
     .Uno-right h2 {
-      color: white;
-      font-size: 40px;
-      margin-top: 25%;
+        color: white;
+        font-size: 40px;
+        margin-top: 25%;
     }
-  }
-  
-  @media (max-width: 800px) {
+}
+
+@media (max-width: 800px) {
     .Uno-right h2 {
-      color: white;
-      font-size: 15px;
-      margin-top: 125%;
+        color: white;
+        font-size: 15px;
+        margin-top: 125%;
     }
-  }
-  
-  @media (max-width: 500px) {
-  
+}
+
+@media (max-width: 500px) {
     .userLogo img {
-      margin: 25%;
-      width: 160%;
-      height: 30%;
-  
+        margin: 25%;
+        width: 160%;
+        height: 30%;
     }
-  
     .Usuario {
-      margin-top: 85%;
-      margin-left: 15%;
-      margin-right: 65%;
-      display: block;
-      position: right;
-      color: White;
+        margin-top: 85%;
+        margin-left: 15%;
+        margin-right: 65%;
+        display: block;
+        position: right;
+        color: White;
     }
-  
     .Uno-right h2 {
-      color: white;
-      font-size: 12px;
-      margin-top: 200%;
+        color: white;
+        font-size: 12px;
+        margin-top: 200%;
     }
-  
     .Principal-Uno img {
-      width: 80%;
-      height: 80%;
-      margin-top: 30%;
-  
+        width: 80%;
+        height: 80%;
+        margin-top: 30%;
     }
-  
     .Principal-Dos img {
-      width: 80%;
-      height: 80%;
-      margin-top: 30%;
-  
+        width: 80%;
+        height: 80%;
+        margin-top: 30%;
     }
-  
     .Principal-Tres img {
-      width: 80%;
-      height: 80%;
-      margin-top: 30%;
-  
+        width: 80%;
+        height: 80%;
+        margin-top: 30%;
     }
-  }
+}

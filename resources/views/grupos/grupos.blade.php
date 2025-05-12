@@ -100,23 +100,23 @@
                                     value="{{ old('NombreProfesor') }}" required>
 
                                 <label for="NombreCurso">Nombre del Curso:</label>
-                                <input type="text" id="NombreCurso" name="NombreCurso" value="{{ old('NombreCurso') }}">
+                                <input type="text" id="NombreCurso" name="NombreCurso" value="{{ old('NombreCurso') }}" required>
                             </div>
 
                             <!-- Segunda columna -->
                             <div class="form-section">
                                 <h3>Horario</h3>
                                 <label for="FechaInicial">Fecha Inicial:</label>
-                                <input type="date" id="FechaInicial" name="FechaInicial" value="{{ old('FechaInicial') }}">
+                                <input type="date" id="FechaInicial" name="FechaInicial" value="{{ old('FechaInicial') }}" required>
 
                                 <label for="FechaFinal">Fecha Final:</label>
-                                <input type="date" id="FechaFinal" name="FechaFinal" value="{{ old('FechaFinal') }}">
+                                <input type="date" id="FechaFinal" name="FechaFinal" value="{{ old('FechaFinal') }}" required>
 
                                 <label for="HoraInicial">Hora Inicial:</label>
-                                <input type="time" id="HoraInicial" name="HoraInicial" value="{{ old('HoraInicial') }}">
+                                <input type="time" id="HoraInicial" name="HoraInicial" value="{{ old('HoraInicial') }}" required>
 
                                 <label for="HoraFinal">Hora Final:</label>
-                                <input type="time" id="HoraFinal" name="HoraFinal" value="{{ old('HoraFinal') }}">
+                                <input type="time" id="HoraFinal" name="HoraFinal" value="{{ old('HoraFinal') }}" required>
                             </div>
 
                             <!-- Tercera columna -->
@@ -138,7 +138,7 @@
                                 <input type="text" id="SalaMovil" name="SalaMovil" value="{{ old('SalaMovil') }}" required>
 
                                 <label for="Duracion">Duracion:</label>
-                                <input type="text" id="Duracion" name="Duracion" value="{{ old('Duracion') }}">
+                                <input type="text" id="Duracion" name="Duracion" value="{{ old('Duracion') }}" required>
                             </div>
                         </div>
 
