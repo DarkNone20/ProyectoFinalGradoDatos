@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Equipo;
 use App\Exports\EquiposExport;
 use Maatwebsite\Excel\Facades\Excel;
+use App\Imports\EquiposImport;
 
 class EquiposController extends Controller
 {
@@ -65,8 +66,27 @@ class EquiposController extends Controller
         return back()->with('success', 'Equipo eliminado correctamente');
     }
 
-    public function export() 
-    {
-        return Excel::download(new EquiposExport(), 'equipos.xlsx');
+
+    public function import(Request $request)
+{
+    $request->validate([
+        'file' => 'required|mimes:xlsx,xls,csv'
+    ]);
+
+    try {
+        Excel::import(new EquiposImport, $request->file('file'));
+        return back()->with('success', 'Equipos importados correctamente.');
+    } catch (\Exception $e) {
+        return back()->with('error', 'Error al importar equipos: '.$e->getMessage());
     }
+}
+
+   public function export() 
+{
+    try {
+        return Excel::download(new EquiposExport(), 'Equipos.xlsx');
+    } catch (\Exception $e) {
+        return back()->with('error', 'Error al exportar equipos: '.$e->getMessage());
+    }
+}
 }

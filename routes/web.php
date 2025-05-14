@@ -23,42 +23,41 @@ Route::middleware('auth')->group(function () {
     // Home
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    
-    
-    // Users 
-  // Dentro del grupo de rutas protegidas (auth)
-Route::prefix('users')->group(function () {
-    Route::get('/', [UsersController::class, 'index'])->name('users.index');
-    Route::post('/', [UsersController::class, 'store'])->name('users.store');
-    Route::post('/import', [UsersController::class, 'import'])->name('users.import'); // Esta es la ruta que falta
-    Route::get('/export', [UsersController::class, 'export'])->name('users.export');
-    Route::delete('/{documentoId}', [UsersController::class, 'destroy'])->name('users.destroy');
-});
-    
-    // Prestamos 
-Route::prefix('prestamos')->group(function () {
-    Route::get('/', [PrestamoController::class, 'index'])->name('prestamos.index');
-    Route::get('/create', [PrestamoController::class, 'create'])->name('prestamos.create'); // Ruta CREATE agregada
-    Route::post('/', [PrestamoController::class, 'store'])->name('prestamos.store');
-    Route::get('/{IdPrestamo}/edit', [PrestamoController::class, 'edit'])->name('prestamos.edit'); // Ruta EDIT agregada
-    Route::put('/{IdPrestamo}', [PrestamoController::class, 'update'])->name('prestamos.update'); // Ruta UPDATE agregada
-    Route::delete('/{IdPrestamo}', [PrestamoController::class, 'destroy'])->name('prestamos.destroy');
-    Route::get('/export', [PrestamoController::class, 'export'])->name('prestamos.export'); // Ruta para exportar
-    Route::post('/prestamos/{IdPrestamo}/devolver', [PrestamoController::class, 'devolver'])
-    ->name('prestamos.devolver');; // Ruta para devolver
-        
- 
-});
 
-    // Equipos 
-  // Equipos
-Route::prefix('equipos')->group(function () {
-    Route::get('/', [EquiposController::class, 'index'])->name('equipos.index');
-    Route::get('/create', [EquiposController::class, 'create'])->name('equipos.create'); // Movida arriba y corregida
-    Route::post('/', [EquiposController::class, 'store'])->name('equipos.store');
-    Route::delete('/{ActivoFijo}/{Serial}', [EquiposController::class, 'destroy'])->name('equipos.destroy');
-    Route::get('/export', [EquiposController::class, 'export'])->name('equipos.export');
-});
+
+    // Users 
+    // Dentro del grupo de rutas protegidas (auth)
+    Route::prefix('users')->group(function () {
+        Route::get('/', [UsersController::class, 'index'])->name('users.index');
+        Route::post('/', [UsersController::class, 'store'])->name('users.store');
+        Route::post('/import', [UsersController::class, 'import'])->name('users.import');
+        Route::get('/export', [UsersController::class, 'export'])->name('users.export');
+        Route::delete('/{documentoId}', [UsersController::class, 'destroy'])->name('users.destroy');
+    });
+
+    // Prestamos 
+    Route::prefix('prestamos')->group(function () {
+        Route::get('/', [PrestamoController::class, 'index'])->name('prestamos.index');
+        Route::get('/create', [PrestamoController::class, 'create'])->name('prestamos.create');
+        Route::post('/', [PrestamoController::class, 'store'])->name('prestamos.store');
+        Route::get('/{IdPrestamo}/edit', [PrestamoController::class, 'edit'])->name('prestamos.edit');
+        Route::put('/{IdPrestamo}', [PrestamoController::class, 'update'])->name('prestamos.update');
+        Route::delete('/{IdPrestamo}', [PrestamoController::class, 'destroy'])->name('prestamos.destroy');
+        Route::get('/export', [PrestamoController::class, 'export'])->name('prestamos.export');
+        Route::post('/prestamos/{IdPrestamo}/devolver', [PrestamoController::class, 'devolver'])
+            ->name('prestamos.devolver');;
+    });
+
+
+    // Equipos
+    Route::prefix('equipos')->group(function () {
+        Route::get('/', [EquiposController::class, 'index'])->name('equipos.index');
+        Route::get('/create', [EquiposController::class, 'create'])->name('equipos.create');
+        Route::post('/', [EquiposController::class, 'store'])->name('equipos.store');
+        Route::delete('/{ActivoFijo}/{Serial}', [EquiposController::class, 'destroy'])->name('equipos.destroy');
+        Route::post('/import', [EquiposController::class, 'import'])->name('equipos.import');
+        Route::get('/export', [EquiposController::class, 'export'])->name('equipos.export');
+    });
 
     // Grupos 
     Route::prefix('grupos')->group(function () {
@@ -66,12 +65,12 @@ Route::prefix('equipos')->group(function () {
         Route::get('/', [GruposController::class, 'index'])->name('grupos.index');
         Route::post('/', [GruposController::class, 'store'])->name('grupos.store');
         Route::delete('/{IdGrupo}', [GruposController::class, 'destroy'])->name('grupos.destroy');
-        
+
         // Rutas para gestión de miembros del grupo
         Route::get('/{IdGrupo}/miembros', [GruposController::class, 'showMiembros'])->name('grupos.miembros');
         Route::post('/{IdGrupo}/asignar', [GruposController::class, 'asignarUsuario'])->name('grupos.asignarUsuario');
         Route::delete('/{IdGrupo}/remover/{DocumentoId}', [GruposController::class, 'removerUsuario'])->name('grupos.removerUsuario');
-        
+
         // Ruta para obtener usuarios disponibles para asignar a un grupo (AJAX)
         Route::get('/{IdGrupo}/usuarios-disponibles', [GruposController::class, 'getUsuariosDisponibles'])->name('grupos.usuariosDisponibles');
     });

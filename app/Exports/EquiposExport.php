@@ -16,7 +16,8 @@ class EquiposExport implements FromCollection, WithHeadings
             'Marca',
             'Modelo',
             'SalaMovil',
-            'Estado'
+            'Estado',
+            'Disponibilidad' // Columna añadida
         )->get();
     }
 
@@ -28,7 +29,8 @@ class EquiposExport implements FromCollection, WithHeadings
             'Marca',
             'Modelo',
             'Sala Móvil',
-            'Estado'
+            'Estado',
+            'Disponibilidad' // Encabezado añadido
         ];
     }
 }

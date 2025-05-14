@@ -24,6 +24,6 @@ class UsersImport implements ToModel, WithHeadingRow
 
     public function headingRow(): int
     {
-        return 1; // La fila 1 contiene los encabezados
+        return 1; 
     }
 }
