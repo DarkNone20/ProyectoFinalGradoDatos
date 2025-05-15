@@ -9,18 +9,30 @@ class HomeController extends Controller
 {
     public function index()
     {
-        //Datos de préstamos por mes del año actual
+        // Consulta para préstamos mensuales
         $prestamosPorMes = DB::table('Prestamos')
             ->select(
                 DB::raw('MONTH(FechaI) as mes'),
                 DB::raw('COUNT(*) as total')
             )
-            ->whereYear('FechaI', date('Y')) // Solo del año actual
+            ->whereYear('FechaI', date('Y')) 
             ->groupBy(DB::raw('MONTH(FechaI)'))
             ->orderBy('mes')
             ->get();
 
-        // PrepararA l datos para todos los meses (incluso los sin préstamos)
+        // Consulta para uso de salas móviles
+        $usoSalasMoviles = DB::table('Prestamos')
+            ->select(
+                'SalaMovil',
+                DB::raw('COUNT(*) as total')
+            )
+            ->whereNotNull('SalaMovil')
+            ->where('SalaMovil', '<>', '')
+            ->groupBy('SalaMovil')
+            ->orderBy('total', 'desc')
+            ->get();
+
+        // Preparar datos para gráfico mensual
         $todosMeses = [];
         $datosGrafico = [];
 
@@ -35,6 +47,7 @@ class HomeController extends Controller
         return view("home/home", [
             'meses' => $todosMeses,
             'prestamosPorMes' => $datosGrafico,
+            'usoSalasMoviles' => $usoSalasMoviles,
             'usuarioAutenticado' => $usuarioAutenticado
         ]);
     }

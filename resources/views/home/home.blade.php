@@ -11,7 +11,6 @@
         href="https://static.vecteezy.com/system/resources/thumbnails/000/595/791/small/20012019-26.jpg">
     <link rel="stylesheet" href="{{ asset('assets/style-home.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <title>Home</title>
 </head>
 
@@ -112,14 +111,12 @@
                         document.addEventListener('DOMContentLoaded', function() {
                             const ctx = document.getElementById('graficaPrestamosMensuales').getContext('2d');
                             
-                            
                             function generarColoresVariables(cantidad) {
                                 const colores = [];
                                 const hueStep = 360 / cantidad;
                                 
                                 for (let i = 0; i < cantidad; i++) {
                                     const hue = Math.round((i * hueStep) % 360);
-                                    //variación  de colores
                                     const baseColor = `hsla(${hue}, 80%, 85%, 0.8)`;
                                     const borderColor = `hsla(${hue}, 55%, 50%, 1)`;
                                     const hoverColor = `hsla(${hue}, 85%, 70%, 1)`;
@@ -133,7 +130,6 @@
                                 return colores;
                             }
                             
-                            // Generar colores para los 12 meses
                             const colores = generarColoresVariables(12);
                             
                             new Chart(ctx, {
@@ -157,7 +153,7 @@
                                     maintainAspectRatio: false,
                                     plugins: {
                                         legend: {
-                                            display: false // oculta la leyenda
+                                            display: false
                                         },
                                         tooltip: {
                                             enabled: true,
@@ -171,9 +167,7 @@
                                             bodyFont: {
                                                 size: 13
                                             },
-                                            displayColors: true, //  cuadro de color tru o false
-                                            
-                                            
+                                            displayColors: true,
                                             callbacks: {
                                                 title: function(tooltipItems) {
                                                     return tooltipItems[0].label;
@@ -228,10 +222,7 @@
                                     },
                                     animation: {
                                         duration: 1000,
-                                        easing: 'easeOutQuart',
-                                        onComplete: function() {
-                                            // Animación inicial
-                                        }
+                                        easing: 'easeOutQuart'
                                     }
                                 }
                             });
@@ -240,13 +231,87 @@
                 </div>
                 <div class="Principal-Right">
                     <div class="Principal-Arriba">
-                        <h2>Grafico de Grupos</h2>
-                        <canvas id="graficaBarrasGrupos"></canvas>
+                        <h2>Reportes</h2>
+                       <a href="{{ asset('#') }}"><i class="fa fa-home"></i>&nbsp;<img
+                            src="{{ asset('Imagenes/Reportes.png') }}" alt="inicio"></a>
                     </div>
 
                     <div class="Principal-Abajo">
-                        <h2>Grafico de Equipos</h2>
-                        <canvas id="graficaBarrasEquipos"></canvas>
+                        <h2>Uso de Salas Móviles</h2>
+                        <div class="chart-container" style="position: relative; height:300px; width:100%">
+                            <canvas id="graficaDonutSalasMoviles"></canvas>
+                        </div>
+                        <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                                const salasMoviles = @json($usoSalasMoviles->pluck('SalaMovil'));
+                                const usosSalas = @json($usoSalasMoviles->pluck('total'));
+                                
+                                const ctxDonut = document.getElementById('graficaDonutSalasMoviles').getContext('2d');
+                                
+                                function generarColoresDonut(cantidad) {
+                                    const colores = [];
+                                    const hueStep = 360 / cantidad;
+                                    
+                                    for (let i = 0; i < cantidad; i++) {
+                                        const hue = Math.round((i * hueStep) % 360);
+                                        colores.push(
+                                            `hsla(${hue}, 80%, 60%, 0.7)`,
+                                            `hsla(${hue}, 80%, 45%, 0.9)`
+                                        );
+                                    }
+                                    return colores;
+                                }
+                                
+                                const coloresDonut = generarColoresDonut(salasMoviles.length);
+                                
+                                new Chart(ctxDonut, {
+                                    type: 'doughnut',
+                                    data: {
+                                        labels: salasMoviles,
+                                        datasets: [{
+                                            data: usosSalas,
+                                            backgroundColor: coloresDonut,
+                                            borderColor: 'rgba(255, 255, 255, 0.8)',
+                                            borderWidth: 2,
+                                            hoverOffset: 10
+                                        }]
+                                    },
+                                    options: {
+                                        responsive: true,
+                                        maintainAspectRatio: false,
+                                        cutout: '65%',
+                                        plugins: {
+                                            legend: {
+                                                position: 'right',
+                                                labels: {
+                                                    padding: 20,
+                                                    font: {
+                                                        size: 12
+                                                    },
+                                                    usePointStyle: true,
+                                                    pointStyle: 'circle'
+                                                }
+                                            },
+                                            tooltip: {
+                                                callbacks: {
+                                                    label: function(context) {
+                                                        const label = context.label || '';
+                                                        const value = context.raw || 0;
+                                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                                        const percentage = Math.round((value / total) * 100);
+                                                        return `${label}: ${value} (${percentage}%)`;
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        animation: {
+                                            animateScale: true,
+                                            animateRotate: true
+                                        }
+                                    }
+                                });
+                            });
+                        </script>
                     </div>
                 </div>
             </div>
