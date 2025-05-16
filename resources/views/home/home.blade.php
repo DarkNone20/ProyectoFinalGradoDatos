@@ -103,7 +103,7 @@
                 
                 <div class="Principal-Left">
                     <h2>Préstamos de Portátiles Año - {{ date('Y') }}</h2>
-                    <div class="chart-container" style="position: relative; height:400px; width:100%">
+                    <div class="chart-container" style="position: relative; height:600px; width:100%">
                         <canvas id="graficaPrestamosMensuales"></canvas>
                     </div>
                     

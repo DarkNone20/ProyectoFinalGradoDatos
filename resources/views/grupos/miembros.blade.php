@@ -57,19 +57,22 @@
 
         <div class="Contenido">
 
+          
             <div class="Contenido-Uno">
                 <div class="Botones-Contenido">
                     <div class="Boton-Uno">
                         <button type="button-Uno" onclick="window.location.href='{{ route('grupos.index') }}'">
-                            <img src="{{ asset('Imagenes/volver.png') }}" alt="volver"> Volver
+                            <img src="{{ asset('Imagenes/Volver2.png') }}" alt="volver"> Volver
                         </button>
                     </div>
+                    <!--  
                     <div class="Boton-Dos">
                         <button type="button-Dos">
                             <img src="{{ asset('Imagenes/Exportar.png') }}" alt="exportar"> Exportar
                         </button>
-                    </div>
-                </div>
+                    </div>-->
+                </div> 
+
 
                 <div class="Tabla-Contenido mt-4">
                     <table class="table table-striped">
@@ -110,7 +113,7 @@
             </div>
 
             <div class="Contenido-Dos">
-                <h2>Agregar Miembro <p>{{ $grupo->NombreProfesor }} - {{ $grupo->NombreCurso }}</p>
+                <h2>Grupo <p>{{ $grupo->NombreProfesor }} - {{ $grupo->NombreCurso }}</p>
                 </h2>
                 <div class="Contenedor">
                     @if (session('success'))

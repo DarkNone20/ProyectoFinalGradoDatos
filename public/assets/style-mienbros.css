@@ -1,19 +1,18 @@
 * {
     margin: 0%;
     padding: 0%;
-    box-sizing: content-box;
-  }
-  
-  .Encabezado {
+    box-sizing: border-box;
+}
+
+.Encabezado {
     background-color: #1538ac;
     display: grid;
     grid-template-columns: 80% 10% 10%;
     height: 50%;
     margin: 0 auto;
-  
-  }
-  
-  .Encabezado h1 {
+}
+
+.Encabezado h1 {
     color: white;
     font-size: 300%;
     padding-top: 5%;
@@ -21,181 +20,167 @@
     text-align: center;
     margin: 0;
     align-items: center;
-  
-  
-  }
-  
-  .Titulo {
+}
+
+.Titulo {
     margin-left: 15%;
     display: inline-block;
     position: left;
     text-align: left;
-  }
-  
-  .userLogo {
+}
+
+.userLogo {
     display: inline-block;
     position: center;
-  
-  }
-  
-  .userLogo img {
+}
+
+.userLogo img {
     margin: 20%;
     width: 50%;
     height: 60%;
-  
-  }
-  
-  .userLogo img :hover {
+}
+
+.userLogo img:hover {
     transition: 0.3s;
-  
-  }
-  
-  .Usuario {
+}
+
+.Usuario {
     margin-top: 45%;
     margin-left: -15%;
     display: inline-block;
     position: right;
     color: White;
-  }
-  
-  .Usuario :hover {
+}
+
+.Usuario:hover {
     color: rgb(32, 223, 236);
-  }
-  
-  .Menu {
+}
+
+.Menu {
     height: 30%;
-  }
-  
-  .Menu li a img {
+}
+
+.Menu li a img {
     margin: 2%;
     height: 12%;
     width: 12%;
-  }
-  
-  .Prueba {
+}
+
+.Prueba {
     margin-top: 56%;
-  }
-  
-  .Prueba li a img {
+}
+
+.Prueba li a img {
     height: 12%;
     width: 12%;
     margin-right: 3%;
-  }
-  
-  body {
+}
+
+body {
     margin: 0;
     padding: 0;
     font-family: Arial;
     background: white;
-  }
-  
-  .logo{
-    padding:20px ;
+}
+
+.logo {
+    padding: 20px;
     margin-bottom: 90px;
-  }
-  .logo img{
-   
+}
+
+.logo img {
     height: 100px;
     width: 240px;
     margin-left: -30px;
-   
-  }
-  
-  
-  nav ul{
-    margin:0;
-    padding:0;
-    height:100%;
-    width:240px;
-    position:fixed;
-    top:0;
-    left:0;
-    background-color: #1538ac;
-  }
-  
-  nav ul li{
-    list-style:none;
-  }
-  
-  
-  nav ul li a{
-    display:block;
-    font-family:'montserrat';
-    text-decoration:none;
-    text-transform:uppercase;
-    font-size:17px;
-    color:#fff;
-    position:relative;
-    padding:15px 0px 15px 25px;
-    transition:all 0.5s;
-  }
-  
-  nav ul li a:before{
-    content:'';
-    position:absolute;
-    top:0;
-    right:0;
-    height:100%;
-    background:white;
-    border-radius:40px 0 0 40px;
-    z-index:-1;
-    transition:all 1s;
-  }
-  
-  nav ul li a:hover{
-    color:#0d1186;
-  }
-  
-  nav ul li a:hover:before{
-    width:95%;
-  }
-  
-  
-  .wrapper {
-    margin-left: 260px;
-  }
+}
 
-  
-  .Uno-right {
+nav ul {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #1538ac;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li a {
+    display: block;
+    font-family: 'montserrat';
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 17px;
+    color: #fff;
+    position: relative;
+    padding: 15px 0px 15px 25px;
+    transition: all 0.5s;
+}
+
+nav ul li a:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    background: white;
+    border-radius: 40px 0 0 40px;
+    z-index: -1;
+    transition: all 1s;
+}
+
+nav ul li a:hover {
+    color: #0d1186;
+}
+
+nav ul li a:hover:before {
+    width: 95%;
+}
+
+.wrapper {
+    margin-left: 260px;
+}
+
+.Uno-right {
     display: inline-block;
     position: Right;
     border-radius: 25px;
     text-align: center;
     width: 100%;
-  
-  
-  }
-  
-  .Uno-right h2 {
+}
+
+.Uno-right h2 {
     color: rgb(255, 255, 255);
     font-size: 25px;
     margin-top: 45%;
-  }
-  
-  section {
+}
+
+section {
     background-color: white;
-  }
-  
-  .box-area h2 {
+}
+
+.box-area h2 {
     text-transform: uppercase;
     font-size: 30px;
-  }
-  
-  .wrapper a {
-    text-decoration: none;
-  }
-  
-  .Contenido {
+}
 
+.wrapper a {
+    text-decoration: none;
+}
+
+.Contenido {
     display: grid;
     grid-template-columns: 70% 30%;
     align-items: left;
     height: 94vh;
     color: rgb(14, 13, 13);
-  
-  }
-  
-  .Contenido-Uno {
+}
+
+.Contenido-Uno {
     background-color: #ffffff;
     display: grid;
     grid-template-rows: 1fr 5fr;
@@ -203,238 +188,338 @@
     height: 90vh;
     margin-top: 200px;
     border-radius: 25px;
-  }
-  
-  .Contenido-Dos {
+}
+
+.Contenido-Dos {
     background-color: hsla(187, 85%, 79%, 0.953);
     height: 90vh;
     border-radius: 25px;
     margin: 10px;
     margin-top: 200px;
-  
-  }
-  
-  .Contenido-Dos h2 {
+}
+
+.Contenido-Dos h2 {
     margin: 4%;
     text-align: center;
     font-size: 36px;
     font-weight: bold;
     color: rgb(34, 8, 150);
-  }
-  
-  .Contenedor {
+}
+
+.Contenedor {
     background-color: hsla(187, 85%, 79%, 0.953);
     color: rgb(15, 14, 14);
     width: 90%;
     margin: 2%;
-    padding: 20px; 
-    border-radius: 15px; 
+    padding: 20px;
+    border-radius: 15px;
     height: 66vh;
-    
-  }
-  
-  .Contenedor form {
-  width: 100%;
-  padding: 0 5%; 
-  }
-  
-  .Contenedor label {
-  display: block;
-  width: 100%;
-  padding: 0;
-  text-align: left;
-  margin-left: 8%; 
-  font-size: 24px;
-  font-weight: bold;
-  color: rgb(34, 8, 150);
-  margin-bottom: 5px; /
-  }
-  
-  .Contenedor input {
-  width: 80%;
-  height: 40px; 
-  margin-left: 8%;
-  margin-bottom: 15px; 
-  border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.1); 
-  padding: 6px 12px;
-  font-size: 16px;
-  background-color: white;
-  }
-  
-  .Contenedor select {
-  width: 80%;
-  height: 40px; 
-  margin-left: 8%;
-  margin-bottom: 15px;
-  padding: 8px 12px;
-  font-size: 20px; 
-  font-weight: bold;
-  color: rgb(34, 8, 150);
-  border-radius: 8px;
-  border: 1px solid rgba(0,0,0,0.1);
-  background-color: white;
-  }
-  
-  .Contenedor button {
-  margin-left: 20%;
-  margin-top: 8%;
-  padding: 4%;
-  width: 50%;
-  font-size: 22px;
-  background-color: #359df1;
-  border-color: #1b4cb8;
-  border-radius: 25px;
-  color: white;
-  }
-  
-  .Contenedor button:hover {
-  background-color: #2a8bd6;
-  }
-  .Botones-Contenido{
+}
+
+.Contenedor form {
+    width: 100%;
+    padding: 0 5%;
+}
+
+.Contenedor label {
+    display: block;
+    width: 100%;
+    padding: 0;
+    text-align: left;
+    margin-left: 8%;
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(34, 8, 150);
+    margin-bottom: 5px;
+}
+
+.Contenedor input {
+    width: 90%;
+    height: 50px;
+    margin-left: 8%;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 6px 12px;
+    font-size: 16px;
+    background-color: white;
+}
+
+.Contenedor select {
+    width: 90%;
+    height: 50px;
+    margin-left: 8%;
+    margin-bottom: 15px;
+    padding: 8px 12px;
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(34, 8, 150);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+.Contenedor button {
+    display: block; 
+    margin: 8% auto 0 auto; 
+    margin-top: 60px;
+    width: 60%;
+    font-size: 22px;
+    background-color: #359df1;
+    border-color: #1b4cb8;
+    border-radius: 25px;
+    color: white;
+    text-align: center; 
+}
+
+.Contenedor button:hover {
+    background-color: #2a8bd6;
+}
+
+.Botones-Contenido {
     display: grid;
     grid-template-columns: 50% 50%;
     background-color: #e2dcdc;
     align-items: center;
     height: 10vh;
     border-radius: 25px;
-    
-  }
-  
-  
-  button{
-  
+}
+
+button {
     border-color: transparent;
     background-color: #e2dcdc;
     margin-left: 20px;
-    
-  }
-  .Boton-Uno img ,.Boton-Dos img {
-    
+    color: #0d1186;
+}
+
+.Boton-Uno img,
+.Boton-Dos img {
     width: 40px;
     height: 40px;
-   
-  }
-  .btn-eliminar {
+}
+
+.btn-eliminar {
     align-items: center;
     background-color: transparent;
-  }
-  
-  .btn-eliminar img{
-  width: 20px;
-  height: 20px;
-  }
-  .table{
-    margin-top: 10px;
-   }
-   
+}
 
-  footer {
+.btn-eliminar img {
+    width: 20px;
+    height: 20px;
+}
+
+.table {
+    margin-top: 10px;
+}
+
+footer {
     margin-top: 200px;
     height: 4vh;
     background-color: #1e53c4;
-  
-  
-  }
- 
-  @media (min-width: 1800px) {
-    .Menu {
-      height: 65%;
+}
+
+/* Media Queries para Responsive Design */
+@media (max-width: 1200px) {
+    .Contenido {
+        grid-template-columns: 60% 40%;
     }
-  
-    .Menu li a img {
-      margin: 3%;
-      height: 15%;
-      width: 15%;
+    
+    .Contenido-Uno, .Contenido-Dos {
+        margin-top: 150px;
+        height: auto;
     }
-  
-    .Prueba {
-      margin-top: 5%;
+    
+    .Contenedor {
+        height: auto;
+        padding-bottom: 20px;
     }
-  
-    .Prueba li a img {
-  
-      height: 15%;
-      width: 15%;
-      margin-right: 3%;
+    
+    .Contenido-Dos h2 {
+        font-size: 28px;
     }
-  
-  }
-  
-  @media (min-width: 1800px) {
-    .Uno-right h2 {
-      color: white;
-      font-size: 55px;
-      margin-top: 35%;
+    
+    .Contenedor label, .Contenedor select {
+        font-size: 18px;
     }
-  }
-  
-  @media (min-width: 1200px) {
-    .Uno-right h2 {
-      color: white;
-      font-size: 45px;
-      margin-top: 25%;
+    
+    .Contenedor button {
+        font-size: 18px;
+        padding: 3%;
     }
-  }
-  
-  @media (min-width: 1000px) {
-    .Uno-right h2 {
-      color: white;
-      font-size: 40px;
-      margin-top: 25%;
+}
+
+@media (max-width: 992px) {
+    .Contenido {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        height: auto;
     }
-  }
-  
-  @media (max-width: 800px) {
-    .Uno-right h2 {
-      color: white;
-      font-size: 15px;
-      margin-top: 125%;
+    
+    .Contenido-Uno, .Contenido-Dos {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        height: auto;
     }
-  }
-  
-  @media (max-width: 500px) {
-  
+    
+    .wrapper {
+        margin-left: 240px;
+    }
+    
+    .Encabezado h1 {
+        font-size: 200%;
+        padding-top: 3%;
+    }
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        width: 200px;
+    }
+    
+    .wrapper {
+        margin-left: 200px;
+    }
+    
+    .logo img {
+        width: 180px;
+        height: 75px;
+        margin-left: -20px;
+    }
+    
+    nav ul li a {
+        font-size: 14px;
+        padding: 12px 0px 12px 20px;
+    }
+    
+    .Encabezado {
+        grid-template-columns: 70% 15% 15%;
+    }
+    
+    .Encabezado h1 {
+        font-size: 150%;
+    }
+    
     .userLogo img {
-      margin: 25%;
-      width: 160%;
-      height: 30%;
-  
+        width: 40px;
+        height: 40px;
     }
-  
+    
     .Usuario {
-      margin-top: 85%;
-      margin-left: 15%;
-      margin-right: 65%;
-      display: block;
-      position: right;
-      color: White;
+        font-size: 14px;
     }
-  
-    .Uno-right h2 {
-      color: white;
-      font-size: 12px;
-      margin-top: 200%;
+    
+    .Contenedor label, .Contenedor select {
+        font-size: 16px;
     }
-  
-    .Principal-Uno img {
-      width: 80%;
-      height: 80%;
-      margin-top: 30%;
-  
+    
+    .Contenedor input, .Contenedor select {
+        width: 90%;
+        margin-left: 5%;
     }
-  
-    .Principal-Dos img {
-      width: 80%;
-      height: 80%;
-      margin-top: 30%;
-  
+    
+    .Contenedor button {
+        margin-left: 15%;
+        width: 70%;
     }
-  
-    .Principal-Tres img {
-      width: 80%;
-      height: 80%;
-      margin-top: 30%;
-  
+}
+
+@media (max-width: 576px) {
+    nav ul {
+        width: 160px;
     }
-  }
+    
+    .wrapper {
+        margin-left: 160px;
+    }
+    
+    .logo img {
+        width: 140px;
+        height: 60px;
+        margin-left: -15px;
+    }
+    
+    nav ul li a {
+        font-size: 12px;
+        padding: 10px 0px 10px 15px;
+    }
+    
+    .Encabezado {
+        grid-template-columns: 60% 20% 20%;
+    }
+    
+    .Encabezado h1 {
+        font-size: 120%;
+        margin-left: -10%;
+    }
+    
+    .userLogo img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .Usuario {
+        font-size: 12px;
+        margin-top: 50%;
+    }
+    
+    .Botones-Contenido {
+        grid-template-columns: 1fr;
+        height: auto;
+        padding: 10px 0;
+    }
+    
+    button {
+        margin: 5px 0;
+    }
+    
+    .Boton-Uno img, .Boton-Dos img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .Contenedor label {
+        font-size: 14px;
+        margin-left: 5%;
+    }
+    
+    .Contenedor input, .Contenedor select {
+        width: 90%;
+        margin-left: 5%;
+        font-size: 14px;
+    }
+    
+    .Contenedor button {
+        font-size: 16px;
+        padding: 3%;
+    }
+    
+    .table {
+        font-size: 14px;
+    }
+    
+    .table th, .table td {
+        padding: 8px;
+    }
+}
+
+@media (min-width: 1800px) {
+    .Menu {
+        height: 65%;
+    }
+
+    .Menu li a img {
+        margin: 3%;
+        height: 15%;
+        width: 15%;
+    }
+
+    .Prueba {
+        margin-top: 5%;
+    }
+
+    .Prueba li a img {
+        height: 15%;
+        width: 15%;
+        margin-right: 3%;
+    }
+}

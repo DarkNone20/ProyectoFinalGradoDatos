@@ -156,64 +156,62 @@ section {
 }
 
 /* SECCIÓN GROUP */
-.Group{
-  
+.Group {
   display: grid;
   grid-template-columns: 25% 25% 25% 25%;
   padding: 0.5%;
   height: 22vh;
   margin-top: 1%;
-  
 }
-.Group :hover{
+
+.Group:hover {
   color: #000;
   transition: all;
 }
-.Group h1{
- text-align: center;
- color: #fff;
- font-size: 200%;
- margin-top: 35%;
 
+.Group h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 200%;
+  margin-top: 35%;
 }
 
-.Group img{
+.Group img {
   width: 80%;
   height: 50%;
   margin-left: 10%;
   margin-top: 45%;
-
 }
 
-
-.Group a{
+.Group a {
   text-decoration: none;
 }
-.Clase1{
 
- background-color: #04D92D;
- margin: 2%;
- border-radius: 4%;
- display: grid;
- grid-template-columns: 30% 70%;
- 
+.Clase1 {
+  background-color: #04D92D;
+  margin: 2%;
+  border-radius: 4%;
+  display: grid;
+  grid-template-columns: 30% 70%;
 }
-.Clase2{
+
+.Clase2 {
   background-color: rgb(124, 20, 156);
   margin: 2%;
   border-radius: 4%;
   display: grid;
   grid-template-columns: 30% 70%;
-  
 }
-.Clase3{
+
+.Clase3 {
   background-color: rgb(39, 118, 207);
   margin: 2%;
   border-radius: 4%;
   display: grid;
   grid-template-columns: 30% 70%;
 }
-.Clase4{
+
+.Clase4 {
   background-color: rgb(245, 206, 34);
   margin: 2%;
   border-radius: 2%;
@@ -221,67 +219,77 @@ section {
   grid-template-columns: 30% 70%;
 }
 
-.Clase1 :hover{
+.Clase1:hover {
   background-color: #1dac3a;
   color: #fafafa;
   border-radius: 2%;
 }
-.Clase2 :hover{
+
+.Clase2:hover {
   background-color: rgb(119, 6, 153);
   color: #fafafa;
   border-radius: 2%;
 }
-.Clase3 :hover{
+
+.Clase3:hover {
   background-color: rgb(15, 84, 163);
   color: #fafafa;
   border-radius: 2%;
 }
-.Clase4 :hover{
+
+.Clase4:hover {
   background-color: rgb(224, 170, 19);
   color: #fafafa;
   border-radius: 2%;
 }
-.Clase1-left{
+
+.Clase1-left {
   display: inline-block;
   position: left;
   background-color: #82f056;
   border-radius: 4%;
 }
-.Clase1-Right{
+
+.Clase1-Right {
   display: inline-block;
   position: Right;
   align-items: center;
 }
 
-.Clase2-left{
+.Clase2-left {
   display: inline-block;
   position: left;
   background-color: rgb(161, 30, 201);
   border-radius: 4%;
 }
-.Clase2-Right{
+
+.Clase2-Right {
   display: inline-block;
   position: Right;
   align-items: center;
 }
-.Clase3-left{
+
+.Clase3-left {
   display: inline-block;
   position: left;
   background-color: rgb(82, 150, 228);
   border-radius: 4%;
 }
-.Clase3-Right{
+
+.Clase3-Right {
   display: inline-block;
   position: Right;
   align-items: center;
 }
-.Clase4-left{
+
+.Clase4-left {
   display: inline-block;
   position: left;
   background-color: rgb(241, 218, 87);
   border-radius: 4%;
 }
-.Clase4-Right{
+
+.Clase4-Right {
   display: inline-block;
   position: Right;
   align-items: center;
@@ -329,7 +337,7 @@ section {
 .Principal h2 {
   color: #0d1186;
   font-weight: 400;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .Principal-Arriba img {
@@ -338,17 +346,26 @@ section {
   margin: 5%;
 }
 
-/* Contenedor de la gráfica */
+/* Contenedores de gráficas responsive */
 .chart-container {
-  flex: 1;
-  width: 100%;
-  min-height: 400px;
   position: relative;
+  width: 100%;
+  min-height: 300px;
 }
 
-#graficaPrestamosMensuales {
+.Principal-Left .chart-container {
+  height: 400px;
+}
+
+.Principal-Abajo .chart-container {
+  height: 300px;
+}
+
+/* Ajustes para gráficas en canvas */
+canvas {
   width: 100% !important;
   height: 100% !important;
+  display: block;
 }
 
 /* FOOTER */
@@ -392,6 +409,14 @@ footer {
   .Principal {
     grid-template-columns: 70% 30%;
   }
+  
+  .Principal-Left .chart-container {
+    height: 400px;
+  }
+  
+  .Principal-Abajo .chart-container {
+    height: 300px;
+  }
 }
 
 @media (max-width: 1400px) {
@@ -403,6 +428,21 @@ footer {
 @media (max-width: 1200px) {
   .Group {
     grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+  
+  .Group h1 {
+    margin-top: 20%;
+  }
+}
+
+@media (max-width: 992px) {
+  .Principal-Left .chart-container {
+    height: 350px;
+  }
+  
+  .Principal-Abajo .chart-container {
+    height: 250px;
   }
 }
 
@@ -414,11 +454,29 @@ footer {
   .Principal-Arriba, .Principal-Abajo {
     margin-bottom: 15px;
   }
+  
+  .Principal-Left .chart-container {
+    height: 300px;
+  }
+  
+  .Principal-Abajo .chart-container {
+    height: 200px;
+  }
 }
 
 @media (max-width: 600px) {
   .Group {
     grid-template-columns: 1fr;
+    height: auto;
+  }
+  
+  .Group h1 {
+    margin-top: 10%;
+    font-size: 1.5rem;
+  }
+  
+  .Group img {
+    margin-top: 20%;
   }
   
   .userLogo img {
@@ -430,5 +488,29 @@ footer {
   .Usuario {
     margin-top: 45%;
     margin-left: 105%;
+  }
+  
+  .Principal-Left .chart-container {
+    height: 250px;
+  }
+  
+  .Principal-Abajo .chart-container {
+    height: 180px;
+  }
+}
+
+/* Ajustes específicos para gráficas en móviles */
+@media (max-width: 480px) {
+  .Principal-Left h2,
+  .Principal-Abajo h2 {
+    font-size: 1.2rem;
+  }
+  
+  .Principal-Left .chart-container {
+    height: 220px;
+  }
+  
+  .Principal-Abajo .chart-container {
+    height: 150px;
   }
 }
