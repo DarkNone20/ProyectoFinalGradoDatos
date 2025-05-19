@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Grupos;
-use App\Models\Prestamos; // Asegúrate que el namespace de Users es este o el correcto
+use App\Models\Prestamos;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\PrestamosExport;
-use Illuminate\Support\Facades\Auth; // Importante para obtener el usuario autenticado
+use Illuminate\Support\Facades\Auth; 
 
 class ReportesController extends Controller
 {
@@ -29,8 +29,7 @@ class ReportesController extends Controller
             $query->where('Estado', $request->estado);
         }
 
-        // Corregir para ser consistente: si tu FK en Prestamos es GrupoId, usa GrupoId.
-        // Si tu FK es IdGrupo, usa IdGrupo. Aquí asumo que es GrupoId basado en tu primer filtro.
+      
         if ($request->filled('grupo')) {
             $query->where('GrupoId', $request->grupo);
         }

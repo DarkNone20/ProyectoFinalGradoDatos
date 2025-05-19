@@ -9,22 +9,22 @@
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="shortcut icon"
         href="https://static.vecteezy.com/system/resources/thumbnails/000/595/791/small/20012019-26.jpg">
-    <!-- Asegúrate que este archivo CSS exista en public/assets/style-prestamos.css -->
+    
     <link rel="stylesheet" href="{{ asset('assets/style-reportes.css') }}">
     <title>Reportes de Préstamos</title>
-    <!-- Si usas FontAwesome para los íconos de los botones de filtro -->
+  
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
 <body>
-    <!-- Botón del menú móvil -->
+   
     <button class="menu-toggle" id="menuToggle">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <!-- Menú lateral -->
+   
     <nav>
         <ul id="mainMenu">
             <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
@@ -91,9 +91,9 @@
                                 <select class="form-select" id="grupo" name="grupo">
                                     <option value="">Todos</option>
                                     @foreach($grupos as $grupo)
-                                        {{-- Asegúrate que IdGrupo y irupo (o NombreCurso) sean las propiedades correctas de tu modelo Grupo --}}
+                                       
                                         <option value="{{ $grupo->IdGrupo }}" {{ request('grupo') == $grupo->IdGrupo ? 'selected' : '' }}>
-                                            {{ $grupo->irupo ?? $grupo->NombreCurso }} {{-- Muestra irupo si existe, sino NombreCurso --}}
+                                            {{ $grupo->irupo ?? $grupo->NombreCurso }} 
                                         </option>
                                     @endforeach
                                 </select>
@@ -122,7 +122,7 @@
                     </form>
                 </div>
 
-                <!-- Estadísticas resumidas -->
+             
                 <div class="Estadisticas mb-4">
                     <div class="row">
                         <div class="col-md-4">
@@ -152,7 +152,7 @@
                     </div>
                 </div>
 
-                <!-- Botones de exportación y gráficos -->
+              
                 <div class="Botones-Exportacion mb-4">
                     <div class="d-flex justify-content-between">
                         <div>
@@ -174,9 +174,8 @@
                     </div>
                 </div>
 
-                <!-- Tabla de resultados -->
                 <div class="Tabla-Contenido">
-                    <table class="table table-striped table-hover"> <!-- Agregado table-hover -->
+                    <table class="table table-striped table-hover"> 
                         <thead class="table-dark">
                             <tr>
                                 <th>ID</th>
@@ -225,7 +224,7 @@
                         </tbody>
                     </table>
 
-                    <!-- Paginación -->
+                   
                     <div class="d-flex justify-content-center mt-3">
                         {{ $prestamos->links() }}
                     </div>
@@ -234,32 +233,44 @@
         </div>
     </div>
 
-    <!-- Modal para gráficos -->
+   
     <div class="modal fade" id="graficosModal" tabindex="-1" aria-labelledby="graficosModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl"> <!-- Cambiado a modal-xl para más espacio -->
+        <div class="modal-dialog modal-xl"> 
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="graficosModalLabel">Estadísticas de Préstamos</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <div class="row mb-3">
-                        <div class="col-md-6">
-                            <h6 class="text-center">Distribución por Estado</h6>
-                            <canvas id="estadosChart" width="400" height="300"></canvas>
-                        </div>
-                        <div class="col-md-6">
-                            <h6 class="text-center">Préstamos por Grupo</h6>
-                            <canvas id="gruposChart" width="400" height="300"></canvas>
-                        </div>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-md-12">
-                            <h6 class="text-center">Tendencia Mensual de Préstamos (Últimos 6 meses)</h6>
-                            <canvas id="mensualChart" width="800" height="300"></canvas>
-                        </div>
-                    </div>
+               <div class="modal-body">
+    <div class="row mb-3">
+        <div class="col-md-6 mb-4 mb-md-0">
+            <div class="chart-card">
+                <h6 class="text-center">Distribución por Estado</h6>
+                <div class="chart-container">
+                    <canvas id="estadosChart"></canvas>
                 </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="chart-card">
+                <h6 class="text-center">Préstamos por Grupo</h6>
+                <div class="chart-container">
+                    <canvas id="gruposChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="chart-card">
+                <h6 class="text-center">Tendencia Mensual de Préstamos (Últimos 6 meses)</h6>
+                <div class="chart-container">
+                    <canvas id="mensualChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
@@ -267,7 +278,7 @@
         </div>
     </div>
 
-    <!-- Scripts -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>

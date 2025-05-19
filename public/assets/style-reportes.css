@@ -1,5 +1,4 @@
 /* ===== RESET Y ESTILOS BASE ===== */
-
 * {
     margin: 0;
     padding: 0;
@@ -16,61 +15,35 @@ body {
     overflow-x: hidden;
 }
 
-
 /* ===== ANIMACIONES ===== */
-
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes bounce {
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
 
 @keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 @keyframes pulse {
-    0%,
-    100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.05);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
-
 /* ===== ESTRUCTURA PRINCIPAL ===== */
-
 .wrapper {
     margin-left: 260px;
     padding: 20px;
     animation: fadeIn 0.5s ease-out;
 }
 
-
 /* ===== MENÚ RESPONSIVE ===== */
-
 nav ul {
     margin: 0;
     padding: 0;
@@ -124,9 +97,7 @@ nav ul li a:hover:before {
     width: 95%;
 }
 
-
 /* Icono del menú móvil */
-
 .menu-toggle {
     display: none;
     position: fixed;
@@ -160,9 +131,7 @@ nav ul li a:hover:before {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-
 /* Logo */
-
 .logo {
     padding: 20px;
     margin-bottom: 90px;
@@ -182,9 +151,7 @@ nav ul li a:hover:before {
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
 }
 
-
 /* Menú principal */
-
 .Menu {
     height: 65%;
 }
@@ -207,9 +174,7 @@ nav ul li a:hover:before {
     margin-top: 5%
 }
 
-
 /* ===== ENCABEZADO ===== */
-
 .Encabezado {
     background-color: #1538ac;
     display: grid;
@@ -274,9 +239,7 @@ nav ul li a:hover:before {
     transform: translateX(5px);
 }
 
-
 /* ===== CONTENIDO PRINCIPAL ===== */
-
 .Contenido {
     display: grid;
     grid-template-columns: 100%;
@@ -303,10 +266,7 @@ nav ul li a:hover:before {
     transform: translateY(-2px);
 }
 
-
-
 /* ===== TABLA RESPONSIVE ===== */
-
 .Tabla-Contenido {
     width: 100%;
     overflow-x: auto;
@@ -355,9 +315,7 @@ nav ul li a:hover:before {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-
 /* Paginación */
-
 .pagination {
     display: flex;
     justify-content: center;
@@ -380,9 +338,7 @@ nav ul li a:hover:before {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-
 /* Badges de estado */
-
 .badge {
     transition: all 0.3s ease;
     font-size: 0.85em;
@@ -394,7 +350,6 @@ nav ul li a:hover:before {
     box-shadow: 0 0 0 1px #28a745;
 }
 
-
 .badge.bg-warning {
     box-shadow: 0 0 0 1px #b1aea5;
 }
@@ -403,8 +358,8 @@ nav ul li a:hover:before {
     transform: scale(1.05);
     box-shadow: 0 0 0 2px currentColor;
 }
-/*Reportes  */
-/* Estilos específicos para reportes */
+
+/* ===== REPORTES ===== */
 .Filtros-Reporte {
     background-color: #f8f9fa;
     padding: 20px;
@@ -446,14 +401,44 @@ nav ul li a:hover:before {
     gap: 8px;
 }
 
-/* Ajustes para el modal de gráficos */
+/* ===== MODAL DE GRÁFICOS ===== */
+#graficosModal .modal-dialog {
+    max-width: 95%;
+    max-height: 90vh;
+    margin: 1rem auto;
+}
+
+#graficosModal .modal-content {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+}
+
 #graficosModal .modal-body {
+    overflow-y: auto;
+    flex: 1;
     padding: 20px;
 }
 
+.chart-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-container {
+    position: relative;
+    flex: 1;
+    min-height: 250px;
+}
+
 #graficosModal canvas {
-    max-width: 100%;
-    height: auto;
+    width: 100% !important;
+    height: auto !important;
 }
 
 /* Estilos para la tabla de reportes */
@@ -475,8 +460,8 @@ nav ul li.active a:before {
     width: 95%;
     background: white;
 }
-/* Footer */
 
+/* Footer */
 footer {
     height: 60px;
     margin-top: 50px;
@@ -493,9 +478,7 @@ footer:hover {
     background-color: #3c0bad;
 }
 
-
 /* ===== MEDIA QUERIES ===== */
-
 @media (max-width: 1200px) {
     .wrapper {
         margin-left: 240px;
@@ -513,10 +496,14 @@ footer:hover {
     .table td {
         padding: 10px 8px;
     }
-    .Boton-Uno button,
-    .Boton-Dos button {
-        padding: 8px 15px;
-        font-size: 0.9rem;
+    
+    /* Ajustes para modal en tablet */
+    #graficosModal .modal-dialog {
+        max-width: 98%;
+    }
+    
+    .chart-container {
+        min-height: 200px;
     }
 }
 
@@ -536,6 +523,7 @@ footer:hover {
         margin-left: 0;
         padding-top: 80px;
     }
+    
     /* Animación del icono hamburguesa */
     .menu-toggle.active span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
@@ -546,6 +534,7 @@ footer:hover {
     .menu-toggle.active span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
+    
     /* Ajustes para el contenido con menú abierto */
     body.menu-open {
         overflow: hidden;
@@ -560,6 +549,7 @@ footer:hover {
         background: rgba(0, 0, 0, 0.5);
         z-index: 900;
     }
+    
     .Encabezado {
         grid-template-columns: 1fr;
         text-align: center;
@@ -580,6 +570,19 @@ footer:hover {
     .table {
         min-width: 600px;
     }
+    
+    /* Ajustes para modal en móvil */
+    #graficosModal .modal-dialog {
+        margin: 0.5rem auto;
+    }
+    
+    .chart-card {
+        padding: 10px;
+    }
+    
+    #graficosModal h6 {
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -591,17 +594,7 @@ footer:hover {
         width: 80%;
         height: auto;
     }
-    .Botones-Contenido {
-        grid-template-columns: 1fr;
-        height: auto;
-        padding: 10px;
-        gap: 10px;
-    }
-    .Boton-Uno button,
-    .Boton-Dos button {
-        width: 100%;
-        justify-content: center;
-    }
+    
     .table {
         min-width: 500px;
         font-size: 12px;
@@ -610,18 +603,18 @@ footer:hover {
     .table td {
         padding: 8px 5px;
     }
-    .pagination {
-        justify-content: center;
+    
+    /* Ajustes para modal en móviles pequeños */
+    .chart-container {
+        min-height: 180px;
     }
-    .pagination a {
-        padding: 5px 10px;
-        margin: 0 2px;
+    
+    #graficosModal .modal-body {
+        padding: 10px;
     }
 }
 
-
 /* Clase para animaciones de carga */
-
 .loaded .table tbody tr {
     animation: fadeIn 0.5s ease forwards;
 }
