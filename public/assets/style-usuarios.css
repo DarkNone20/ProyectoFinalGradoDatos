@@ -1,99 +1,50 @@
+/* ===== RESET Y ESTILOS BASE ===== */
 * {
-    margin: 0%;
-    padding: 0%;
-    box-sizing: content-box;
-}
-
-.Encabezado {
-    background-color: #1538ac;
-    display: grid;
-    grid-template-columns: 80% 10% 10%;
-    height: 50%;
-    margin: 0 auto;
-}
-
-.Encabezado h1 {
-    color: white;
-    font-size: 300%;
-    padding-top: 5%;
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
     margin: 0;
-    align-items: center;
-}
-
-.Titulo {
-    margin-left: 15%;
-    display: inline-block;
-    position: left;
-    text-align: left;
-}
-
-.userLogo {
-    display: inline-block;
-    position: center;
-}
-
-.userLogo img {
-    margin: 20%;
-    width: 50%;
-    height: 60%;
-}
-
-.userLogo img :hover {
-    transition: 0.3s;
-}
-
-.Usuario {
-    margin-top: 45%;
-    margin-left: -15%;
-    display: inline-block;
-    position: right;
-    color: White;
-}
-
-.Usuario :hover {
-    color: rgb(32, 223, 236);
-}
-
-.Menu {
-    height: 30%;
-}
-
-.Menu li a img {
-    margin: 2%;
-    height: 12%;
-    width: 12%;
-}
-
-.Prueba {
-    margin-top: 56%;
-}
-
-.Prueba li a img {
-    height: 12%;
-    width: 12%;
-    margin-right: 3%;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 body {
+    font-family: Arial, sans-serif;
+    background: white;
     margin: 0;
     padding: 0;
-    font-family: Arial;
-    background: white;
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-.logo {
-    padding: 20px;
-    margin-bottom: 90px;
+/* ===== ANIMACIONES ===== */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
-.logo img {
-    height: 100px;
-    width: 240px;
-    margin-left: -30px;
+/* ===== ESTRUCTURA PRINCIPAL ===== */
+.main-container-with-sidebar {
+    margin-left: 260px;
+    padding: 20px; /* Este padding es importante para los márgenes negativos del encabezado original */
+    animation: fadeIn 0.5s ease-out;
+    transition: margin-left 0.3s ease;
+}
+.page-content-original {
+    /* No necesita margin-left, su padre lo maneja */
+}
+.main-container-with-sidebar a {
+    text-decoration: none;
 }
 
+
+/* ===== MENÚ RESPONSIVE ===== */
 nav ul {
     margin: 0;
     padding: 0;
@@ -103,24 +54,25 @@ nav ul {
     top: 0;
     left: 0;
     background-color: #1538ac;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: transform 0.3s ease, width 0.3s ease, left 0.3s ease;
 }
-
 nav ul li {
     list-style: none;
 }
-
 nav ul li a {
-    display: block;
-    font-family: 'montserrat';
+    display: flex;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 17px;
     color: #fff;
     position: relative;
     padding: 15px 0px 15px 25px;
-    transition: all 0.5s;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
-
 nav ul li a:before {
     content: '';
     position: absolute;
@@ -130,400 +82,639 @@ nav ul li a:before {
     background: white;
     border-radius: 40px 0 0 40px;
     z-index: -1;
-    transition: all 1s;
+    transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    width: 0;
 }
-
 nav ul li a:hover {
     color: #0d1186;
+    transform: translateX(5px);
 }
-
 nav ul li a:hover:before {
     width: 95%;
 }
 
-.wrapper {
-    margin-left: 260px;
-}
-
-section {
-    background-color: white;
-}
-
-.box-area h2 {
-    text-transform: uppercase;
-    font-size: 30px;
-}
-
-.wrapper a {
-    text-decoration: none;
-}
-
-.Principal {
-    display: grid;
-    grid-template-columns: 50% 50%;
+.menu-toggle {
+    display: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+    background: #4215ac;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    justify-content: center;
     align-items: center;
-    height: 20vh;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 3px;
+}
+.menu-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    padding: 20px;
+    margin-bottom: 90px;
+    text-align: center;
+    margin-left: -30px;
+}
+.logo img {
+    height: 100px;
+    width: 240px;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+.logo:hover img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+}
+
+.Menu {
+    height: 65%;
+}
+.Menu li a img,
+.Prueba li a img {
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    transition: all 0.3s ease;
+}
+.Menu li a:hover img,
+.Prueba li a:hover img {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+}
+.Prueba {
+    margin-top: 5%;
+}
+
+/* ===== ENCABEZADO  ===== */
+.Encabezado {
+    background-color: #1538ac;
+    display: grid;
+    grid-template-columns: 80% 10% 10%; 
+    min-height: 180px;                
+    padding-top: 15px;                 
+    padding-bottom: 15px;               
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;           
+    margin-right: -20px;   
+    margin-top: -20px;              
+    z-index: 900;                      
+                
+    
+}
+
+.Encabezado .Titulo {                 
+    margin-left: 15%;                  
+    text-align: left;                   
+    align-self: center;
+    text-align: center;            
+}
+
+.Encabezado h1 {
     color: white;
+    font-size: 300%;                  
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;                   
 }
 
-.Principal-Uno {
+.Encabezado .userLogo {                 
+    text-align: center;                 
+    align-self: center;                
+}
+
+.Encabezado .userLogo img {
+    margin: 20%;
+    width: 50%;
+    height: 60%;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.Encabezado .userLogo:hover img {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.4));
+}
+
+.Encabezado .Usuario {                  
+    color: white;
+    transition: all 0.3s ease;
+    text-align: center;               
+    align-self: center;                 
+    padding-right: 10px;               /
+}
+
+.Encabezado .Usuario p {
+    margin: 0;
+}
+
+.Encabezado .Usuario:hover {
+    color: rgb(32, 223, 236);
+    text-shadow: 0 0 8px rgba(32, 223, 236, 0.6);
+    transform: translateX(5px);
+}
+
+
+/* ===== SECCIÓN "PRINCIPAL" (Estilo Original para Escritorio) ===== */
+.page-content-original .Principal {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 50% 50%; /* Original */
+    align-items: center; /* Original */
+    height: 30vh; /* Original - Esto puede causar problemas de desbordamiento si el contenido es mayor */
+    color: white;
+    margin-bottom: 30px;
+}
+.page-content-original .Principal-Uno,
+.page-content-original .Principal-Dos {
+    display: grid;
+    grid-template-columns: 30% 70%; /* Original */
+    margin: 5%; /* Original */
+    height: 80%; /* Original (80% de 20vh) */
+    border-radius: 25px;
+    width: 90%; /* Original era 93%, ajustado un poco para que quepa mejor con el margin 5% */
+    overflow: hidden;
+    padding: 10px; /* Añadido padding para mejor espaciado interno */
+    box-sizing: border-box; /* Para que el padding no aumente el width/height total */
+}
+.page-content-original .Principal-Uno {
     background-color: #25d4eb;
-    grid: 40% 60%;
-    margin: 5%;
-    height: 80%;
-    border-radius: 25px;
-    width: 93%;
-    margin: 5%;
 }
-
-.Principal-Uno img {
-    width: 100%;
-    height: 80%;
-    margin-top: 14%;
-}
-
-.Principal-Dos {
-    display: grid;
-    grid-template-columns: 30% 70%;
+.page-content-original .Principal-Dos {
     background-color: #5be662;
-    grid: 40% 60%;
-    margin: 5%;
-    height: 80%;
-    border-radius: 25px;
-    width: 93%;
 }
 
-.Principal-Dos img {
-    width: 90%;
-    height: 80%;
-    margin-top: 14%;
-}
-
-.btn-eliminar {
+.page-content-original .Principal-Uno .Uno-lef,
+.page-content-original .Principal-Dos .Uno-lef {
+    border-radius: 15px; /* Original era 25px, ajustado */
+    display: flex;
     align-items: center;
-    background-color: transparent;
+    justify-content: center;
+    padding: 5px; /* Original no tenía, añadido */
+    height: 100%; /* Para que ocupe la altura de la celda del grid */
+}
+.page-content-original .Principal-Uno .Uno-lef {
+    background-color: #25c3df; /* Original */
+}
+.page-content-original .Principal-Dos .Uno-lef {
+    background-color: #25df4d; /* Original */
 }
 
-.btn-eliminar img {
-    width: 20px;
-    height: 20px;
+.page-content-original .Principal-Uno img,
+.page-content-original .Principal-Dos img {
+    /* width: 100%; Original - puede ser muy grande */
+    /* height: 80%; Original - puede distorsionar */
+    max-width: 80%;  /* Ajustado */
+    max-height: 80%; /* Ajustado */
+    object-fit: contain; /* Para que la imagen se escale bien sin distorsionarse */
+    /* margin-top: 14%; Original - flex lo centra mejor */
+    display: block;
 }
 
-.Principal-Uno .Uno-lef {
-    display: inline-block;
-    position: left;
-    background-color: #25c3df;
-    border-radius: 25px;
-    width: 100%;
+.page-content-original .Uno-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
+    height: 100%; /* Para centrar verticalmente el h2 */
+    padding: 0 10px; /* Espacio para el texto */
 }
-
-.Principal-Dos .Uno-lef {
-    display: inline-block;
-    position: left;
-    background-color: #25df4d;
-    border-radius: 25px;
+.page-content-original .Uno-right a {
+    text-decoration: none;
+    color: white;
     width: 100%;
-    text-align: center;
-}
-
-
-/* Paginación */
-
-.pagination {
+    height: 100%;
     display: flex;
     justify-content: center;
-    margin: 20px 0;
-    flex-wrap: wrap;
-    gap: 5px;
+    align-items: center;
 }
-
-.pagination a {
-    padding: 8px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.pagination a:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.Uno-right {
-    display: inline-block;
-    position: Right;
-    border-radius: 25px;
-    text-align: center;
-    width: 100%;
-}
-
-.Uno-right h2 {
+.page-content-original .Uno-right h2 {
     color: rgb(255, 255, 255);
-    font-size: 25px;
-    margin-top: 45%;
+    font-size: 35px; /* Original */
+    /* margin-top: 25%; Original - flex lo centra mejor */
+    margin-bottom: 0;
+    line-height: 1.2; /* Para textos largos */
 }
 
-.Contenido {
+
+/* ===== ÁREA DE CONTENIDO PRINCIPAL (TABLA Y FORMULARIO) - Mantiene mejoras previas ===== */
+.page-content-original .Contenido {
     display: grid;
-    grid-template-columns: 70% 30%;
-    align-items: left;
-    height: 114vh;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    align-items: flex-start; 
+    margin-top: 30px;
     color: rgb(14, 13, 13);
 }
-
-.Contenido-Uno {
+.page-content-original .Contenido-Uno { /* Tabla */
     animation: fadeIn 0.6s ease-out;
     background-color: #ffffff;
     border-radius: 25px;
-    display: grid;
-    grid-template-rows: auto auto 1fr;
-    height: 100vh;
-    margin: 5%;
-    margin-top: 200px;
+    display: flex; 
+    flex-direction: column; /* CAMBIO */
+    min-height: 80vh;
     transition: all 0.4s ease;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    padding: 20px;
 }
-
-.Contenido-Dos {
+.page-content-original .Contenido-Dos { /* Formulario */
     background-color: hsla(187, 85%, 79%, 0.953);
-    height: 100vh;
+    min-height: 80vh;
     border-radius: 25px;
-    margin: 10px;
-    margin-top: 200px;
-}
-
-.Contenido-Dos h2 {
-    margin: 4%;
-    text-align: center;
-    font-size: 36px;
-    font-weight: bold;
-    color: rgb(34, 8, 150);
-}
-
-.Contenedor button {
-    margin-left: 20%;
-    margin-top: 8%;
-    padding: 4%;
-    width: 50%;
-    font-size: 22px;
-    background-color: #359df1;
-    border: none;
-    border-radius: 25px;
-    color: white;
-}
-
-.Contenedor input {
     width: 80%;
-    height: 32px;
-    margin-left: 8%;
-    border-radius: 8px;
-    border-color: transparent;
-    padding: 6px;
-    font-size: 16px;
+    margin-left: 50px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
 }
-
-.Contenedor label {
-    width: 90%;
-    padding: 4%;
-    text-align: left;
-    margin-left: 14px;
-    font-size: 24px;
+.page-content-original .Contenido-Dos h2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: bold;
     color: rgb(34, 8, 150);
 }
 
-.Botones-Contenido {
+/* BOTONES Y FORMULARIO DENTRO DE CONTENIDO */
+.page-content-original .Botones-Contenido {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
     background-color: #e2dcdc;
     align-items: center;
-    height: 10vh;
+    padding: 15px;
     border-radius: 25px;
     transition: all 0.3s ease;
-    padding: 0 20px;
     border: none;
-    border-bottom: transparent;
+    margin-bottom: 20px;
+    flex-shrink: 0; /* Para que no se encoja si Contenido-Uno usa flex */
 }
-
-.Botones-Contenido:hover {
+.page-content-original .Botones-Contenido:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
-.Boton-Uno,
-.Boton-Dos {
+.page-content-original .Boton-Uno, .page-content-original .Boton-Dos {
     display: flex;
     justify-content: center;
 }
-
-.Boton-Uno button,
-.Boton-Dos button {
+.page-content-original .Boton-Uno button, .page-content-original .Boton-Dos button {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 1rem;
     font-weight: 600;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border-radius: 20px;
     transition: all 0.3s ease;
     background-color: transparent;
     border: none;
     cursor: pointer;
     white-space: nowrap;
+    width: 100%;
+    justify-content: center;
 }
-
-.Boton-Uno button:hover,
-.Boton-Dos button:hover {
+.page-content-original .Boton-Uno button:hover, .page-content-original .Boton-Dos button:hover {
     background-color: #d0c8c8;
     transform: translateY(-2px);
 }
-
-.Boton-Uno button:hover img {
-    animation: bounce 0.5s;
-}
-
-.Boton-Dos button:hover img {
-    animation: spin 0.5s;
-}
-
-.Boton-Uno img,
-.Boton-Dos img {
+.page-content-original .Boton-Uno button:hover img { animation: bounce 0.5s; }
+.page-content-original .Boton-Dos button:hover img { animation: spin 0.5s; }
+.page-content-original .Boton-Uno img, .page-content-original .Boton-Dos img {
     width: 24px;
     height: 24px;
     transition: all 0.3s ease;
 }
 
-.btn-eliminar {
-    align-items: center;
-    background-color: transparent;
-    border: none;
+
+.page-content-original .Contenedor label {
+    padding: 0;
+    padding-bottom: 5px;
+    text-align: center;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: bold;
+    color: rgb(34, 8, 150);
+    display: block;
+    margin-bottom: 5px;
 }
 
-.Contenedor button {
-    margin-left: 20%;
-    margin-top: 8%;
-    padding: 4%;
-    width: 50%;
-    font-size: 22px;
+.page-content-original .Contenedor input[type="text"],
+.page-content-original .Contenedor input[type="password"] {
+    width: 80%;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page-content-original .Contenedor button[type="submit"] {
+    display: block;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    padding: 12px;
+    font-size: clamp(1rem, 3vw, 1.2rem);
     background-color: #359df1;
-    border-color: #1b4cb8;
+    border: none;
     border-radius: 25px;
     color: white;
+    cursor: pointer;
+    text-align: center;
 }
 
-.table {
+/* TABLA */
+.page-content-original .Tabla-Contenido {
+    overflow-x: auto;
+    width: 100%;
+    flex-grow: 1; /* Para que la tabla ocupe el espacio restante si Contenido-Uno usa flex */
+}
+.page-content-original .table {
     margin-top: 10px;
-    width: 98%;
-    margin: 0 auto;
+    width: 100%;
+    border-collapse: collapse;
 }
-
-table tr {
+.page-content-original table tr {
     animation: fadeIn 0.5s ease-out;
 }
-
-table tr:nth-child(even) {
+.page-content-original table tr:nth-child(even) {
     background-color: #f2f2f2;
 }
-
-table tr:hover {
+.page-content-original table tr:hover {
     background-color: #e9e9e9;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transform: scale(1.01);
+    /* transform: scale(1.01); Cuidado con esto, puede afectar layout */
+}
+.page-content-original .table th, .page-content-original .table td {
+    padding: 10px 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+}
+.page-content-original .table thead.table-dark th {
+    background-color: #343a40;
+    color: white;
+    position: sticky; top: 0; z-index: 5;
+}
+.page-content-original .btn-eliminar {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.page-content-original .btn-eliminar img {
+    width: 20px;
+    height: 20px;
+    display: block;
 }
 
+/* PAGINACIÓN */
+.page-content-original .pagination {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px 0 0 0; /* Ajustado para que esté pegado a la tabla */
+    flex-wrap: wrap;
+    gap: 5px;
+    flex-shrink: 0; /* Para que no se encoja si Contenido-Uno usa flex */
+}
+.page-content-original .pagination a,
+.page-content-original .pagination span {
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    color: #0d6efd;
+    background-color: white;
+    border: 1px solid #dee2e6;
+}
+.page-content-original .pagination a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    background-color: #e9ecef;
+}
+.page-content-original .pagination .active span,
+.page-content-original .pagination .page-item.active .page-link {
+    background-color: #0d6efd;
+    color: white;
+    border-color: #0d6efd;
+    z-index: 2;
+}
+.page-content-original .pagination .disabled span {
+    color: #6c757d;
+    pointer-events: none;
+    background-color: #fff;
+    border-color: #dee2e6;
+}
+
+
+/* FOOTER */
 footer {
-    margin-top: 200px;
-    height: 4vh;
-    background-color: #5c59f3;
+    height: 60px;
+    margin-top: 50px;
+   background-color: #1e53c4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
 }
 
-@media (min-width: 1800px) {
-    .Menu {
-        height: 65%;
-    }
-    .Menu li a img {
-        margin: 3%;
-        height: 15%;
-        width: 15%;
-    }
-    .Prueba {
-        margin-top: 5%;
-    }
-    .Prueba li a img {
-        height: 15%;
-        width: 15%;
-        margin-right: 3%;
+
+/* ===== MEDIA QUERIES ===== */
+
+@media (max-width: 1200px) {
+    /* Ajustes generales para pantallas medianas-grandes si son necesarios */
+    .page-content-original .Uno-right h2 {
+        font-size: 30px; /* Reducir un poco el h2 de Principal */
     }
 }
 
-@media (min-width: 1800px) {
-    .Uno-right h2 {
-        color: white;
-        font-size: 55px;
-        margin-top: 35%;
+@media (max-width: 992px) {
+    /* Ajustes para tabletas y móviles grandes */
+    .page-content-original .Principal {
+        grid-template-columns: 1fr; /* Apilar Principal-Uno y Principal-Dos */
+        height: auto; /* Permitir que la altura se ajuste al contenido */
+        min-height: 20vh; /* Mantener una altura mínima si es necesario */
+        gap: 20px; /* Espacio entre los elementos apilados */
+    }
+    .page-content-original .Principal-Uno,
+    .page-content-original .Principal-Dos {
+        width: 90%; /* Que ocupen casi todo el ancho disponible */
+        margin-left: auto;
+        margin-right: auto;
+        height: auto; /* Altura se ajusta al contenido */
+        min-height: 150px; /* Una altura mínima para cada bloque */
+    }
+    .page-content-original .Uno-right h2 {
+        font-size: 24px; /* Ajustar tamaño de fuente para tabletas */
+        margin-top: 0; /* Flex lo centra */
+    }
+
+    .page-content-original .Contenido {
+        grid-template-columns: 1fr; /* Apilar Contenido-Uno y Contenido-Dos */
+    }
+    .page-content-original .Contenido-Uno, .page-content-original .Contenido-Dos {
+        min-height: auto; /* Dejar que el contenido defina la altura */
+    }
+    
+    .page-content-original .table { font-size: 14px; }
+    .page-content-original .table th, .page-content-original .table td { padding: 10px 8px; }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes para el menú y encabezado en móviles */
+    .menu-toggle { display: flex; }
+    nav ul {
+        left: -240px;
+    }
+    nav ul.active {
+        left: 0;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .main-container-with-sidebar {
+        margin-left: 0;
+        padding-top: 80px;
+    }
+
+    .menu-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+    
+    body.menu-open { overflow-y: hidden; }
+    body.menu-open::after {
+        content: ''; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.5); z-index: 950;
+    }
+    
+    /* Encabezado para móviles */
+    .Encabezado {
+        grid-template-columns: 1fr; /* Una sola columna */
+        text-align: center;
+        padding: 15px; /* Padding interno para los elementos */
+        margin-top: 0; /* Resetear margen negativo */
+        margin-right: 0; /* Resetear margen negativo */
+        height: auto; /* Altura se ajusta al contenido */
+        min-height: auto; /* Resetear min-height para móvil */
+    }
+    .Encabezado .Titulo, .Encabezado .userLogo, .Encabezado .Usuario {
+        grid-column: 1 / -1; /* Ocupar toda la fila */
+        text-align: center;
+        margin: 10px 0; /* Espacio entre ellos */
+        padding-right: 0; /* Resetear padding específico del usuario */
+    }
+    .Encabezado h1 {
+        font-size: 2rem; /* Ajustar tamaño */
+        padding-top: 0;
+    }
+    .Encabezado .userLogo img {
+        margin: 0 auto 10px auto;
+        width: 60px; /* Tamaño fijo para la imagen en móvil */
+        height: 60px;
+    }
+    .Encabezado .Usuario {
+        margin-top: 0; margin-left: 0; /* Resetear márgenes */
+    }
+
+    /* Principal para móviles más pequeños */
+    .page-content-original .Principal-Uno,
+    .page-content-original .Principal-Dos {
+        grid-template-columns: auto 1fr; /* Imagen a la izquierda, texto a la derecha */
+        min-height: 120px;
+    }
+     .page-content-original .Principal-Uno .Uno-lef,
+     .page-content-original .Principal-Dos .Uno-lef {
+        padding: 10px; /* Más espacio para la imagen */
+     }
+    .page-content-original .Principal-Uno img,
+    .page-content-original .Principal-Dos img {
+        max-width: 50px;
+        max-height: 50px;
+    }
+    .page-content-original .Uno-right h2 {
+        font-size: 18px;
+    }
+
+    .page-content-original .table th, .page-content-original .table td {
+        white-space: normal; /* Permitir que el texto de la tabla se ajuste */
     }
 }
 
-@media (min-width: 1200px) {
-    .Uno-right h2 {
-        color: white;
-        font-size: 45px;
-        margin-top: 25%;
+@media (max-width: 576px) {
+    /* Ajustes adicionales para pantallas muy pequeñas */
+    .page-content-original .Uno-right h2 {
+        font-size: 16px;
     }
-}
+    .page-content-original .Principal-Uno,
+    .page-content-original .Principal-Dos {
+        grid-template-columns: 1fr; /* Apilar imagen y texto DENTRO de los bloques */
+        text-align: center;
+    }
+    .page-content-original .Principal-Uno .Uno-lef,
+    .page-content-original .Principal-Dos .Uno-lef {
+        margin-bottom: 10px; /* Espacio si la imagen está encima del texto */
+        background-color: transparent; /* Podrías quitar el fondo de la imagen si está apilada */
+    }
+     .page-content-original .Principal-Uno img,
+     .page-content-original .Principal-Dos img {
+        margin: 0 auto; /* Centrar imagen */
+     }
 
-@media (min-width: 1000px) {
-    .Uno-right h2 {
-        color: white;
-        font-size: 40px;
-        margin-top: 25%;
-    }
-}
 
-@media (max-width: 800px) {
-    .Uno-right h2 {
-        color: white;
-        font-size: 15px;
-        margin-top: 125%;
+    .page-content-original .Botones-Contenido button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
     }
-}
+    .page-content-original .table { font-size: 12px; }
+    .page-content-original .table th, .page-content-original .table td { padding: 8px 5px; }
 
-@media (max-width: 500px) {
-    .userLogo img {
-        margin: 25%;
-        width: 160%;
-        height: 30%;
+    .page-content-original .pagination { justify-content: center; }
+    .page-content-original .pagination a,
+    .page-content-original .pagination span {
+        padding: 5px 10px;
+        margin: 2px;
+        font-size: 0.8rem;
     }
-    .Usuario {
-        margin-top: 85%;
-        margin-left: 15%;
-        margin-right: 65%;
-        display: block;
-        position: right;
-        color: White;
+    .page-content-original .Contenedor input[type="text"],
+    .page-content-original .Contenedor input[type="password"],
+    .page-content-original .Contenedor button[type="submit"] {
+        font-size: 0.9rem;
     }
-    .Uno-right h2 {
-        color: white;
-        font-size: 12px;
-        margin-top: 200%;
-    }
-    .Principal-Uno img {
+    .page-content-original .Contenedor button[type="submit"] {
         width: 80%;
-        height: 80%;
-        margin-top: 30%;
     }
-    .Principal-Dos img {
-        width: 80%;
-        height: 80%;
-        margin-top: 30%;
-    }
-    .Principal-Tres img {
-        width: 80%;
-        height: 80%;
-        margin-top: 30%;
-    }
+}
+
+/* Estilos para el menú activo */
+nav ul li.active a {
+    color: #1538ac;
+    font-weight: bold;
+}
+nav ul li.active a:before {
+    width: 95%;
+    background: white;
+}
+/* Clase para animaciones de carga */
+.loaded .table tbody tr {
+    animation: fadeIn 0.5s ease forwards;
 }

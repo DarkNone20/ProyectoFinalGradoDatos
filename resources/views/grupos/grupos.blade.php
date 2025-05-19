@@ -31,6 +31,7 @@
                             src="{{ asset('Imagenes/Equipos 2.0.png') }}" alt="equipos"> Equipos</a></li>
                 <li><a href="{{ asset('prestamos') }}"><i class="fa fa-users"></i>&nbsp;<img
                             src="{{ asset('Imagenes/Prestamos 2.0.png') }}" alt="prestamos"> Prestamos</a></li>
+                 <li><a href="{{ route('reportes.index') }}"><img src="{{ asset('Imagenes/Reportes 2.0.png') }}" alt="prestamos"> Reportes</a></li>
             </div>
 
             <div class="Prueba">
