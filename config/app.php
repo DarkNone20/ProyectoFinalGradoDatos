@@ -212,7 +212,7 @@ return [
 
    'aliases' => Facade::defaultAliases()->merge([
     // ...
-    'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,  // Cambia esta línea
+    'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,  
     'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 ])->toArray(),
 

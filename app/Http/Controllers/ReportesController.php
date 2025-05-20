@@ -97,7 +97,7 @@ class ReportesController extends Controller
         ]);
 
         $filtros = $request->except(['_token', 'tipo']);
-        $grupos = Grupos::all(); // Para mostrar el nombre del grupo en los filtros del PDF
+        $grupos = Grupos::all();
 
         switch ($request->tipo) {
             case 'pdf':
@@ -211,7 +211,7 @@ class ReportesController extends Controller
         }
 
         if (!empty($filtros['grupo'])) {
-            // Usa la misma FK que en el filtro: GrupoId o IdGrupo
+            
             $query->where('GrupoId', $filtros['grupo']);
         }
 

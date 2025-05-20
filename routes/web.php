@@ -48,13 +48,14 @@ Route::middleware('auth')->group(function () {
         Route::post('/prestamos/{IdPrestamo}/devolver', [PrestamoController::class, 'devolver'])
             ->name('prestamos.devolver');;
     });
-     //Reportes
+  
 
-     Route::prefix('reportes')->name('reportes.')->group(function () {
-       Route::get('/', [ReportesController::class, 'index'])->name('index');
-       Route::get('/export', [ReportesController::class, 'export'])->name('export');
-       Route::get('/estadisticas', [ReportesController::class, 'estadisticas'])->name('estadisticas'); // Para AJAX de gráficos
-    });
+    //Reportes
+   Route::prefix('reportes')->name('reportes.')->group(function () {
+    Route::get('/', [ReportesController::class, 'index'])->name('index');
+    Route::post('/export', [ReportesController::class, 'export'])->name('export'); // <--- CAMBIADO A POST
+    Route::get('/estadisticas', [ReportesController::class, 'estadisticas'])->name('estadisticas');
+ });
     // Equipos
     Route::prefix('equipos')->group(function () {
         Route::get('/', [EquiposController::class, 'index'])->name('equipos.index');
