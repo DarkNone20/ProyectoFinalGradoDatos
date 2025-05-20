@@ -27,7 +27,7 @@
             <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
             <div class="Menu">
                 <li ><a href="{{ route('home') }}"><img src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio"> Home</a></li>
-                <li class="active"><a href="{{ route('usuarios.index') }}"><img src="{{ asset('Imagenes/Usuarios 2.0.png') }}" alt="user"> Usuarios</a></li>
+                <li ><a href="{{ route('usuarios.index') }}"><img src="{{ asset('Imagenes/Usuarios 2.0.png') }}" alt="user"> Usuarios</a></li>
                 <li ><a href="{{ route('grupos.index') }}"><img src="{{ asset('Imagenes/Grupos 2.0.png') }}" alt="grupos"> Grupos</a></li>
                 <li ><a href="{{ route('equipos.index') }}"><img src="{{ asset('Imagenes/Equipos 2.0.png') }}" alt="equipos"> Equipos</a></li>
                 <li ><a href="{{ route('prestamos.index') }}"><img src="{{ asset('Imagenes/Prestamos 2.0.png') }}" alt="prestamos"> Préstamos</a></li>

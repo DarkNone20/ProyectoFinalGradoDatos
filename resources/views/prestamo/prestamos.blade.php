@@ -57,20 +57,7 @@
 
         <div class="Contenido">
             <div class="Contenido-Uno">
-                <div Class="Botones-Contenido">
-                    <div class="Boton-Uno">
-                        <button type="button" onclick="location.href='{{ route('prestamos.create') }}'">
-                            <img src="{{ asset('Imagenes/agregar.png') }}" alt="agregar">
-                            Agregar Préstamo
-                        </button>
-                    </div>
-                    <div class="Boton-Dos">
-                        <button type="button" onclick="location.href='{{ route('prestamos.export') }}'">
-                            <img src="{{ asset('Imagenes/Exportar.png') }}" alt="exportar">
-                            Exportar
-                        </button>
-                    </div>
-                </div>
+                
 
                 <div class="Tabla-Contenido">
                     <div class="pagination d-flex justify-content-start mt-3">

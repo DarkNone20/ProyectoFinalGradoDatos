@@ -8,6 +8,7 @@ use App\Models\Equipo;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use App\Exports\PrestamosExport2;  
 
 class PrestamoController extends Controller
 {
@@ -241,7 +242,10 @@ class PrestamoController extends Controller
 
     public function export()
     {
-        // Lógica para exportar datos de préstamos
-        // Puedes implementar esto según tus necesidades
+        $fechaActual = Carbon::now()->format('Y-m-d_H-i-s');
+        $fileName = 'prestamos_' . $fechaActual . '.xlsx'; // Puedes usar .csv si prefieres
+
+        // Descarga el archivo usando la clase PrestamosExport
+        return Excel::download(new PrestamosExport, $fileName);
     }
 }

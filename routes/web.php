@@ -27,7 +27,6 @@ Route::middleware('auth')->group(function () {
 
 
     // Users 
-    // Dentro del grupo de rutas protegidas (auth)
     Route::prefix('users')->group(function () {
         Route::get('/', [UsersController::class, 'index'])->name('users.index');
         Route::post('/', [UsersController::class, 'store'])->name('users.store');
@@ -36,24 +35,21 @@ Route::middleware('auth')->group(function () {
         Route::delete('/{documentoId}', [UsersController::class, 'destroy'])->name('users.destroy');
     });
 
-    // Prestamos 
-    Route::prefix('prestamos')->group(function () {
-        Route::get('/', [PrestamoController::class, 'index'])->name('prestamos.index');
-        Route::get('/create', [PrestamoController::class, 'create'])->name('prestamos.create');
-        Route::post('/', [PrestamoController::class, 'store'])->name('prestamos.store');
-        Route::get('/{IdPrestamo}/edit', [PrestamoController::class, 'edit'])->name('prestamos.edit');
-        Route::put('/{IdPrestamo}', [PrestamoController::class, 'update'])->name('prestamos.update');
-        Route::delete('/{IdPrestamo}', [PrestamoController::class, 'destroy'])->name('prestamos.destroy');
-        Route::get('/export', [PrestamoController::class, 'export'])->name('prestamos.export');
-        Route::post('/prestamos/{IdPrestamo}/devolver', [PrestamoController::class, 'devolver'])
-            ->name('prestamos.devolver');;
-    });
-  
-
+ // Prestamos
+ Route::prefix('prestamos')->group(function () {
+    Route::get('/', [PrestamoController::class, 'index'])->name('prestamos.index');
+    Route::get('/create', [PrestamoController::class, 'create'])->name('prestamos.create'); 
+    Route::post('/', [PrestamoController::class, 'store'])->name('prestamos.store');
+    Route::get('/{IdPrestamo}/edit', [PrestamoController::class, 'edit'])->name('prestamos.edit');
+    Route::put('/{IdPrestamo}', [PrestamoController::class, 'update'])->name('prestamos.update');
+    Route::delete('/{IdPrestamo}', [PrestamoController::class, 'destroy'])->name('prestamos.destroy');
+    Route::post('/{IdPrestamo}/devolver', [PrestamoController::class, 'devolver']) 
+        ->name('prestamos.devolver');
+});
     //Reportes
    Route::prefix('reportes')->name('reportes.')->group(function () {
     Route::get('/', [ReportesController::class, 'index'])->name('index');
-    Route::post('/export', [ReportesController::class, 'export'])->name('export'); // <--- CAMBIADO A POST
+    Route::post('/export', [ReportesController::class, 'export'])->name('export'); 
     Route::get('/estadisticas', [ReportesController::class, 'estadisticas'])->name('estadisticas');
  });
     // Equipos
