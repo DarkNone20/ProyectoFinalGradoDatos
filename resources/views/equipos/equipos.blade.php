@@ -21,27 +21,28 @@
         <span></span>
     </button>
 
-    <!-- Menú lateral -->
+   
     <nav>
         <ul id="mainMenu">
             <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
             <div class="Menu">
-                <li><a href="{{ asset('home') }}"><img src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio">
-                        Home</a></li>
-                <li><a href="{{ asset('usuarios') }}"><img src="{{ asset('Imagenes/Usuarios 2.0.png') }}"
-                            alt="user"> Usuarios</a></li>
-                <li><a href="{{ asset('grupos') }}"><img src="{{ asset('Imagenes/Grupos 2.0.png') }}" alt="grupos">
-                        Grupos</a></li>
-                <li><a href="{{ asset('equipos') }}"><img src="{{ asset('Imagenes/Equipos 2.0.png') }}" alt="equipos">
-                        Equipos</a></li>
-                <li><a href="{{ asset('prestamos') }}"><img src="{{ asset('Imagenes/Prestamos 2.0.png') }}"
-                            alt="prestamos"> Prestamos</a></li>
-               <li><a href="{{ route('reportes.index') }}"><img src="{{ asset('Imagenes/Reportes 2.0.png') }}" alt="prestamos"> Reportes</a></li>
+                <li ><a href="{{ route('home') }}"><img src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio"> Home</a></li>
+                <li ><a href="{{ route('usuarios.index') }}"><img src="{{ asset('Imagenes/Usuarios 2.0.png') }}" alt="user"> Usuarios</a></li>
+                <li ><a href="{{ route('grupos.index') }}"><img src="{{ asset('Imagenes/Grupos 2.0.png') }}" alt="grupos"> Grupos</a></li>
+                <li class="active"><a href="{{ route('equipos.index') }}"><img src="{{ asset('Imagenes/Equipos 2.0.png') }}" alt="equipos"> Equipos</a></li>
+                <li ><a href="{{ route('prestamos.index') }}"><img src="{{ asset('Imagenes/Prestamos 2.0.png') }}" alt="prestamos"> Préstamos</a></li>
+                <li ><a href="{{ route('reportes.index') }}"><img src="{{ asset('Imagenes/Reportes 2.0.png') }}" alt="reportes"> Reportes</a></li>
             </div>
 
             <div class="Prueba">
-                <li><a href="{{ asset('/') }}"><img src="{{ asset('Imagenes/logout.png') }}" alt="login">
-                        Logout</a></li>
+                 <li>
+                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <img src="{{ asset('Imagenes/logout.png') }}" alt="logout"> Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
             </div>
         </ul>
     </nav>

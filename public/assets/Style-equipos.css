@@ -718,3 +718,12 @@ footer:hover {
         font-size: 0.9rem;
     }
 }
+/* Estilos para el menú activo */
+nav ul li.active a {
+    color: #1538ac;
+    font-weight: bold;
+}
+nav ul li.active a:before {
+    width: 95%;
+    background: white;
+}

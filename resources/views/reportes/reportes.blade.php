@@ -29,16 +29,24 @@
         <ul id="mainMenu">
             <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
             <div class="Menu">
-                <li><a href="{{ route('home') }}"><img src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio"> Home</a></li>
-                <li><a href="{{ route('usuarios.index') }}"><img src="{{ asset('Imagenes/Usuarios 2.0.png') }}" alt="user"> Usuarios</a></li>
-                <li><a href="{{ route('grupos.index') }}"><img src="{{ asset('Imagenes/Grupos 2.0.png') }}" alt="grupos"> Grupos</a></li>
-                <li><a href="{{ route('equipos.index') }}"><img src="{{ asset('Imagenes/Equipos 2.0.png') }}" alt="equipos"> Equipos</a></li>
-                <li><a href="{{ route('prestamos.index') }}"><img src="{{ asset('Imagenes/Prestamos 2.0.png') }}" alt="prestamos"> Préstamos</a></li>
-                <li><a href="{{ route('reportes.index') }}"><img src="{{ asset('Imagenes/Reportes 2.0.png') }}" alt="prestamos"> Reportes</a></li>
+                <li><a href="{{ route('home') }}"><img src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio">
+                        Home</a></li>
+                <li><a href="{{ route('usuarios.index') }}"><img src="{{ asset('Imagenes/Usuarios 2.0.png') }}"
+                            alt="user"> Usuarios</a></li>
+                <li><a href="{{ route('grupos.index') }}"><img src="{{ asset('Imagenes/Grupos 2.0.png') }}"
+                            alt="grupos"> Grupos</a></li>
+                <li><a href="{{ route('equipos.index') }}"><img src="{{ asset('Imagenes/Equipos 2.0.png') }}"
+                            alt="equipos"> Equipos</a></li>
+                <li><a href="{{ route('prestamos.index') }}"><img src="{{ asset('Imagenes/Prestamos 2.0.png') }}"
+                            alt="prestamos"> Préstamos</a></li>
+                <li><a href="{{ route('reportes.index') }}"><img src="{{ asset('Imagenes/Reportes 2.0.png') }}"
+                            alt="prestamos"> Reportes</a></li>
             </div>
 
             <div class="Prueba">
-                <li><a href="{{ route('login') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><img src="{{ asset('Imagenes/logout.png') }}" alt="login"> Logout</a></li>
+                <li><a href="{{ route('login') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><img
+                            src="{{ asset('Imagenes/logout.png') }}" alt="login"> Logout</a></li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     @csrf
                 </form>
@@ -56,7 +64,7 @@
                     <img src="{{ asset('Imagenes/dos3.png') }}">
                 </div>
                 <div class="Usuario">
-                  
+
                     <p>{{ $usuarioAutenticado->Alias ?? (Auth::user()->Alias ?? 'Invitado') }}</p>
                 </div>
             </div>
@@ -82,8 +90,10 @@
                                 <label for="estado" class="form-label">Estado</label>
                                 <select class="form-select" id="estado" name="estado">
                                     <option value="">Todos</option>
-                                    <option value="Activo" {{ request('estado') == 'Activo' ? 'selected' : '' }}>Activo</option>
-                                    <option value="Devuelto" {{ request('estado') == 'Devuelto' ? 'selected' : '' }}>Devuelto</option>
+                                    <option value="Activo" {{ request('estado') == 'Activo' ? 'selected' : '' }}>Activo
+                                    </option>
+                                    <option value="Devuelto" {{ request('estado') == 'Devuelto' ? 'selected' : '' }}>
+                                        Devuelto</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
@@ -91,7 +101,7 @@
                                 <select class="form-select" id="grupo" name="grupo">
                                     <option value="">Todos</option>
                                     @foreach($grupos as $grupo)
-                                       
+                                      
                                         <option value="{{ $grupo->IdGrupo }}" {{ request('grupo') == $grupo->IdGrupo ? 'selected' : '' }}>
                                             {{ $grupo->irupo ?? $grupo->NombreCurso }} 
                                         </option>
@@ -157,18 +167,23 @@
                     <div class="d-flex justify-content-between">
                         <div>
                             <button type="button" class="btn btn-success me-2" onclick="exportarReporte('pdf')">
-                                <img src="{{ asset('Imagenes/PDF.png') }}" alt="PDF" width="20"> Exportar PDF
+                                <img src="{{ asset('Imagenes/PDF.png') }}" alt="PDF" width="20"> Exportar
+                                PDF
                             </button>
                             <button type="button" class="btn btn-warning me-2" onclick="exportarReporte('excel')">
-                                <img src="{{ asset('Imagenes/Excel.png') }}" alt="Excel" width="20"> Exportar Excel
+                                <img src="{{ asset('Imagenes/Excel.png') }}" alt="Excel" width="20"> Exportar
+                                Excel
                             </button>
                             <button type="button" class="btn btn-secondary" onclick="exportarReporte('csv')">
-                                <img src="{{ asset('Imagenes/CSV.png') }}" alt="CSV" width="20"> Exportar CSV
+                                <img src="{{ asset('Imagenes/CSV.png') }}" alt="CSV" width="20"> Exportar
+                                CSV
                             </button>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#graficosModal">
-                                <img src="{{ asset('Imagenes/Grafic.png') }}" alt="Gráficos" width="20"> Ver Gráficos
+                            <button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                                data-bs-target="#graficosModal">
+                                <img src="{{ asset('Imagenes/Grafic.png') }}" alt="Gráficos" width="20"> Ver
+                                Gráficos
                             </button>
                         </div>
                     </div>
@@ -197,10 +212,12 @@
                                     <td>{{ $prestamo->ActivoFijo ?? 'N/A' }}</td>
                                     <td>{{ $prestamo->grupo->irupo ?? ($prestamo->grupo->NombreCurso ?? 'N/A') }}</td>
                                     <td>{{ $prestamo->usuario->Nombre ?? ($prestamo->DocumentoId ?? 'N/A') }}</td>
-                                    <td>{{ $prestamo->FechaI ? date('d/m/Y H:i', strtotime($prestamo->FechaI . ' ' . $prestamo->HoraI)) : 'N/A' }}</td>
-                                    <td>{{ $prestamo->FechaF ? date('d/m/Y H:i', strtotime($prestamo->FechaF . ' ' . $prestamo->HoraF)) : 'N/A' }}</td>
+                                    <td>{{ $prestamo->FechaI ? date('d/m/Y H:i', strtotime($prestamo->FechaI . ' ' . $prestamo->HoraI)) : 'N/A' }}
+                                    </td>
+                                    <td>{{ $prestamo->FechaF ? date('d/m/Y H:i', strtotime($prestamo->FechaF . ' ' . $prestamo->HoraF)) : 'N/A' }}
+                                    </td>
                                     <td>
-                                        @if($prestamo->Estado === 'Devuelto')
+                                        @if ($prestamo->Estado === 'Devuelto')
                                             <span class="badge bg-success">Devuelto</span>
                                         @elseif($prestamo->Estado === 'Activo')
                                             <span class="badge bg-warning text-dark">Activo</span>
@@ -209,7 +226,7 @@
                                         @endif
                                     </td>
                                     <td>
-                                        @if($prestamo->FechaDevolucion)
+                                        @if ($prestamo->FechaDevolucion)
                                             {{ date('d/m/Y H:i', strtotime($prestamo->FechaDevolucion)) }}
                                         @else
                                             -
@@ -218,7 +235,8 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="9" class="text-center">No se encontraron préstamos con los filtros aplicados.</td>
+                                    <td colspan="9" class="text-center">No se encontraron préstamos con los filtros
+                                        aplicados.</td>
                                 </tr>
                             @endforelse
                         </tbody>
@@ -233,9 +251,9 @@
         </div>
     </div>
 
-   
+    <!-- Modal para gráficos -->
     <div class="modal fade" id="graficosModal" tabindex="-1" aria-labelledby="graficosModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl"> 
+        <div class="modal-dialog modal-xl"> <!-- Cambiado a modal-xl para más espacio -->
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="graficosModalLabel">Estadísticas de Préstamos</h5>
@@ -277,8 +295,11 @@
             </div>
         </div>
     </div>
+    <footer>
+        <p>Sistema de Préstamos de Portátiles © {{ date('Y') }}</p>
+    </footer>
 
-    
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous">
     </script>
@@ -298,7 +319,8 @@
             });
 
             document.addEventListener('click', function(e) {
-                if (mainMenu.classList.contains('active') && !mainMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                if (mainMenu.classList.contains('active') && !mainMenu.contains(e.target) && !menuToggle
+                    .contains(e.target)) {
                     menuToggle.classList.remove('active');
                     mainMenu.classList.remove('active');
                     body.classList.remove('menu-open');
@@ -323,7 +345,7 @@
                     }
                 });
                 // Opcional: resetear el flag si quieres que los gráficos se recarguen cada vez que se abre el modalac
-                graficosModal.addEventListener('hidden.bs.modal', function () {
+                graficosModal.addEventListener('hidden.bs.modal', function() {
                     // this.dataset.chartsInitialized = false; // Descomentar para recargar gráficos siempre
                 });
             }
@@ -338,15 +360,61 @@
         }
 
         function exportarReporte(tipo) {
-            const form = document.getElementById('filtrosForm');
-            const originalAction = form.action; // Guardar la acción original
-            form.action = "{{ route('reportes.export') }}" + "?tipo=" + tipo;
-            form.method = "GET"; // Para exportación usualmente es GET, pero si tienes muchos filtros podría ser POST
-            form.submit();
-            form.action = originalAction; // Restaurar acción original
-            // form.method = "GET"; // Restaurar método original si lo cambiaste
-        }
+            // Mostrar loader
+            const loader = document.createElement('div');
+            loader.style.position = 'fixed';
+            loader.style.top = '0';
+            loader.style.left = '0';
+            loader.style.width = '100%';
+            loader.style.height = '100%';
+            loader.style.backgroundColor = 'rgba(0,0,0,0.5)';
+            loader.style.display = 'flex';
+            loader.style.justifyContent = 'center';
+            loader.style.alignItems = 'center';
+            loader.style.zIndex = '9999';
+            loader.innerHTML = '<div style="color:white;font-size:24px;">Generando reporte, por favor espere...</div>';
+            document.body.appendChild(loader);
 
+            // Obtener datos del formulario
+            const formData = new FormData(document.getElementById('filtrosForm'));
+            formData.append('tipo', tipo);
+            formData.append('_token', '{{ csrf_token() }}');
+
+            // Configurar fetch
+            fetch('{{ route('reportes.export') }}', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.blob();
+                })
+                .then(blob => {
+                    // Crear enlace de descarga
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `reporte_prestamos_${new Date().toISOString().slice(0,10)}.${tipo}`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Error al exportar: ' + error.message);
+                })
+                .finally(() => {
+                    // Ocultar loader
+                    document.body.removeChild(loader);
+                });
+        }
         // Variables para almacenar las instancias de los gráficos para poder destruirlas
         let estadosChartInstance = null;
         let gruposChartInstance = null;
@@ -374,7 +442,7 @@
                         label: 'Estado de Préstamos',
                         data: [{{ $prestamosActivos }}, {{ $prestamosDevueltos }}],
                         backgroundColor: [
-                            'rgba(255, 193, 7, 0.7)',  // Amarillo para Activos
+                            'rgba(255, 193, 7, 0.7)', // Amarillo para Activos
                             'rgba(40, 167, 69, 0.7)' // Verde para Devueltos
                         ],
                         borderColor: [
@@ -407,9 +475,11 @@
                     labels: {!! json_encode($grupos->pluck('irupo')) !!}, // Asegúrate que 'irupo' es la columna correcta
                     datasets: [{
                         label: 'Préstamos por Grupo',
-                        data: {!! json_encode($grupos->map(function($g) use ($prestamosPorGrupo) {
-                            return $prestamosPorGrupo[$g->IdGrupo] ?? 0;
-                        })) !!},
+                        data: {!! json_encode(
+                            $grupos->map(function ($g) use ($prestamosPorGrupo) {
+                                return $prestamosPorGrupo[$g->IdGrupo] ?? 0;
+                            }),
+                        ) !!},
                         backgroundColor: 'rgba(54, 162, 235, 0.7)',
                         borderColor: 'rgba(54, 162, 235, 1)',
                         borderWidth: 1
@@ -486,4 +556,5 @@
         }
     </script>
 </body>
+
 </html>

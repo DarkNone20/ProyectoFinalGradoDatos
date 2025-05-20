@@ -37,14 +37,14 @@ class ReportesController extends Controller
         if ($request->filled('usuario')) {
             $query->whereHas('usuario', function ($q) use ($request) {
                 $q->where('DocumentoId', 'like', '%' . $request->usuario . '%')
-                  ->orWhere('Nombre', 'like', '%' . $request->usuario . '%');
+                    ->orWhere('Nombre', 'like', '%' . $request->usuario . '%');
             });
         }
 
         if ($request->filled('equipo')) {
             $query->where(function ($q) use ($request) {
                 $q->where('Serial', 'like', '%' . $request->equipo . '%')
-                  ->orWhere('ActivoFijo', 'like', '%' . $request->equipo . '%');
+                    ->orWhere('ActivoFijo', 'like', '%' . $request->equipo . '%');
             });
         }
 
@@ -97,12 +97,21 @@ class ReportesController extends Controller
         ]);
 
         $filtros = $request->except(['_token', 'tipo']);
+        $grupos = Grupos::all(); // Para mostrar el nombre del grupo en los filtros del PDF
 
         switch ($request->tipo) {
             case 'pdf':
                 $prestamos = $this->getFilteredPrestamos($filtros);
-                $pdf = Pdf::loadView('reportes.pdf', compact('prestamos', 'filtros'))
-                    ->setPaper('a4', 'landscape');
+
+                // Configurar el PDF para paginación
+                $pdf = PDF::loadView('reportes.pdf', [
+                    'prestamos' => $prestamos,
+                    'filtros' => $filtros,
+                    'grupos' => $grupos,
+                    'page' => 1,
+                    'pageCount' => 1
+                ])->setPaper('a4', 'landscape');
+
                 return $pdf->download('reporte_prestamos_' . date('YmdHis') . '.pdf');
 
             case 'excel':
@@ -115,7 +124,10 @@ class ReportesController extends Controller
                 return Excel::download(
                     new PrestamosExport($filtros),
                     'reporte_prestamos_' . date('YmdHis') . '.csv',
-                    \Maatwebsite\Excel\Excel::CSV
+                    \Maatwebsite\Excel\Excel::CSV,
+                    [
+                        'Content-Type' => 'text/csv',
+                    ]
                 );
         }
     }
@@ -206,14 +218,14 @@ class ReportesController extends Controller
         if (!empty($filtros['usuario'])) {
             $query->whereHas('usuario', function ($q) use ($filtros) {
                 $q->where('DocumentoId', 'like', '%' . $filtros['usuario'] . '%')
-                  ->orWhere('Nombre', 'like', '%' . $filtros['usuario'] . '%');
+                    ->orWhere('Nombre', 'like', '%' . $filtros['usuario'] . '%');
             });
         }
 
         if (!empty($filtros['equipo'])) {
             $query->where(function ($q) use ($filtros) {
                 $q->where('Serial', 'like', '%' . $filtros['equipo'] . '%')
-                  ->orWhere('ActivoFijo', 'like', '%' . $filtros['equipo'] . '%');
+                    ->orWhere('ActivoFijo', 'like', '%' . $filtros['equipo'] . '%');
             });
         }
 

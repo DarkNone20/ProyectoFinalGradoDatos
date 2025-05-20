@@ -194,13 +194,15 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
     /*
-    |--------------------------------------------------------------------------
+    |--------------------------------------------------------------------------s
     | Class Aliases
-    |--------------------------------------------------------------------------
+    |--------------------------------------------------------------------------s
     |
     | This array of class aliases will be registered when this application
     | is started. However, feel free to register as many as you wish as
@@ -208,8 +210,10 @@ return [
     |
     */
 
-    'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
-    ])->toArray(),
+   'aliases' => Facade::defaultAliases()->merge([
+    // ...
+    'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,  // Cambia esta línea
+    'Excel' => Maatwebsite\Excel\Facades\Excel::class,
+])->toArray(),
 
 ];
