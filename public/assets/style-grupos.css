@@ -179,6 +179,7 @@ nav ul li a:hover:before {
     z-index: 900;
     margin-top: -20px;
     margin-right: -20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .Encabezado h1 {

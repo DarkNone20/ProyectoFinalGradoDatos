@@ -68,6 +68,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/', [GruposController::class, 'index'])->name('grupos.index');
         Route::post('/', [GruposController::class, 'store'])->name('grupos.store');
         Route::delete('/{IdGrupo}', [GruposController::class, 'destroy'])->name('grupos.destroy');
+        Route::get('/usuarios/buscar/{cedula}', [GruposController::class, 'buscarUsuario']);
 
         // Rutas para gestión de miembros del grupo
         Route::get('/{IdGrupo}/miembros', [GruposController::class, 'showMiembros'])->name('grupos.miembros');

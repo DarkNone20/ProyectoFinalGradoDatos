@@ -135,4 +135,22 @@ class GruposController extends Controller
 
         return response()->json($usuarios);
     }
+
+    public function buscarUsuario($cedula)
+{
+    $usuario = Users::where('DocumentoId', 'like', "%$cedula%")
+        ->whereDoesntHave('grupos', function($query) {
+            $query->where('Grupos.IdGrupo', request()->route('IdGrupo'));
+        })
+        ->first();
+
+    if ($usuario) {
+        return response()->json([
+            'success' => true,
+            'usuario' => $usuario
+        ]);
+    }
+
+    return response()->json(['success' => false]);
+}
 }

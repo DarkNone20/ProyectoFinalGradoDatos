@@ -114,66 +114,56 @@
             </div>
 
             <div class="Contenido-Dos">
-                <h2>Grupo <p>{{ $grupo->NombreProfesor }} - {{ $grupo->NombreCurso }}</p>
-                </h2>
-                <div class="Contenedor">
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+    <h2>Grupo <p> {{ $grupo->NombreCurso }}</p></h2>
+    <div class="Contenedor">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
 
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
-                    <form action="{{ route('grupos.asignarUsuario', $grupo->IdGrupo) }}" method="POST">
-                        @csrf
-                        <div class="row justify-content-center">
-                            <div>
-                                <label for="DocumentoId">Usuario:</label>
-                                <select id="DocumentoId" name="DocumentoId" class="form-select" required>
-                                    <option value="">Seleccione un usuario</option>
-                                    @foreach ($usuariosDisponibles as $usuario)
-                                        <option value="{{ $usuario->DocumentoId }}">
-                                            {{ $usuario->Nombre }} {{ $usuario->Apellido }}
-                                            ({{ $usuario->DocumentoId }})
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
+        <form action="{{ route('grupos.asignarUsuario', $grupo->IdGrupo) }}" method="POST">
+            @csrf
+            <div class="row justify-content-center">
+                <div>
+                    <label for="DocumentoId">Usuario:</label>
+                    <input type="text" id="DocumentoId" name="DocumentoId" class="form-control" 
+                           placeholder="Ingrese el número de cédula" required>
+                    <div id="usuarioInfo" class="mt-2"></div>
+                </div>
 
-                            <div>
-                                <label for="Rol">Rol:</label>
-                                <select id="Rol" name="Rol" class="form-select" required>
-                                    <option value="Estudiante">Estudiante</option>
-                                    <option value="Profesor">Profesor</option>
-                                    <option value="invitado">Invitado</option>
-                                    <option value="egresado">Egresado</option>
-                                </select>
-                            </div>
+                <div>
+                    <label for="Rol">Rol:</label>
+                    <select id="Rol" name="Rol" class="form-select" required>
+                        <option value="Estudiante">Estudiante</option>
+                        <option value="Profesor">Profesor</option>
+                        <option value="invitado">Invitado</option>
+                        <option value="egresado">Egresado</option>
+                    </select>
+                </div>
 
-                            <div>
-                                <label for="FechaAsignacion">Fecha de Asignación:</label>
-                                <input type="date" id="FechaAsignacion" name="FechaAsignacion" class="form-control"
-                                    required>
-                            </div>
+                <div>
+                    <label for="FechaAsignacion">Fecha de Asignación:</label>
+                    <input type="date" id="FechaAsignacion" name="FechaAsignacion" class="form-control" required>
+                </div>
 
-                            <div>
-                                <button type="submit" class="btn btn-primary">Agregar</button>
-                            </div>
-                        </div>
-                    </form>
-
+                <div>
+                    <button type="submit" class="btn btn-primary">Agregar</button>
                 </div>
             </div>
-
+        </form>
+    </div>
+</div>
 
 
         </div>
