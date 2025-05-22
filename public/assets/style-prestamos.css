@@ -509,15 +509,37 @@ footer:hover {
 
 
 /* ===== MEDIA QUERIES ===== */
-
-@media (max-width: 1200px) {
-    .wrapper {
-        margin-left: 240px;
+@media (min-width: 1025px) and (max-width: 1366px) {
+    nav ul li a {
+        display: flex;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 14px; 
+        color: #fff;
+        position: relative;
+        padding: 10px 0px 10px 15px; 
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     }
-    .Encabezado h1 {
-        font-size: 2.5rem;
+    .Prueba { 
+        margin-top: -80px;
     }
+    .Menu li a img,
+    .Prueba li a img { 
+         margin-right: 10px;
+         width: 24px;
+         height: 24px;
+        transition: all 0.3s ease;
+   }
+   .wrapper {
+    margin-left: 240px;
 }
+.Encabezado h1 {
+    font-size: 2.5rem;
+}
+}
+
 
 @media (max-width: 992px) {
     .table {

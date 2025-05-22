@@ -15,9 +15,15 @@
 </head>
 
 <body>
+    <!-- Botón de hamburguesa (solo visible en móviles) -->
+    <button class="menu-toggle" id="menuToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
 
     <nav>
-        <ul>
+        <ul id="navMenu">
             <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
             <div class="Menu">
                 <li><a href="{{ asset('home') }}"><i class="fa fa-home"></i>&nbsp;<img
@@ -30,7 +36,8 @@
                             src="{{ asset('Imagenes/Equipos 2.0.png') }}" alt="equipos"> Equipos</a></li>
                 <li><a href="{{ asset('prestamos') }}"><i class="fa fa-users"></i>&nbsp;<img
                             src="{{ asset('Imagenes/Prestamos 2.0.png') }}" alt="prestamos"> Prestamos</a></li>
-                 <li><a href="{{ route('reportes.index') }}"><img src="{{ asset('Imagenes/Reportes 2.0.png') }}" alt="prestamos"> Reportes</a></li>
+                <li><a href="{{ route('reportes.index') }}"><img src="{{ asset('Imagenes/Reportes 2.0.png') }}" 
+                            alt="reportes"> Reportes</a></li>
             </div>
 
             <div class="Prueba">
@@ -45,7 +52,7 @@
         <div class="section">
             <div class="Encabezado">
                 <div class="Titulo">
-                    <h1>Sistema de Administrador de Préstamo de Portatiles </h1>
+                    <h1>Sistema de Administrador de Préstamo de Portatiles</h1>
                 </div>
 
                 <div class="userLogo">
@@ -101,7 +108,6 @@
             </div>
 
             <div class="Principal">
-                
                 <div class="Principal-Left">
                     <h2>Préstamos de Portátiles Año - {{ date('Y') }}</h2>
                     <div class="chart-container" style="position: relative; height:600px; width:100%">
@@ -323,6 +329,38 @@
         </div>
     </div>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+
+            // Cerrar menú al hacer clic en un enlace (solo en móviles)
+            document.querySelectorAll('#navMenu a').forEach(link => {
+                link.addEventListener('click', function() {
+                    if (window.innerWidth <= 768) {
+                        menuToggle.classList.remove('active');
+                        navMenu.classList.remove('active');
+                        document.body.classList.remove('menu-open');
+                    }
+                });
+            });
+
+            // Ajustar al cambiar tamaño de pantalla
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768) {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.classList.remove('menu-open');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

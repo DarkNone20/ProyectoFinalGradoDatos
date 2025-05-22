@@ -32,24 +32,21 @@ body {
 /* ===== ESTRUCTURA PRINCIPAL ===== */
 .main-container-with-sidebar {
     margin-left: 260px;
-    padding: 20px; /* Este padding es importante para los márgenes negativos del encabezado original */
+    padding: 20px;
     animation: fadeIn 0.5s ease-out;
     transition: margin-left 0.3s ease;
 }
-.page-content-original {
-    /* No necesita margin-left, su padre lo maneja */
-}
+
 .main-container-with-sidebar a {
     text-decoration: none;
 }
 
 
-/* ===== MENÚ RESPONSIVE ===== */
+/* ===== MENÚ RESPONSIVE  ===== */
 nav ul {
     margin: 0;
     padding: 0;
-    height: 100%;
-    width: 240px;
+    height: 100%; 
     position: fixed;
     top: 0;
     left: 0;
@@ -58,21 +55,24 @@ nav ul {
     z-index: 1000;
     transition: transform 0.3s ease, width 0.3s ease, left 0.3s ease;
 }
+
 nav ul li {
     list-style: none;
 }
+
 nav ul li a {
     display: flex;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
     text-decoration: none;
     text-transform: uppercase;
-    font-size: 17px;
+    font-size: 17px; 
     color: #fff;
     position: relative;
-    padding: 15px 0px 15px 25px;
+    padding: 15px 0px 15px 25px; 
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
+
 nav ul li a:before {
     content: '';
     position: absolute;
@@ -85,10 +85,12 @@ nav ul li a:before {
     transition: all 0.8s cubic-bezier(0.19, 1, 0.22, 1);
     width: 0;
 }
+
 nav ul li a:hover {
     color: #0d1186;
     transform: translateX(5px);
 }
+
 nav ul li a:hover:before {
     width: 95%;
 }
@@ -124,79 +126,84 @@ nav ul li a:hover:before {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.logo {
+.logo { /* ESTILOS BASE PARA DESKTOP */
     padding: 20px;
     margin-bottom: 90px;
     text-align: center;
     margin-left: -30px;
 }
-.logo img {
+
+.logo img { /* ESTILOS BASE PARA DESKTOP */
     height: 100px;
     width: 240px;
     transition: all 0.3s ease;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    object-fit: contain;
 }
+
 .logo:hover img {
     transform: scale(1.05);
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
 }
 
-.Menu {
+.Menu { /* ESTILOS BASE PARA DESKTOP */
     height: 65%;
 }
+
 .Menu li a img,
-.Prueba li a img {
+.Prueba li a img { /* ESTILOS BASE PARA DESKTOP */
     margin-right: 10px;
     width: 30px;
     height: 30px;
     transition: all 0.3s ease;
 }
+
 .Menu li a:hover img,
 .Prueba li a:hover img {
     transform: scale(1.2);
     filter: brightness(1.2);
 }
-.Prueba {
+
+.Prueba { /* ESTILOS BASE PARA DESKTOP */
     margin-top: 5%;
 }
+
 
 /* ===== ENCABEZADO  ===== */
 .Encabezado {
     background-color: #1538ac;
     display: grid;
-    grid-template-columns: 80% 10% 10%; 
-    min-height: 180px;                
-    padding-top: 15px;                 
-    padding-bottom: 15px;               
+    grid-template-columns: 80% 10% 10%;
+    min-height: 180px;
+    padding-top: 15px;
+    padding-bottom: 15px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    position: relative;           
-    margin-right: -20px;   
-    margin-top: -20px;              
+    position: relative;
+    margin-right: -20px;
+    margin-top: -20px;
     z-index: 900;
-    font-family: 'Montserrat', sans-serif;                      
-                
-    
+    font-family: 'Montserrat', sans-serif;
 }
 
-.Encabezado .Titulo {                 
-    margin-left: 15%;                  
-    text-align: left;                   
+.Encabezado .Titulo {
+    margin-left: 15%;
+    text-align: left;
     align-self: center;
-    text-align: center;            
+    text-align: center;
 }
 
 .Encabezado h1 {
     color: white;
-    font-size: 300%;                  
+    font-size: 300%;
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    line-height: 1.2;                   
+    line-height: 1.2;
 }
 
-.Encabezado .userLogo {                 
-    text-align: center;                 
-    align-self: center;                
+.Encabezado .userLogo {
+    text-align: center;
+    align-self: center;
 }
 
 .Encabezado .userLogo img {
@@ -213,12 +220,12 @@ nav ul li a:hover:before {
     filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.4));
 }
 
-.Encabezado .Usuario {                  
+.Encabezado .Usuario {
     color: white;
     transition: all 0.3s ease;
-    text-align: center;               
-    align-self: center;                 
-    padding-right: 10px;               /
+    text-align: center;
+    align-self: center;
+    padding-right: 10px;
 }
 
 .Encabezado .Usuario p {
@@ -235,23 +242,23 @@ nav ul li a:hover:before {
 /* ===== SECCIÓN "PRINCIPAL" (Estilo Original para Escritorio) ===== */
 .page-content-original .Principal {
     display: grid;
-    grid-template-columns: 50% 50%; /* Original */
-    align-items: center; /* Original */
-    height: 30vh; /* Original - Esto puede causar problemas de desbordamiento si el contenido es mayor */
+    grid-template-columns: 50% 50%;
+    align-items: center;
+    height: 30vh;
     color: white;
     margin-bottom: 30px;
 }
 .page-content-original .Principal-Uno,
 .page-content-original .Principal-Dos {
     display: grid;
-    grid-template-columns: 30% 70%; /* Original */
-    margin: 5%; /* Original */
-    height: 80%; /* Original (80% de 20vh) */
+    grid-template-columns: 30% 70%;
+    margin: 5%;
+    height: 80%;
     border-radius: 25px;
-    width: 90%; /* Original era 93%, ajustado un poco para que quepa mejor con el margin 5% */
+    width: 90%;
     overflow: hidden;
-    padding: 10px; /* Añadido padding para mejor espaciado interno */
-    box-sizing: border-box; /* Para que el padding no aumente el width/height total */
+    padding: 10px;
+    box-sizing: border-box;
 }
 .page-content-original .Principal-Uno {
     background-color: #25d4eb;
@@ -262,28 +269,25 @@ nav ul li a:hover:before {
 
 .page-content-original .Principal-Uno .Uno-lef,
 .page-content-original .Principal-Dos .Uno-lef {
-    border-radius: 15px; /* Original era 25px, ajustado */
+    border-radius: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px; /* Original no tenía, añadido */
-    height: 100%; /* Para que ocupe la altura de la celda del grid */
+    padding: 5px;
+    height: 100%;
 }
 .page-content-original .Principal-Uno .Uno-lef {
-    background-color: #25c3df; /* Original */
+    background-color: #25c3df;
 }
 .page-content-original .Principal-Dos .Uno-lef {
-    background-color: #25df4d; /* Original */
+    background-color: #25df4d;
 }
 
 .page-content-original .Principal-Uno img,
 .page-content-original .Principal-Dos img {
-    /* width: 100%; Original - puede ser muy grande */
-    /* height: 80%; Original - puede distorsionar */
-    max-width: 80%;  /* Ajustado */
-    max-height: 80%; /* Ajustado */
-    object-fit: contain; /* Para que la imagen se escale bien sin distorsionarse */
-    /* margin-top: 14%; Original - flex lo centra mejor */
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
     display: block;
 }
 
@@ -293,8 +297,8 @@ nav ul li a:hover:before {
     justify-content: center;
     align-items: center;
     text-align: center;
-    height: 100%; /* Para centrar verticalmente el h2 */
-    padding: 0 10px; /* Espacio para el texto */
+    height: 100%;
+    padding: 0 10px;
 }
 .page-content-original .Uno-right a {
     text-decoration: none;
@@ -307,19 +311,18 @@ nav ul li a:hover:before {
 }
 .page-content-original .Uno-right h2 {
     color: rgb(255, 255, 255);
-    font-size: 35px; /* Original */
-    /* margin-top: 25%; Original - flex lo centra mejor */
+    font-size: 35px;
     margin-bottom: 0;
-    line-height: 1.2; /* Para textos largos */
+    line-height: 1.2;
 }
 
 
-/* ===== ÁREA DE CONTENIDO PRINCIPAL (TABLA Y FORMULARIO) - Mantiene mejoras previas ===== */
+/* ===== ÁREA DE CONTENIDO PRINCIPAL (TABLA Y FORMULARIO) ===== */
 .page-content-original .Contenido {
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 20px;
-    align-items: flex-start; 
+    align-items: flex-start;
     margin-top: 30px;
     color: rgb(14, 13, 13);
 }
@@ -327,8 +330,8 @@ nav ul li a:hover:before {
     animation: fadeIn 0.6s ease-out;
     background-color: #ffffff;
     border-radius: 25px;
-    display: flex; 
-    flex-direction: column; /* CAMBIO */
+    display: flex;
+    flex-direction: column;
     min-height: 80vh;
     transition: all 0.4s ease;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
@@ -338,9 +341,13 @@ nav ul li a:hover:before {
     background-color: hsla(187, 85%, 79%, 0.953);
     min-height: 80vh;
     border-radius: 25px;
-    width: 80%;
-    margin-left: 50px;
+    width: 90%;
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin:0 auto;
 }
 .page-content-original .Contenido-Dos h2 {
     margin-top: 10px;
@@ -349,6 +356,7 @@ nav ul li a:hover:before {
     font-size: clamp(1.5rem, 4vw, 2rem);
     font-weight: bold;
     color: rgb(34, 8, 150);
+    flex-shrink: 0;
 }
 
 /* BOTONES Y FORMULARIO DENTRO DE CONTENIDO */
@@ -363,7 +371,7 @@ nav ul li a:hover:before {
     transition: all 0.3s ease;
     border: none;
     margin-bottom: 20px;
-    flex-shrink: 0; /* Para que no se encoja si Contenido-Uno usa flex */
+    flex-shrink: 0;
 }
 .page-content-original .Botones-Contenido:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -400,7 +408,9 @@ nav ul li a:hover:before {
     transition: all 0.3s ease;
 }
 
-
+.page-content-original .Contenedor {
+    width: 100%;
+}
 .page-content-original .Contenedor label {
     padding: 0;
     padding-bottom: 5px;
@@ -411,7 +421,6 @@ nav ul li a:hover:before {
     display: block;
     margin-bottom: 5px;
 }
-
 .page-content-original .Contenedor input[type="text"],
 .page-content-original .Contenedor input[type="password"] {
     width: 80%;
@@ -424,7 +433,6 @@ nav ul li a:hover:before {
     margin-left: auto;
     margin-right: auto;
 }
-
 .page-content-original .Contenedor button[type="submit"] {
     display: block;
     width: 60%;
@@ -445,7 +453,7 @@ nav ul li a:hover:before {
 .page-content-original .Tabla-Contenido {
     overflow-x: auto;
     width: 100%;
-    flex-grow: 1; /* Para que la tabla ocupe el espacio restante si Contenido-Uno usa flex */
+    flex-grow: 1;
 }
 .page-content-original .table {
     margin-top: 10px;
@@ -461,7 +469,6 @@ nav ul li a:hover:before {
 .page-content-original table tr:hover {
     background-color: #e9e9e9;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    /* transform: scale(1.01); Cuidado con esto, puede afectar layout */
 }
 .page-content-original .table th, .page-content-original .table td {
     padding: 10px 12px;
@@ -490,10 +497,10 @@ nav ul li a:hover:before {
 .page-content-original .pagination {
     display: flex;
     justify-content: flex-start;
-    margin: 20px 0 0 0; /* Ajustado para que esté pegado a la tabla */
+    margin: 20px 0 0 0;
     flex-wrap: wrap;
     gap: 5px;
-    flex-shrink: 0; /* Para que no se encoja si Contenido-Uno usa flex */
+    flex-shrink: 0;
 }
 .page-content-original .pagination a,
 .page-content-original .pagination span {
@@ -543,59 +550,235 @@ footer {
 
 /* ===== MEDIA QUERIES ===== */
 
-@media (max-width: 1200px) {
-    /* Ajustes generales para pantallas medianas-grandes si son necesarios */
+/* Para portátiles medianos/grandes - donde podría estar el overflow del formulario */
+@media (min-width: 1025px) and (max-width: 1366px) {
+    .Encabezado h1 {
+        font-size: 2.7rem;
+    }
     .page-content-original .Uno-right h2 {
-        font-size: 30px; /* Reducir un poco el h2 de Principal */
+        font-size: 1.7rem;
+    }
+    .page-content-original .Contenido {
+        grid-template-columns: minmax(0, 2fr) minmax(340px, 1fr);
+    }
+    .page-content-original .Contenido-Dos h2 {
+        font-size: clamp(1.4rem, 3.5vw, 1.9rem);
+    }
+    .page-content-original .Contenedor input[type="text"],
+    .page-content-original .Contenedor input[type="password"] {
+        width: 90%;
+    }
+    .page-content-original .Contenedor button[type="submit"] {
+        width: 70%;
+    }
+
+    nav ul li a {
+        display: flex;
+        align-items: center;
+        font-family: 'Montserrat', sans-serif;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 14px; 
+        color: #fff;
+        position: relative;
+        padding: 10px 0px 10px 15px; 
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+    .Prueba { 
+        margin-top: -80px;
+    }
+    .Menu li a img,
+    .Prueba li a img { 
+         margin-right: 10px;
+         width: 24px;
+         height: 24px;
+        transition: all 0.3s ease;
+   }
+}
+
+
+
+/* Para laptops pequeñas o tabletas en horizontal */
+@media (max-width: 1024px) {
+    .Encabezado h1 {
+        font-size: 2.5rem;
+    }
+    .page-content-original .Uno-right h2 {
+        font-size: 1.6rem;
+    }
+    .page-content-original .Contenido {
+        grid-template-columns: minmax(0, 2fr) minmax(320px, 1fr);
+    }
+    .page-content-original .Contenedor label {
+        font-size: clamp(0.9rem, 2.2vw, 1.2rem);
+    }
+    .page-content-original .Contenedor input[type="text"],
+    .page-content-original .Contenedor input[type="password"],
+    .page-content-original .Contenedor button[type="submit"] {
+        font-size: 0.95rem;
+    }
+     .page-content-original .Contenedor input[type="text"],
+    .page-content-original .Contenedor input[type="password"] {
+        width: 95%;
     }
 }
 
+
+/* Para tabletas (el sidebar sigue visible por defecto aquí, se oculta en 768px) */
 @media (max-width: 992px) {
-    /* Ajustes para tabletas y móviles grandes */
+    .Encabezado {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 15px 20px;
+        margin-top: -20px;
+        margin-right: -20px;
+        height: auto;
+        min-height: auto;
+    }
+    .Encabezado .Titulo,
+    .Encabezado .userLogo,
+    .Encabezado .Usuario {
+        grid-column: 1 / -1;
+        text-align: center;
+        margin: 8px 0;
+        padding-right: 0;
+    }
+    .Encabezado h1 {
+        font-size: 2.2rem;
+    }
+    .Encabezado .userLogo img {
+        margin: 0 auto 8px auto;
+        width: 65px;
+        height: 65px;
+    }
+
     .page-content-original .Principal {
-        grid-template-columns: 1fr; /* Apilar Principal-Uno y Principal-Dos */
-        height: auto; /* Permitir que la altura se ajuste al contenido */
-        min-height: 20vh; /* Mantener una altura mínima si es necesario */
-        gap: 20px; /* Espacio entre los elementos apilados */
+        grid-template-columns: 1fr;
+        height: auto;
+        gap: 20px;
+        margin-bottom: 20px;
     }
     .page-content-original .Principal-Uno,
     .page-content-original .Principal-Dos {
-        width: 90%; /* Que ocupen casi todo el ancho disponible */
-        margin-left: auto;
-        margin-right: auto;
-        height: auto; /* Altura se ajusta al contenido */
-        min-height: 150px; /* Una altura mínima para cada bloque */
+        width: 95%;
+        margin: 0 auto;
+        height: auto;
+        min-height: 130px;
+        grid-template-columns: auto 1fr;
+        align-items: center;
+    }
+     .page-content-original .Principal-Uno .Uno-lef,
+     .page-content-original .Principal-Dos .Uno-lef {
+        padding: 10px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+     }
+    .page-content-original .Principal-Uno img,
+    .page-content-original .Principal-Dos img {
+        max-width: 60px;
+        max-height: 60px;
+        object-fit: contain;
     }
     .page-content-original .Uno-right h2 {
-        font-size: 24px; /* Ajustar tamaño de fuente para tabletas */
-        margin-top: 0; /* Flex lo centra */
+        font-size: 1.4rem;
+        margin-top: 0;
     }
 
     .page-content-original .Contenido {
-        grid-template-columns: 1fr; /* Apilar Contenido-Uno y Contenido-Dos */
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
-    .page-content-original .Contenido-Uno, .page-content-original .Contenido-Dos {
-        min-height: auto; /* Dejar que el contenido defina la altura */
+    .page-content-original .Contenido-Uno,
+    .page-content-original .Contenido-Dos {
+        min-height: auto;
+        width: 100%;
+        margin-left: 0;
     }
     
-    .page-content-original .table { font-size: 14px; }
+    .page-content-original .table { font-size: 0.875rem; }
     .page-content-original .table th, .page-content-original .table td { padding: 10px 8px; }
 }
 
+/* Para móviles y tabletas pequeñas (menú hamburguesa) */
 @media (max-width: 768px) {
-    /* Ajustes para el menú y encabezado en móviles */
     .menu-toggle { display: flex; }
-    nav ul {
-        left: -240px;
+    
+    nav ul { /* SOBRESCRIBIR PARA MÓVIL (PROPORCIONAL) */
+        width: 220px; 
+        left: -220px;
+        height: 100vh; /* Cambio principal */
+        display: flex; /* Cambio principal */
+        flex-direction: column; /* Cambio principal */
+        padding: 0; /* Resetear padding para flex */
     }
     nav ul.active {
         left: 0;
         box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
     }
     
+    .logo { /* SOBRESCRIBIR PARA MÓVIL (PROPORCIONAL) */
+        padding: clamp(10px, 1.5vh, 15px) clamp(10px, 1.5vh, 15px) 0 clamp(10px, 1.5vh, 15px);
+        margin-bottom: clamp(5px, 2vh, 20px); 
+        margin-left: 0; 
+        text-align: center; 
+        flex-shrink: 0;
+    }
+
+    .logo img { /* SOBRESCRIBIR PARA MÓVIL (PROPORCIONAL) */
+        height: auto; 
+        width: clamp(90px, 13vw, 150px); 
+        max-height: clamp(35px, 10vh, 70px);
+        /* object-fit: contain; ya está en base */
+    }
+
+    nav ul li a { /* SOBRESCRIBIR PARA MÓVIL (PROPORCIONAL) */
+        font-size: clamp(10px, 2.2vh, 16px); 
+        padding: clamp(6px, 1.2vh, 12px) 0px clamp(6px, 1.2vh, 12px) clamp(8px, 1.5vw, 20px);
+    }
+
+    .Menu { /* SOBRESCRIBIR PARA MÓVIL (PROPORCIONAL) */
+        height: auto; 
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; 
+    }
+    
+    .Menu li, .Prueba li { /* SOBRESCRIBIR PARA MÓVIL (PROPORCIONAL) */
+        flex-shrink: 0; 
+    }
+
+    .Menu li a img,
+    .Prueba li a img { /* SOBRESCRIBIR PARA MÓVIL (PROPORCIONAL) */
+        margin-right: clamp(5px, 0.8vw, 8px);
+        width: clamp(18px, 2.5vh, 25px);
+        height: clamp(18px, 2.5vh, 25px);
+    }
+
+    .Prueba { /* SOBRESCRIBIR PARA MÓVIL (PROPORCIONAL) */
+        margin-top: auto; 
+        flex-shrink: 0;
+        padding-bottom: clamp(5px, 1vh, 10px);
+    }
+
     .main-container-with-sidebar {
         margin-left: 0;
-        padding-top: 80px;
+        padding: 20px;
+        padding-top: 70px;
+    }
+
+    .Encabezado {
+        margin-top: 0;
+        margin-right: 0;
+    }
+     .Encabezado h1 {
+        font-size: 2rem;
+    }
+    .Encabezado .userLogo img {
+        width: 60px;
+        height: 60px;
     }
 
     .menu-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
@@ -608,101 +791,128 @@ footer {
         background: rgba(0,0,0,0.5); z-index: 950;
     }
     
-    /* Encabezado para móviles */
-    .Encabezado {
-        grid-template-columns: 1fr; /* Una sola columna */
-        text-align: center;
-        padding: 15px; /* Padding interno para los elementos */
-        margin-top: 0; /* Resetear margen negativo */
-        margin-right: 0; /* Resetear margen negativo */
-        height: auto; /* Altura se ajusta al contenido */
-        min-height: auto; /* Resetear min-height para móvil */
+    .page-content-original .Uno-right h2 {
+        font-size: 1.25rem;
     }
-    .Encabezado .Titulo, .Encabezado .userLogo, .Encabezado .Usuario {
-        grid-column: 1 / -1; /* Ocupar toda la fila */
-        text-align: center;
-        margin: 10px 0; /* Espacio entre ellos */
-        padding-right: 0; /* Resetear padding específico del usuario */
-    }
-    .Encabezado h1 {
-        font-size: 2rem; /* Ajustar tamaño */
-        padding-top: 0;
-    }
-    .Encabezado .userLogo img {
-        margin: 0 auto 10px auto;
-        width: 60px; /* Tamaño fijo para la imagen en móvil */
-        height: 60px;
-    }
-    .Encabezado .Usuario {
-        margin-top: 0; margin-left: 0; /* Resetear márgenes */
-    }
-
-    /* Principal para móviles más pequeños */
-    .page-content-original .Principal-Uno,
-    .page-content-original .Principal-Dos {
-        grid-template-columns: auto 1fr; /* Imagen a la izquierda, texto a la derecha */
-        min-height: 120px;
-    }
-     .page-content-original .Principal-Uno .Uno-lef,
-     .page-content-original .Principal-Dos .Uno-lef {
-        padding: 10px; /* Más espacio para la imagen */
-     }
     .page-content-original .Principal-Uno img,
     .page-content-original .Principal-Dos img {
         max-width: 50px;
         max-height: 50px;
     }
-    .page-content-original .Uno-right h2 {
-        font-size: 18px;
-    }
 
     .page-content-original .table th, .page-content-original .table td {
-        white-space: normal; /* Permitir que el texto de la tabla se ajuste */
+        white-space: normal;
     }
 }
 
+/* Para móviles muy pequeños */
 @media (max-width: 576px) {
-    /* Ajustes adicionales para pantallas muy pequeñas */
-    .page-content-original .Uno-right h2 {
-        font-size: 16px;
+    /* Ajustes adicionales para el menú proporcional si es necesario */
+    nav ul {
+        width: 200px; 
+        left: -200px;
     }
+    .logo img {
+        width: clamp(80px, 12vw, 130px); 
+        max-height: clamp(30px, 8vh, 60px); 
+    }
+    nav ul li a {
+        font-size: clamp(9px, 2vh, 15px);
+        padding: clamp(4px, 0.8vh, 10px) 0px clamp(4px, 0.8vh, 10px) clamp(6px, 1.2vw, 15px);
+    }
+    .Menu li a img,
+    .Prueba li a img {
+        width: clamp(16px, 2.2vh, 22px);
+        height: clamp(16px, 2.2vh, 22px);
+    }
+
+    .main-container-with-sidebar {
+        padding: 15px;
+        padding-top: 65px;
+    }
+
+    .Encabezado h1 {
+        font-size: 1.6rem;
+    }
+     .Encabezado .userLogo img {
+        width: 50px;
+        height: 50px;
+    }
+
     .page-content-original .Principal-Uno,
     .page-content-original .Principal-Dos {
-        grid-template-columns: 1fr; /* Apilar imagen y texto DENTRO de los bloques */
+        grid-template-columns: 1fr;
         text-align: center;
+        padding: 15px;
+        min-height: auto;
     }
     .page-content-original .Principal-Uno .Uno-lef,
     .page-content-original .Principal-Dos .Uno-lef {
-        margin-bottom: 10px; /* Espacio si la imagen está encima del texto */
-        background-color: transparent; /* Podrías quitar el fondo de la imagen si está apilada */
+        margin-bottom: 10px;
+        background-color: transparent;
+        height: auto;
     }
      .page-content-original .Principal-Uno img,
      .page-content-original .Principal-Dos img {
-        margin: 0 auto; /* Centrar imagen */
+        margin: 0 auto;
      }
-
-
-    .page-content-original .Botones-Contenido button {
-        font-size: 0.9rem;
-        padding: 8px 12px;
+    .page-content-original .Uno-right h2 {
+        font-size: 1.1rem;
     }
-    .page-content-original .table { font-size: 12px; }
-    .page-content-original .table th, .page-content-original .table td { padding: 8px 5px; }
 
-    .page-content-original .pagination { justify-content: center; }
-    .page-content-original .pagination a,
-    .page-content-original .pagination span {
-        padding: 5px 10px;
-        margin: 2px;
-        font-size: 0.8rem;
+    .page-content-original .Botones-Contenido {
+        padding: 10px;
+        gap: 10px;
+        grid-template-columns: 1fr;
+    }
+    .page-content-original .Botones-Contenido button {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+    .page-content-original .Contenido-Uno, .page-content-original .Contenido-Dos {
+        padding: 15px;
+    }
+     .page-content-original .Contenido-Dos h2 {
+        font-size: clamp(1.3rem, 3.5vw, 1.6rem);
+    }
+
+    .page-content-original .Contenedor label {
+        font-size: clamp(0.85rem, 2.3vw, 1.1rem);
     }
     .page-content-original .Contenedor input[type="text"],
-    .page-content-original .Contenedor input[type="password"],
-    .page-content-original .Contenedor button[type="submit"] {
+    .page-content-original .Contenedor input[type="password"] {
+        width: 95%;
         font-size: 0.9rem;
+        padding: 8px;
     }
     .page-content-original .Contenedor button[type="submit"] {
         width: 80%;
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+
+    .page-content-original .table { font-size: 0.75rem; }
+    .page-content-original .table th, .page-content-original .table td { padding: 8px 5px; }
+
+    .page-content-original .pagination {
+        justify-content: center;
+        gap: 3px;
+    }
+    .page-content-original .pagination a,
+    .page-content-original .pagination span {
+        padding: 5px 8px;
+        font-size: 0.75rem;
+    }
+
+    footer {
+        font-size: 0.8rem;
+        padding: 0 10px;
+        height: auto;
+        min-height: 40px;
+        text-align: center;
+    }
+    footer p {
+        line-height: 1.4;
     }
 }
 
