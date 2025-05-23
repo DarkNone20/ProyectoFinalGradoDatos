@@ -96,7 +96,7 @@
                         @csrf
 
                         <div class="form-columns">
-                            <!-- Primera columna -->
+                         
                             <div class="form-section">
                                 <h3>Información Básica</h3>
                                 <label for="IdGrupo">ID Grupo:</label>
@@ -112,7 +112,7 @@
                                     value="{{ old('NombreCurso') }}" required>
                             </div>
 
-                            <!-- Segunda columna -->
+                          
                             <div class="form-section">
                                 <h3>Horario</h3>
                                 <label for="FechaInicial">Fecha Inicial:</label>
@@ -132,7 +132,7 @@
                                     required>
                             </div>
 
-                            <!-- Tercera columna -->
+                          
                             <div class="form-section">
                                 <h3>Detalles Adicionales</h3>
                                 <label for="DiaSemana">Día de la semana:</label>

@@ -701,17 +701,17 @@ footer {
     .page-content-original .table th, .page-content-original .table td { padding: 10px 8px; }
 }
 
-/* Para móviles y tabletas pequeñas (menú hamburguesa) */
+/*Menú para móviles y tabletas pequeñas */
 @media (max-width: 768px) {
     .menu-toggle { display: flex; }
     
-    nav ul { /* SOBRESCRIBIR PARA MÓVIL (PROPORCIONAL) */
+    nav ul { 
         width: 220px; 
         left: -220px;
-        height: 100vh; /* Cambio principal */
-        display: flex; /* Cambio principal */
-        flex-direction: column; /* Cambio principal */
-        padding: 0; /* Resetear padding para flex */
+        height: 100vh; 
+        display: flex; 
+        flex-direction: column; 
+        padding: 0; 
     }
     nav ul.active {
         left: 0;

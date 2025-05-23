@@ -504,10 +504,9 @@ footer {
 }
 
 footer:hover {
-    background-color: #3c0bad;
+    background-color: #2103cc;
+
 }
-
-
 /* ===== MEDIA QUERIES ===== */
 @media (min-width: 1025px) and (max-width: 1366px) {
     nav ul li a {

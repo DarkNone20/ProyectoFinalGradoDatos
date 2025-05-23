@@ -36,7 +36,7 @@
                             src="{{ asset('Imagenes/Equipos 2.0.png') }}" alt="equipos"> Equipos</a></li>
                 <li><a href="{{ asset('prestamos') }}"><i class="fa fa-users"></i>&nbsp;<img
                             src="{{ asset('Imagenes/Prestamos 2.0.png') }}" alt="prestamos"> Prestamos</a></li>
-                <li><a href="{{ route('reportes.index') }}"><img src="{{ asset('Imagenes/Reportes 2.0.png') }}" 
+                <li><a href="{{ route('reportes.index') }}"><img src="{{ asset('Imagenes/Reportes 2.0.png') }}"
                             alt="reportes"> Reportes</a></li>
             </div>
 
@@ -113,21 +113,21 @@
                     <div class="chart-container" style="position: relative; height:600px; width:100%">
                         <canvas id="graficaPrestamosMensuales"></canvas>
                     </div>
-                    
+
                     <script>
                         document.addEventListener('DOMContentLoaded', function() {
                             const ctx = document.getElementById('graficaPrestamosMensuales').getContext('2d');
-                            
+
                             function generarColoresVariables(cantidad) {
                                 const colores = [];
                                 const hueStep = 360 / cantidad;
-                                
+
                                 for (let i = 0; i < cantidad; i++) {
                                     const hue = Math.round((i * hueStep) % 360);
                                     const baseColor = `hsla(${hue}, 80%, 85%, 0.8)`;
                                     const borderColor = `hsla(${hue}, 55%, 50%, 1)`;
                                     const hoverColor = `hsla(${hue}, 85%, 70%, 1)`;
-                                    
+
                                     colores.push({
                                         base: baseColor,
                                         border: borderColor,
@@ -136,9 +136,9 @@
                                 }
                                 return colores;
                             }
-                            
+
                             const colores = generarColoresVariables(12);
-                            
+
                             new Chart(ctx, {
                                 type: 'bar',
                                 data: {
@@ -239,8 +239,8 @@
                 <div class="Principal-Right">
                     <div class="Principal-Arriba">
                         <h2>Reportes</h2>
-                       <a href="{{ asset('reportes') }}"><i class="fa fa-home"></i>&nbsp;<img
-                            src="{{ asset('Imagenes/Reportes.png') }}" alt="inicio"></a>
+                        <a href="{{ asset('reportes') }}"><i class="fa fa-home"></i>&nbsp;<img
+                                src="{{ asset('Imagenes/Reportes.png') }}" alt="inicio"></a>
                     </div>
 
                     <div class="Principal-Abajo">
@@ -252,13 +252,13 @@
                             document.addEventListener('DOMContentLoaded', function() {
                                 const salasMoviles = @json($usoSalasMoviles->pluck('SalaMovil'));
                                 const usosSalas = @json($usoSalasMoviles->pluck('total'));
-                                
+
                                 const ctxDonut = document.getElementById('graficaDonutSalasMoviles').getContext('2d');
-                                
+
                                 function generarColoresDonut(cantidad) {
                                     const colores = [];
                                     const hueStep = 360 / cantidad;
-                                    
+
                                     for (let i = 0; i < cantidad; i++) {
                                         const hue = Math.round((i * hueStep) % 360);
                                         colores.push(
@@ -268,9 +268,9 @@
                                     }
                                     return colores;
                                 }
-                                
+
                                 const coloresDonut = generarColoresDonut(salasMoviles.length);
-                                
+
                                 new Chart(ctxDonut, {
                                     type: 'doughnut',
                                     data: {
@@ -323,9 +323,7 @@
                 </div>
             </div>
 
-            <footer>
-                <p>Sistema de Préstamos de Portátiles © {{ date('Y') }}</p>
-            </footer>
+
         </div>
     </div>
 
@@ -361,6 +359,9 @@
             });
         });
     </script>
+    <footer>
+        <p>Sistema de Préstamos de Portátiles © {{ date('Y') }}</p>
+    </footer>
 </body>
 
 </html>
