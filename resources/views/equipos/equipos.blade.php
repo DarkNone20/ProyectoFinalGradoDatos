@@ -174,24 +174,24 @@
             <div class="Contenido-Dos">
                 <h2>Equipo</h2>
                 <div class="Contenedor">
-                    @if (session('success'))
-                        <div class="alert alert-success">
-                            {{ session('success') }}
-                        </div>
-                    @endif
-
-                    @if ($errors->any())
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-
                     <form action="{{ route('equipos.store') }}" method="POST">
                         @csrf
+
+                        <!-- ALERTAS MOVIDAS AQUÍ DENTRO -->
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if ($errors->any())
+                            <div class="alert alert-danger" role="alert">
+                                @foreach ($errors->all() as $error)
+                                    • {{ $error }}<br>
+                                @endforeach
+                            </div>
+                        @endif
+                        <!-- FIN DE LAS ALERTAS -->
 
                         <div class="form-group">
                             <label for="ActivoFijo">Activo Fijo:</label>

@@ -149,7 +149,7 @@ class ReportesController extends Controller
                 // $gruposModel = Grupos::orderBy('irupo')->get();
                 $gruposModel = Grupos::orderBy('NombreCurso')->get(); // O la columna correcta
                 $data = [
-                    'labels' => $gruposModel->pluck('irupo'), // Asumiendo que 'irupo' es el nombre del grupo
+                    'labels' => $gruposModel->pluck('Idrupo'), 
                     'data' => $gruposModel->map(function ($grupo) {
                         // Usa la misma FK que en el filtro: GrupoId o IdGrupo
                         return Prestamos::where('GrupoId', $grupo->IdGrupo)->count();

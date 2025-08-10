@@ -73,16 +73,15 @@ class Prestamos extends Model
      *
      * @var array
      */
-    protected $casts = [
-        'FechaI' => 'date',
-        'FechaF' => 'date',
-        'FechaDevolucion' => 'date',
-        'HoraI' => 'datetime:H:i:s',
-        'HoraF' => 'datetime:H:i:s',
-        'HoraDevolucion' => 'datetime:H:i:s',
-        'Estado' => 'string'
-    ];
+  protected $casts = [
+    // Trata las columnas de fecha como objetos Carbon completos.
+    'FechaI' => 'datetime',
+    'FechaF' => 'datetime',
+    'FechaDevolucion' => 'datetime',
+    
 
+    'Estado' => 'string'
+];
     /**
      * Get the equipo associated with the prestamo.
      *

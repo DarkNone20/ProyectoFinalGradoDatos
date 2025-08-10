@@ -120,7 +120,7 @@
                                     </td>
                                     <td>
                                         @if($prestamo->FechaDevolucion)
-                                            {{ date('d/m/Y H:i', strtotime($prestamo->FechaDevolucion)) }}
+                                            {{ date('d/m/Y ', strtotime($prestamo->FechaDevolucion)) }}
                                         @else
                                             -
                                         @endif

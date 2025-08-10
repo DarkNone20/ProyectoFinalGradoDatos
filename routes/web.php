@@ -51,6 +51,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [ReportesController::class, 'index'])->name('index');
     Route::post('/export', [ReportesController::class, 'export'])->name('export'); 
     Route::get('/estadisticas', [ReportesController::class, 'estadisticas'])->name('estadisticas');
+    Route::get('/reportes/estadisticas/{tipo}', [ReportesController::class, 'estadisticas'])->name('reportes.estadisticas');
  });
     // Equipos
     Route::prefix('equipos')->group(function () {

@@ -43,8 +43,9 @@ body {
     animation: fadeIn 0.5s ease-out;
 }
 
-/* ===== MENÚ RESPONSIVE ===== */
-nav ul {
+/* ===== MENÚ RESPONSIVE (CORREGIDO) ===== */
+/* Se cambió "nav ul" por "nav #mainMenu" para ser más específico */
+nav #mainMenu {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -58,11 +59,13 @@ nav ul {
     transition: all 0.3s ease;
 }
 
-nav ul li {
+/* Se cambió "nav ul li" por "nav #mainMenu li" */
+nav #mainMenu li {
     list-style: none;
 }
 
-nav ul li a {
+/* Se cambió "nav ul li a" por "nav #mainMenu li a" */
+nav #mainMenu li a {
     display: flex;
     align-items: center;
     font-family: 'Montserrat', sans-serif;
@@ -75,7 +78,7 @@ nav ul li a {
     transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-nav ul li a:before {
+nav #mainMenu li a:before {
     content: '';
     position: absolute;
     top: 0;
@@ -88,12 +91,12 @@ nav ul li a:before {
     width: 0;
 }
 
-nav ul li a:hover {
+nav #mainMenu li a:hover {
     color: #0d1186;
     transform: translateX(5px);
 }
 
-nav ul li a:hover:before {
+nav #mainMenu li a:hover:before {
     width: 95%;
 }
 
@@ -315,16 +318,16 @@ nav ul li a:hover:before {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Paginación */
+/* Paginación (sin cambios, ya que Bootstrap se encarga) */
 .pagination {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    margin: 0px 0;
     flex-wrap: wrap;
     gap: 5px;
 }
 
-.pagination a {
+.pagination .page-link { /* Un pequeño ajuste para que coincida mejor con tu diseño */
     padding: 8px 15px;
     border-radius: 5px;
     text-decoration: none;
@@ -333,7 +336,7 @@ nav ul li a:hover:before {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.pagination a:hover {
+.pagination .page-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
@@ -450,13 +453,14 @@ nav ul li a:hover:before {
     white-space: nowrap;
 }
 
-/* Estilos para el menú activo */
-nav ul li.active a {
+/* Estilos para el menú activo (CORREGIDO) */
+/* Se cambió "nav ul li.active a" por "nav #mainMenu li.active a" */
+nav #mainMenu li.active a {
     color: #1538ac;
     font-weight: bold;
 }
 
-nav ul li.active a:before {
+nav #mainMenu li.active a:before {
     width: 95%;
     background: white;
 }
@@ -477,7 +481,7 @@ footer:hover {
 
 /* ===== MEDIA QUERIES ===== */
 @media (min-width: 1025px) and (max-width: 1366px) {
-    nav ul li a {
+    nav #mainMenu li a { /* CORREGIDO */
         display: flex;
         align-items: center;
         font-family: 'Montserrat', sans-serif;
@@ -531,11 +535,11 @@ footer:hover {
     .menu-toggle {
         display: flex;
     }
-    nav ul {
+    nav #mainMenu { /* CORREGIDO */
         width: 240px;
         left: -240px;
     }
-    nav ul.active {
+    nav #mainMenu.active { /* CORREGIDO */
         left: 0;
         box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
     }
@@ -622,6 +626,8 @@ footer:hover {
     .table th,
     .table td {
         padding: 8px 5px;
+        text-align: center; 
+        vertical-align: middle; 
     }
     
     /* Ajustes para modal en móviles pequeños */

@@ -123,4 +123,7 @@ class PrestamosExport implements FromCollection, WithHeadings, WithMapping, With
             'L' => ['width' => 20]
         ];
     }
+    
+
+    
 }

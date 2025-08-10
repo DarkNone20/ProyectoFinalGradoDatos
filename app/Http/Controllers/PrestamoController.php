@@ -239,13 +239,5 @@ class PrestamoController extends Controller
             return back()->with('error', 'Error al eliminar el préstamo: '.$e->getMessage());
         }
     }
-  /*
-    public function export()
-    {
-        $fechaActual = Carbon::now()->format('Y-m-d_H-i-s');
-        $fileName = 'prestamos_' . $fechaActual . '.xlsx'; // Puedes usar .csv si prefieres
-
-        // Descarga el archivo usando la clase PrestamosExport
-        return Excel::download(new PrestamosExport, $fileName);
-    }*/
+ 
 }
