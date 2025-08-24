@@ -44,7 +44,7 @@ body {
 }
 
 /* ===== MENÚ RESPONSIVE (CORREGIDO) ===== */
-/* Se cambió "nav ul" por "nav #mainMenu" para ser más específico */
+
 nav #mainMenu {
     margin: 0;
     padding: 0;
@@ -146,7 +146,10 @@ nav #mainMenu li a:hover:before {
     height: 100px;
     width: 240px;
     transition: all 0.3s ease;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+     /*filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));*/
+    object-fit: contain;
+    border:none;
+    border-color: transparent;
 }
 
 .logo:hover img {

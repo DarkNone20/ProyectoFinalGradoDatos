@@ -24,7 +24,7 @@
     <!-- Menú lateral -->
     <nav>
         <ul id="mainMenu">
-            <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
+            <li class="logo"><img src="{{ asset('Imagenes/Blue.png') }}" alt="Logo"></li>
             <div class="Menu">
                 <li><a href="{{ asset('home') }}"><img src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio"> Home</a></li>
                 <li><a href="{{ asset('usuarios') }}"><img src="{{ asset('Imagenes/Usuarios 2.0.png') }}" alt="user"> Usuarios</a></li>
@@ -104,7 +104,7 @@
                                 <tr>
                                     <td>{{ $prestamo->Serial }}</td>
                                     <td>{{ $prestamo->ActivoFijo }}</td>
-                                    <td>{{ $prestamo->grupo->irupo ?? 'N/A' }}</td>
+                                    <td>{{ $prestamo->grupo->IdGrupo ?? 'N/A' }}</td>
                                     <td>{{ $prestamo->usuario->DocumentoId ?? $prestamo->DocumentoId }}</td>
                                     <td>{{ $prestamo->SalaMovil ?? 'N/A' }}</td>
                                     <td>{{ date('d/m/Y', strtotime($prestamo->FechaI)) }}</td>

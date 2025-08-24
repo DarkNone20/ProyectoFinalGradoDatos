@@ -137,13 +137,16 @@ nav ul li a:hover:before {
     margin-bottom: 90px;
     text-align: center;
     margin-left: -30px;
+    
 }
 
 .logo img {
     height: 100px;
     width: 240px;
     transition: all 0.3s ease;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+   /* filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));*/
+    border:none;
+    border-color: transparent;
 }
 
 .logo:hover img {

@@ -16,7 +16,7 @@
 <body>
     <nav>
         <ul>
-            <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
+             <li class="logo"><img src="{{ asset('Imagenes/Blue.png') }}" alt="Logo"></li>
             <div class="Menu">
                 <li><a href="{{ asset('home') }}"><i class="fa fa-home"></i>&nbsp;<img
                             src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio"> Home</a></li>

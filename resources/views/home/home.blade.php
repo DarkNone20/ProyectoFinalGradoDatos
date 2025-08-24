@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <!-- Botón de hamburguesa (solo visible en móviles) -->
+    <!-- Botón de hamburguesa Menu -->
     <button class="menu-toggle" id="menuToggle">
         <span></span>
         <span></span>
@@ -24,7 +24,7 @@
 
     <nav>
         <ul id="navMenu">
-            <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
+             <li class="logo"><img src="{{ asset('Imagenes/Blue.png') }}" alt="Logo"></li>
             <div class="Menu">
                 <li><a href="{{ asset('home') }}"><i class="fa fa-home"></i>&nbsp;<img
                             src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio"> Home</a></li>
@@ -338,7 +338,7 @@
                 document.body.classList.toggle('menu-open');
             });
 
-            // Cerrar menú al hacer clic en un enlace (solo en móviles)
+            // Cerrar menú al hacer clic en un enlace 
             document.querySelectorAll('#navMenu a').forEach(link => {
                 link.addEventListener('click', function() {
                     if (window.innerWidth <= 768) {

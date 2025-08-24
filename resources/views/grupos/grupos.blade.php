@@ -14,17 +14,17 @@
 </head>
 
 <body>
-    <!-- Botón de hamburguesa (solo visible en móviles) -->
+    <!-- Botón de hamburguesa Menu -->
     <button class="menu-toggle" id="menuToggle">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <!-- Menú lateral (igual que antes) -->
+    <!-- Menú lateral -->
     <nav>
         <ul id="navMenu">
-            <li class="logo"><img src="{{ asset('Imagenes/Logo5.png') }}" alt="Logo"></li>
+             <li class="logo"><img src="{{ asset('Imagenes/Blue.png') }}" alt="Logo"></li>
             <div class="Menu">
                 <li><a href="{{ asset('home') }}"><img src="{{ asset('Imagenes/Home 2.0.png') }}" alt="inicio">
                         Home</a></li>
@@ -48,7 +48,7 @@
     </nav>
 
     <div class="wrapper">
-        <!-- Todo el contenido de tu aplicación permanece igual -->
+       
         <div class="section">
             <div class="Encabezado">
                 <div class="Titulo">
@@ -278,7 +278,7 @@
                 navMenu.classList.toggle('active');
             });
 
-            // Cerrar menú al hacer clic en un enlace (solo en móviles)
+            // Cerrar menú al hacer clic en un enlace
             document.querySelectorAll('#navMenu a').forEach(link => {
                 link.addEventListener('click', function() {
                     if (window.innerWidth <= 768) {
